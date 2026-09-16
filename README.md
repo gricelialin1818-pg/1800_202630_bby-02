@@ -66,7 +66,7 @@ elmo-hikes/
 
 
 ## Contributors
-- **Your Name** - BCIT CST Student with a passion for outdoor adventures and user-friendly applications. Fun fact: Loves solving Rubik's Cubes in under a minute.
+- Keelie! - BCIT CST Student with a passion for music, both playing and listening to it.
 - **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
 ---
@@ -99,3 +99,5 @@ elmo-hikes/
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+
