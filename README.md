@@ -62,15 +62,15 @@ elmo-hikes/
 
 ## Contributors
 
+- **Keelie!** - BCIT CST Student with a passion for music, both playing and listening to it.
+
 - **Gricelia Lin** - BCIT CST Student with a passion for outdoor adventures and user-friendly applications. Fun fact: I love listening to music and I have a pet tortoise!
 
 - **Enrique(Eric) Dumlao** - BCIT CST student that enjoys reading and rpg games. FUN FACT: A big fan of puns, and may sneak some into assignments
 
 - **Hajin Jung** - BCIT CST Student who enjoys programming, and learning new technologies.
 
-- **BBY-02** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
----
 
 ## Acknowledgments
 
@@ -98,3 +98,5 @@ elmo-hikes/
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+
