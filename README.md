@@ -71,9 +71,8 @@ elmo-hikes/
 
 - **Gricelia Lin** - BCIT CST Student with a passion for outdoor adventures and user-friendly applications. Fun fact: I love listening to music and I have a pet tortoise!
 
->>>>>>> develop
+
 - Enrique(Eric) Dumlao - BCIT CST student that enjoys reading and rpg games. FUN FACT: A big fan of puns, and may sneak some into assignments
->>>>>>> develop
 
 - **Hajin Jung** - BCIT CST Student who enjoys programming, and learning new technologies.
 
