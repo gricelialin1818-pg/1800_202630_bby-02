@@ -1,41 +1,29 @@
-<!-- Adding a hamburger -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">GoalGetter</a>
+<!DOCTYPE html>
+<html lang="en">
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<head>
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav" style="text-align: center">
-          <hr>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Profile</a>
-          </li>
-          <hr>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Achievements</a>
-          </li>
-          <hr>
+  <!-- Web Components for shared navbar and footer layout -->
+  <script type="module" src="/src/components/site-navbar.js"></script>
+  <script type="module" src="/src/components/site-footer.js"></script>
+</head>
 
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Settings</a>
-          </li>
-          <hr>
+<body>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
 
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Help</a>
-          </li>
-          <hr>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- our own navbar goes here -->
+  <site-navbar></site-navbar>
 
-  <h1 class="display-5 fw-bold">Add Goal Title Here....</h1>
+  <!-- Main content goes here -->
+ <h1 class="display-5 fw-bold">Add Goal Title Here....</h1>
 
 
 
@@ -53,8 +41,7 @@
 <a href="#" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
 
 
-
-
+  <!-- our own footer goes here -->
   <!--Sticky bottom navbar: class is sticky-bottom-->
   <nav class="navbar fixed-bottom bg-body-tertiary">
     <div class="container-fluid mx-auto" style="width: 950px">
@@ -74,8 +61,17 @@
     </div>
   </nav>
 
+  <!---------------------------------------------->
+  <!-- Your own JavaScript scripts go here      -->
+  <!---------------------------------------------->
 
+  <script type="module" src="/src/app.js"></script>
+  <!-- Firebase and authentication related scripts -->
+  <!-- The order of loading matters -->
+  <script type="module" src="/src/firebaseConfig.js"></script>
+  <script type="module" src="/src/authentication.js"></script>
+  <script type="module" src="/src/loginSignup.js"></script>
+  <!-- functionality goes at the bottom -->
+</body>
 
-<!--Styles and imported bootstrap-->
-<script type="module" src="./src/main.js"></script>
-<link rel="stylesheet" href="styles/style.css">
+</html>
