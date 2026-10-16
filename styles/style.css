@@ -1,0 +1,18 @@
+/* KEELIE'S STYLES.. any default inline is from the bootstrap defaults */
+
+h1 {
+    text-align: center; /*put the title in the center top*/
+}
+
+
+.card-div {
+    /*make cards all appear on the same line instead of stacking*/
+    gap: 7%; /*spacing between cards*/
+    padding:3%; /*spacing all around the group of cards*/
+}
+
+div.card {
+    margin:1.5%;
+}
+
+/* KEELIE'S STYLES */
