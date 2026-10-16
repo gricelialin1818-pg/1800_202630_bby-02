@@ -1,15 +1,15 @@
 class SiteFooter extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
             <nav class="navbar fixed-bottom bg-body-tertiary">
     <div class="container-fluid mx-auto" style="width: 950px">
-      <a class="navbar-brand"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor"
+      <a class="navbar-brand" href="mainGoalsListed.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor"
           class="bi bi-house-fill" viewBox="0 0 16 16">
           <path
             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
           <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
         </svg></a>
-      <a class="navbar-brand"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+      <a class="navbar-brand" href="add-goal-screen.html"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
           class="bi bi-plus-circle" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
           <path
@@ -25,7 +25,7 @@ class SiteFooter extends HTMLElement {
   </nav>
 
         `;
-    }
+  }
 }
 
 customElements.define('site-footer', SiteFooter);

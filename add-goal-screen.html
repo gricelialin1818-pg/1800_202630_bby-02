@@ -1,4 +1,20 @@
-<!-- Adding a hamburger -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>GoalGetter</title>
+  <meta name="Goal App" content="Our Goal App" />
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Other libraries go here -->
+  <script type="module" src="/src/components/site-navbar.js"></script>
+  <script type="module" src="/src/components/site-footer.js"></script>
+</head>
+
+<body>
+  <!-- Adding a hamburger -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">GoalGetter</a>
@@ -41,7 +57,7 @@
 
 
 
-<div class="card">
+  <div class="card">
     <div class="card-body">
       <p class="card-text">type the goal details here....</p>
       <br>
@@ -50,7 +66,7 @@
       <br>
     </div>
   </div>
-<a href="#" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
+  <a href="deadline.html" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
 
 
 
@@ -58,8 +74,8 @@
   <!--Sticky bottom navbar: class is sticky-bottom-->
   <nav class="navbar fixed-bottom bg-body-tertiary">
     <div class="container-fluid mx-auto" style="width: 950px">
-      <a class="navbar-brand"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor"
-          class="bi bi-house-fill" viewBox="0 0 16 16">
+      <a class="navbar-brand" href="mainGoalsListed.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
+          fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
           <path
             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
           <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
@@ -74,8 +90,11 @@
     </div>
   </nav>
 
+  <!--Styles and imported bootstrap-->
+  <script type="module" src="./src/main.js"></script>
+  <link rel="stylesheet" href="styles/style.css">
+</body>
 
 
-<!--Styles and imported bootstrap-->
-<script type="module" src="./src/main.js"></script>
-<link rel="stylesheet" href="styles/style.css">
+
+</html>
