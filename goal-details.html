@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Web Components for shared navbar and footer layout -->
+  <script type="module" src="/src/components/site-navbar.js"></script>
+  <script type="module" src="/src/components/site-footer.js"></script>
+</head>
+
+<body>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
+
+  <!-- our own navbar goes here -->
+  <site-navbar></site-navbar>
+
+  <!-- Main content goes here -->
+
+  <div class="container-fluid d-flex flex-column gap-4 py-3">
+    <h2>Get good grades for finals</h2>
+    <!-- Current Progress -->
+    <div class="container-fluid d-flex flex-column py-3">
+      <div class="bg-light text-dark p-4">
+        <h2>Current Progress</h2>
+        <p>80% 4 of 5 Milestones</p>
+        <div class="progress mx-2" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0"
+          aria-valuemax="100">
+          <div class="progress-bar w-75"></div>
+        </div>
+
+      </div>
+      <hr>
+      <!-- Milestones -->
+      <div class="container-fluid d-flex flex-column py-3">
+        <h2>Milestones</h2>
+        <br>
+        <div class="form-field">
+          <input type="checkbox" id="checkLabel" class="check" />
+          <label for="checkLabel">Make a study schedule</label>
+        </div>
+        <div class="form-field">
+          <input type="checkbox" id="checkLabel" class="check" />
+          <label for="checkLabel">Reivew notes for each class</label>
+        </div>
+        <div class="form-field">
+          <input type="checkbox" id="checkLabel" class="check" />
+          <label for="checkLabel">Complete practice exams</label>
+        </div>
+        <div class="form-field">
+          <input type="checkbox" id="checkLabel" class="check" />
+          <label for="checkLabel">Attend all review sessions</label>
+        </div>
+        <div class="form-field">
+          <input type="checkbox" id="checkLabel" class="check" />
+          <label for="checkLabel">Take finals</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-3 d-grid gap-4 mt-auto">
+      <button class="btn btn-primary" type="button" onclick="window.location.href='update-progress.html'"">Update Progress</button>
+    </div>
+
+
+
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
+
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+
+</html>
