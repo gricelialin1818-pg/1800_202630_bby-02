@@ -1,20 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>GoalGetter</title>
-  <meta name="Goal App" content="Our Goal App" />
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
   <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Other libraries go here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Web Components for shared navbar and footer layout -->
+  >>>>>>> develop
   <script type="module" src="/src/components/site-navbar.js"></script>
   <script type="module" src="/src/components/site-footer.js"></script>
 </head>
 
+
 <body class="d-flex flex-column min-vh-100">
-  <!-- Adding a hamburger -->
   <site-navbar></site-navbar>
 
   <!-- Set deadline -->
@@ -48,16 +50,19 @@
     </div>
   </div>
 
-  <!--Sticky bottom navbar: class is sticky-bottom-->
   <site-footer></site-footer>
 
   <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
+  <!-- Your own JavaScript scripts go here      -->
   <!---------------------------------------------->
 
-  <!-- Link to scripts of your own -->
-  <script type="module" src="./src/main.js"></script>
-  <script type="styles" src="styles\style.css"></script>
+  <script type="module" src="/src/app.js"></script>
+  <!-- Firebase and authentication related scripts -->
+  <!-- The order of loading matters -->
+  <script type="module" src="/src/firebaseConfig.js"></script>
+  <script type="module" src="/src/authentication.js"></script>
+  <script type="module" src="/src/loginSignup.js"></script>
+  <!-- functionality goes at the bottom -->
 </body>
 
 </html>

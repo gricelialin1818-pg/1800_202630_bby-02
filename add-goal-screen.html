@@ -1,56 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-  <title>GoalGetter</title>
-  <meta name="Goal App" content="Our Goal App" />
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
   <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Other libraries go here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Web Components for shared navbar and footer layout -->
   <script type="module" src="/src/components/site-navbar.js"></script>
   <script type="module" src="/src/components/site-footer.js"></script>
 </head>
 
 <body>
-  <!-- Adding a hamburger -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">GoalGetter</a>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- our own navbar goes here -->
+  <site-navbar></site-navbar>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav" style="text-align: center">
-          <hr>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Profile</a>
-          </li>
-          <hr>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Achievements</a>
-          </li>
-          <hr>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Settings</a>
-          </li>
-          <hr>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Help</a>
-          </li>
-          <hr>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  <!-- Main content goes here -->
   <h1 class="display-5 fw-bold">Add Goal Title Here....</h1>
 
 
@@ -69,8 +42,7 @@
   <a href="deadline.html" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
 
 
-
-
+  <!-- our own footer goes here -->
   <!--Sticky bottom navbar: class is sticky-bottom-->
   <nav class="navbar fixed-bottom bg-body-tertiary">
     <div class="container-fluid mx-auto" style="width: 950px">
@@ -94,7 +66,16 @@
   <script type="module" src="./src/main.js"></script>
   <link rel="stylesheet" href="styles/style.css">
 </body>
+<!---------------------------------------------->
+<!-- Your own JavaScript scripts go here      -->
 
-
+<script type="module" src="/src/app.js"></script>
+<!-- Firebase and authentication related scripts -->
+<!-- The order of loading matters -->
+<script type="module" src="/src/firebaseConfig.js"></script>
+<script type="module" src="/src/authentication.js"></script>
+<script type="module" src="/src/loginSignup.js"></script>
+<!-- functionality goes at the bottom -->
+</body>
 
 </html>
