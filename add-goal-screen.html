@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <title>My BCIT Project</title>
   <meta name="comp1800 template" content="My 1800 App">
@@ -23,13 +24,13 @@
   <site-navbar></site-navbar>
 
   <!-- Main content goes here -->
- <h1 class="display-5 fw-bold">Add Goal Title Here....</h1>
+  <h1 class="display-5 fw-bold">Add Goal Title Here....</h1>
 
 
 
 
 
-<div class="card">
+  <div class="card">
     <div class="card-body">
       <p class="card-text">type the goal details here....</p>
       <br>
@@ -38,15 +39,15 @@
       <br>
     </div>
   </div>
-<a href="#" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
+  <a href="deadline.html" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
 
 
   <!-- our own footer goes here -->
   <!--Sticky bottom navbar: class is sticky-bottom-->
   <nav class="navbar fixed-bottom bg-body-tertiary">
     <div class="container-fluid mx-auto" style="width: 950px">
-      <a class="navbar-brand"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor"
-          class="bi bi-house-fill" viewBox="0 0 16 16">
+      <a class="navbar-brand" href="mainGoalsListed.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
+          fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
           <path
             d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
           <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
@@ -61,17 +62,20 @@
     </div>
   </nav>
 
-  <!---------------------------------------------->
-  <!-- Your own JavaScript scripts go here      -->
-  <!---------------------------------------------->
+  <!--Styles and imported bootstrap-->
+  <script type="module" src="./src/main.js"></script>
+  <link rel="stylesheet" href="styles/style.css">
+</body>
+<!---------------------------------------------->
+<!-- Your own JavaScript scripts go here      -->
 
-  <script type="module" src="/src/app.js"></script>
-  <!-- Firebase and authentication related scripts -->
-  <!-- The order of loading matters -->
-  <script type="module" src="/src/firebaseConfig.js"></script>
-  <script type="module" src="/src/authentication.js"></script>
-  <script type="module" src="/src/loginSignup.js"></script>
-  <!-- functionality goes at the bottom -->
+<script type="module" src="/src/app.js"></script>
+<!-- Firebase and authentication related scripts -->
+<!-- The order of loading matters -->
+<script type="module" src="/src/firebaseConfig.js"></script>
+<script type="module" src="/src/authentication.js"></script>
+<script type="module" src="/src/loginSignup.js"></script>
+<!-- functionality goes at the bottom -->
 </body>
 
 </html>
