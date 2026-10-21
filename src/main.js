@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+
 // Import the functions you need from the SDKs you need
 
 
@@ -15,6 +16,9 @@ function sayHello() {
 // Import the file that has the authentication helper function we want to use.
 // The function we want to use is called "onAuthReady" which returns the login state
 import { onAuthReady } from "/src/authentication.js";
+import { db } from "./firebaseConfig.js";
+import { doc, onSnapshot } from "firebase/firestore";
+import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
