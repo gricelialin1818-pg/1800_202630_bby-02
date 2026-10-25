@@ -30,7 +30,7 @@
 
   <div class="card">
 
-      <input class="card-text goal-details-input" placeholder="Add Goal Title Here....">
+      <input class="card-text goal-details-input" placeholder="Add Goal Title Here...." id="goal-name-input">
  
   </div>
 
@@ -38,13 +38,13 @@
 
   <div class="card">
 
-      <input class="card-text goal-details-input" placeholder="Add Goal Details Here...">
+      <input class="card-text goal-details-input" placeholder="Add Goal Details Here..." id="goal-details-input">
       
   </div>
 
   <br>
 
-  <a href="deadline.html" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
+  <button type="button" id="save-goal" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</button>
 
 
   <!-- our own footer goes here -->
@@ -75,6 +75,8 @@
 <!-- Your own JavaScript scripts go here      -->
 
 <script type="module" src="/src/app.js"></script>
+
+<script type="module" src="/src/main.js"></script>
 <!-- Firebase and authentication related scripts -->
 <!-- The order of loading matters -->
 <script type="module" src="/src/firebaseConfig.js"></script>
@@ -82,5 +84,7 @@
 <script type="module" src="/src/loginSignup.js"></script>
 <!-- functionality goes at the bottom -->
 </body>
+
+
 
 </html>
