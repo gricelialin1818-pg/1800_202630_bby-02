@@ -38,7 +38,7 @@ showName();
 // Function to retrieve goal name and description from the
 //database and put them into cards on the mainGoalsListed page
 async function displayGoal() {
-    const goalsCollection = collection(db, "goals");
+    const goalsCollection = collection(db, "users");
     const goalsData = await getDocs(goalsCollection);
     for (const goalDoc of goalsData.docs) {
         const goalDocData = goalDoc.data();
@@ -70,7 +70,7 @@ async function collectGoalData() {
     const goalDetailsInput = document.getElementById("goal-details-input")
     const goalNameInputValue = goalNameInput.value
     const goalDetailsInputValue = goalDetailsInput.value
-    const newGoal = await addDoc(collection(db, "goals"), {
+    const newGoal = await addDoc(collection(db, "users"), {
         "goal-description": goalDetailsInputValue,
         "goal-name": goalNameInputValue
     });
