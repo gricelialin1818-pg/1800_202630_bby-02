@@ -76,3 +76,13 @@ function calculateStepDeadlines(startDate, endDate, stepCount) {
 
   return deadlines;
 }
+
+const testDeadlines = calculateStepDeadlines(
+  new Date("2026-10-24T00:00"),
+  new Date("2026-10-30T00:00"),
+  3
+);
+
+for (const deadline of testDeadlines) {
+  console.log(deadline.toLocaleString());
+}
