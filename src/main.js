@@ -1,29 +1,19 @@
+// Import the functions you need from the SDKs you need
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
-
-// Import the functions you need from the SDKs you need
+import { collection, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc, deleteField } from "firebase/firestore";
+import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
+import { onAuthReady } from "/src/authentication.js";
+import { db } from "/src/firebaseConfig.js";
 
 
 // If you have custom global styles, import them as well:
 // import '../styles/style.css';
 
-function sayHello() {
-
-}
 
 // Import the file that has the authentication helper function we want to use.
 // The function we want to use is called "onAuthReady" which returns the login state
-import { onAuthReady } from "/src/authentication.js";
-import { db } from "./firebaseConfig.js";
-import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
-// import { collection, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
-import {
-    collection, getDoc, getDocs,
-    setDoc, addDoc, updateDoc,
-    deleteDoc, deleteField
-} from "firebase/firestore";
 
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
@@ -213,10 +203,89 @@ async function displayGoalPostsDynamically() {
 }
 
 // Call the function to display cards when the page loads
-displayGoalPostsDynamically();
+// document.addEventListener('DOMContentLoaded', sayHello);
 
+
+async function addGoal(userID, goalSubject, goalSteps) {
+    try {
+        const goalsRef = collection(db, "users", userID, "Goals");
+
+        const docRef = await addDoc(goalsRef, {
+            goalSubject: goalSubject,
+            goalSteps: goalSteps,          
+            createdAt: serverTimestamp()
+        });
+
+        console.log("Goal added with ID:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding goal:", error);
+    }
+}
+
+
+
+addGoal("user123", "Pass COMP 1537", [
+    "Finish Assignment 4",
+    "Review Express routing",
+    "Practice for quiz"
+]);
+
+// Function to retrieve goal name and description from the
+//database and put them into cards on the mainGoalsListed page
+async function displayGoal() {
+    const goalsCollection = collection(db, "users");
+    const goalsData = await getDocs(goalsCollection);
+    for (const goalDoc of goalsData.docs) {
+        const goalDocData = goalDoc.data();
+        const goalDesc = goalDocData["goal-description"];
+        const goalName = goalDocData["goal-name"];
+        const goalCard = document.createElement("div");
+        goalCard.innerHTML = `
+        <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><span id="goal-title"></span></h4>
+        <a href="goal-details.html" class="btn btn-primary theme-primary">Details</a>
+        <p class="card-text">Deadline</p>
+      </div>
+    </div>
+        `
+        goalCard.querySelector("#goal-title").textContent = goalName
+        document.getElementById("cards-container").appendChild(goalCard)
+    }
+
+}
+
+
+
+//takes the name and description of the goal
+//on the add-goal-screen 
+//and makes a new goal in the db
+async function collectGoalData() {
+    const goalNameInput = document.getElementById("goal-name-input")
+    const goalDetailsInput = document.getElementById("goal-details-input")
+    const goalNameInputValue = goalNameInput.value
+    const goalDetailsInputValue = goalDetailsInput.value
+    const newGoal = await addDoc(collection(db, "users"), {
+        "goal-description": goalDetailsInputValue,
+        "goal-name": goalNameInputValue
+    });
+    window.location.href = "deadline.html"
+}
+
+
+const submitButton = document.getElementById("save-goal");
+if (submitButton){
+    submitButton.addEventListener("click",collectGoalData);
+    goalCard.querySelector(".goal-title").textContent = goalName;
+}
+
+//only run the collectGoalData function
+//when the continue button is clicked
+displayGoalPostsDynamically();
+displayGoal();
 showName();
 seedGoals();
-// document.addEventListener('DOMContentLoaded', sayHello);
+
 
 

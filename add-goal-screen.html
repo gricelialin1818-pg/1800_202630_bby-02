@@ -24,22 +24,27 @@
   <site-navbar></site-navbar>
 
   <!-- Main content goes here -->
-  <h1 class="display-5 fw-bold">Add Goal Title Here....</h1>
 
-
-
-
+  <h1>New Goal</h1>
+  <br>
 
   <div class="card">
-    <div class="card-body">
-      <p class="card-text">type the goal details here....</p>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
+
+      <input class="card-text goal-details-input" placeholder="Add Goal Title Here...." id="goal-name-input">
+ 
   </div>
-  <a href="deadline.html" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</a>
+
+  <br>
+
+  <div class="card">
+
+      <input class="card-text goal-details-input" placeholder="Add Goal Details Here..." id="goal-details-input">
+      
+  </div>
+
+  <br>
+
+  <button type="button" id="save-goal" class="btn btn-primary theme-primary" style="margin-left:1.5%">Continue</button>
 
 
   <!-- our own footer goes here -->
@@ -70,6 +75,8 @@
 <!-- Your own JavaScript scripts go here      -->
 
 <script type="module" src="/src/app.js"></script>
+
+<script type="module" src="/src/main.js"></script>
 <!-- Firebase and authentication related scripts -->
 <!-- The order of loading matters -->
 <script type="module" src="/src/firebaseConfig.js"></script>
@@ -77,5 +84,7 @@
 <script type="module" src="/src/loginSignup.js"></script>
 <!-- functionality goes at the bottom -->
 </body>
+
+
 
 </html>
