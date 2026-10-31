@@ -28,4 +28,15 @@ div.card {
     width: 100%;
 }
 
+.steps-design {
+    margin: 2%;
+}
+
+.add-goal-details-buttons {
+    display:block;
+    margin-left: 2%;
+    margin-top: 1.1%;
+}
+
+
 /* KEELIE'S STYLES */

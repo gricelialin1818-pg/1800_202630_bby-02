@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Web Components for shared navbar and footer layout -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+</head>
+
+<body>
+    <br>
+    <h1 class="display-5 fw-bold">Goal Steps And Order</h1>
+
+    <template>
+        <div class="form-field steps-design">
+            <label for="fieldText" class="form-label">Goal Step</label>
+            <input type="text" class="form-control" id="fieldText" placeholder="Run for 20 minutes...">
+            <label for="fieldNum" class="form-label">Goal Step Order</label>
+            <input type="number" class="form-control" id="fieldNum" placeholder="2, for example">
+        </div>
+    </template>
+
+    <div class="form-field steps-design">
+        <label for="fieldText" class="form-label">Goal Step</label>
+        <input type="text" class="form-control" id="fieldText" placeholder="Run for 20 minutes...">
+        <label for="fieldNum" class="form-label">Goal Step Order</label>
+        <input type="number" class="form-control" id="fieldNum" placeholder="2, for example">
+    </div>
+
+
+    <button class="btn btn-primary add-goal-details-buttons" type="button">Add new step</button>
+    
+    <button class="btn btn-primary add-goal-details-buttons" type="button">Continue</button>
+
+
+
+
+    <!--Styles and imported bootstrap-->
+    <script type="module" src="./src/main.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</body>
+<!---------------------------------------------->
+<!-- Your own JavaScript scripts go here      -->
+
+<script type="module" src="/src/app.js"></script>
+
+<script type="module" src="/src/main.js"></script>
+<!-- Firebase and authentication related scripts -->
+<!-- The order of loading matters -->
+<script type="module" src="/src/firebaseConfig.js"></script>
+<script type="module" src="/src/authentication.js"></script>
+<script type="module" src="/src/loginSignup.js"></script>
+<!-- functionality goes at the bottom -->
+</body>
+
+
+
+</html>
