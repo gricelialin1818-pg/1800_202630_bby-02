@@ -64,7 +64,6 @@
         <h4 class="card-title">Goal Name</h4>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
           content.</p>
-        <a href="#" class="btn-solid theme-primary">Go somewhere</a>
       </div>
       <div class="row p-2 justify-items-center">
         <div class="col d-flex flex-column align-items-center justify-content-center">
@@ -75,14 +74,14 @@
         </div>
         <div class="col">
           <div class="dropup btn-group-small">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" id="privacy-placeholder" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               All Users
             </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">All Users</a></li>
-              <li><a class="dropdown-item" href="#">Friends</a></li>
-              <li><a class="dropdown-item" href="#">Goal Buddies</a></li>
+            <ul id="privacy-button" class="dropdown-menu">
+              <li><a class="dropdown-item privacy-option" href="#" data-value="All Users">All Users</a></li>
+              <li><a class="dropdown-item privacy-option" href="#" data-value="Friends">Friends</a></li>
+              <li><a class="dropdown-item privacy-option" href="#" data-value="Goal Buddies">Goal Buddies</a></li>
             </ul>
           </div>
         </div>

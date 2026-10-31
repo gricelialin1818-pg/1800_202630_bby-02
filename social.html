@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Other libraries go here -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="mainGoalsListed.html">Post</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="text-align: center">
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Profile</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Achievements</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Settings</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Help</a>
+                    </li>
+                    <hr>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content goes here -->
+    <div class="card" style="max-height: 320px">
+        <div class="d-flex profile-summary" style="align-items: center">
+            <img class="rounded-circle profile-image p-1" src="/images/grey.png" alt="Hike Image"
+                style="max-height: 80px">
+            <h1 class="profile-summary-name"><span id="name-goes-here">User</span>'s goal
+                posts</h1>
+        </div>
+        <p class="card-text p-3">Posts: <span id="user's-posts">0</span></p>
+        <button type="button" class="btn btn-outline-primary" id="make-post"><a href="privacy.html">Post
+                Goal</a></button>
+    </div>
+
+    <div class="container-fluid bg-body text-dark p-5">
+        <h1>What's up these days?</h1>
+        <div id="goal-posts-go-here" class="row">
+        </div>
+    </div>
+
+
+    <template id="goal-card-template" style="width: 100%">
+        <div class="col-12">
+            <div class="card">
+                <img class="card-img-top card-image" src="..." alt="Goal Image" style="max-height: 320px">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <a class="btn btn-primary read-more" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
+
+    <script type="module" src="/src/main.js"></script>
+    <!-- Firebase and authentication related scripts -->
+    <!-- The order of loading matters -->
+    <script type="module" src="/src/firebaseConfig.js"></script>
+    <script type="module" src="/src/authentication.js"></script>
+    <script type="module" src="/src/loginSignup.js"></script>
+    <!-- functionality goes at the bottom -->
+</body>
+
+</html>

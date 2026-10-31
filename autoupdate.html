@@ -68,61 +68,61 @@
 
 
     <div class="mb-3 mx-auto" style="width: 300px;">
-      <label for="birthdate" class="form-label">Schedule a post date</label>
-      <input type="date" class="form-control" id="birthdate" name="birthdate">
+      <label for="post-date" class="form-label">Schedule a post date</label>
+      <input type="date" class="form-control" id="post-date" name="post-date">
     </div>
 
 
     <p class="mx-auto" style="width:300px">Auto Update Options</p>
     <div class="row p-2 justify-items-center mx-auto" style="width: 300px;">
       <div class="col">
-        <div class="dropup btn-group-small mx-auto d-flex justify-content-center">
+        <div id="auto-update-day-placeholder" class="dropup btn-group-small mx-auto d-flex justify-content-center">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Day
           </button>
-          <ul class="dropdown-menu" style="max-height: 80px; overflow-y:auto">
-            <li><a class="dropdown-item" href="#">Monday</a></li>
-            <li><a class="dropdown-item" href="#">Tuesday</a></li>
-            <li><a class="dropdown-item" href="#">Wednesday</a></li>
-            <li><a class="dropdown-item" href="#">Thursday</a></li>
-            <li><a class="dropdown-item" href="#">Friday</a></li>
-            <li><a class="dropdown-item" href="#">Saturday</a></li>
-            <li><a class="dropdown-item" href="#">Sunday</a></li>
+          <ul id="auto-update-day" class="dropdown-menu" style="max-height: 80px; overflow-y:auto">
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Monday">Monday</a></li>
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Tuesday">Tuesday</a></li>
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Wednesday">Wednesday</a></li>
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Thursday">Thursday</a></li>
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Friday">Friday</a></li>
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Saturday">Saturday</a></li>
+            <li><a class="dropdown-item auto-update-day-option" href="#" data-value="Sunday">Sunday</a></li>
           </ul>
         </div>
       </div>
       <div class="col">
-        <div class="dropup btn-group-small mx-auto d-flex justify-content-center">
+        <div id="auto-update-time-placeholder" class="dropup btn-group-small mx-auto d-flex justify-content-center">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Time
           </button>
-          <ul class="dropdown-menu" style="max-height: 80px; overflow-y:auto">
-            <li><a class="dropdown-item" href="#">00:00</a></li>
-            <li><a class="dropdown-item" href="#">01:00</a></li>
-            <li><a class="dropdown-item" href="#">02:00</a></li>
-            <li><a class="dropdown-item" href="#">03:00</a></li>
-            <li><a class="dropdown-item" href="#">04:00</a></li>
-            <li><a class="dropdown-item" href="#">05:00</a></li>
-            <li><a class="dropdown-item" href="#">06:00</a></li>
-            <li><a class="dropdown-item" href="#">07:00</a></li>
-            <li><a class="dropdown-item" href="#">08:00</a></li>
-            <li><a class="dropdown-item" href="#">09:00</a></li>
-            <li><a class="dropdown-item" href="#">10:00</a></li>
-            <li><a class="dropdown-item" href="#">11:00</a></li>
-            <li><a class="dropdown-item" href="#">12:00</a></li>
-            <li><a class="dropdown-item" href="#">13:00</a></li>
-            <li><a class="dropdown-item" href="#">14:00</a></li>
-            <li><a class="dropdown-item" href="#">15:00</a></li>
-            <li><a class="dropdown-item" href="#">16:00</a></li>
-            <li><a class="dropdown-item" href="#">17:00</a></li>
-            <li><a class="dropdown-item" href="#">18:00</a></li>
-            <li><a class="dropdown-item" href="#">19:00</a></li>
-            <li><a class="dropdown-item" href="#">20:00</a></li>
-            <li><a class="dropdown-item" href="#">21:00</a></li>
-            <li><a class="dropdown-item" href="#">22:00</a></li>
-            <li><a class="dropdown-item" href="#">23:00</a></li>
+          <ul id="auto-update-time" class="dropdown-menu" style="max-height: 80px; overflow-y:auto">
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="00:00">00:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="01:00">01:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="02:00">02:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="03:00">03:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="04:00">04:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="05:00">05:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="06:00">06:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="07:00">07:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="08:00">08:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="09:00">09:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="10:00">10:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="11:00">11:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="12:00">12:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="13:00">13:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="14:00">14:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="15:00">15:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="16:00">16:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="17:00">17:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="18:00">18:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="19:00">19:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="20:00">20:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="21:00">21:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="22:00">22:00</a></li>
+            <li><a class="dropdown-item auto-update-time-option" href="#" data-value="23:00">23:00</a></li>
           </ul>
         </div>
       </div>
