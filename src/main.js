@@ -5,6 +5,7 @@ import { collection, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc, dele
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+
 // Import the functions you need from the SDKs you need
 
 
@@ -17,6 +18,8 @@ function sayHello() {
 
 // Import the file that has the authentication helper function we want to use.
 // The function we want to use is called "onAuthReady" which returns the login state
+
+import { doc, onSnapshot } from "firebase/firestore";
 
 
 function showName() {
