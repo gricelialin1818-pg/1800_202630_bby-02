@@ -21,6 +21,11 @@ function showName() {
         if (user) {
             // User is logged in
             const name = user.displayName || user.email;  // Use email if name is missing
+            const checkName = document.getElementById("name-goes-here");
+            if (!checkName) {
+                return
+            }
+
             document.getElementById("name-goes-here").textContent = name + "!";
         }
     });
@@ -28,7 +33,7 @@ function showName() {
 
 // Function to save privacy setting to Firestore
 async function savePrivacySetting(selectedPrivacy) {
-    //Reference to collections -> PostID -> privacySettingsTest -> selectedPrivacy
+    //Reference to collection of posts -> PostID -> privacy
     const privacyDocRef = doc(db, "posts", "PostID");
     console.log("Testing");
     try {
@@ -41,12 +46,12 @@ async function savePrivacySetting(selectedPrivacy) {
 }
 
 async function saveAutoUpdateDaySettings(selectedDay) {
-    //Reference to collections -> PostID -> privacySettingsTest -> selectedPrivacy
+    //Reference to collections -> PostID -> autoUpdateDay
     const privacyDocRef = doc(db, "posts", "PostID");
     console.log("Testing");
     try {
         //merge with whatever is in already
-        await updateDoc(privacyDocRef, { day: selectedDay }, { merge: true });
+        await updateDoc(privacyDocRef, { autoUpdateDay: selectedDay }, { merge: true });
         console.log("Auto-update day setting saved:", selectedDay);
     } catch (error) {
         console.error("Error saving auto-update day setting:", error);
@@ -54,12 +59,12 @@ async function saveAutoUpdateDaySettings(selectedDay) {
 }
 
 async function saveAutoUpdateTimeSettings(selectedTime) {
-    //Reference to collections -> PostID -> privacySettingsTest -> selectedPrivacy
+    //Reference to collections -> PostID -> autoUpdateTime
     const privacyDocRef = doc(db, "posts", "PostID");
     console.log("Testing");
     try {
         //merge with whatever is in already
-        await updateDoc(privacyDocRef, { time: selectedTime }, { merge: true });
+        await updateDoc(privacyDocRef, { autoUpdateTime: selectedTime }, { merge: true });
         console.log("Auto-update time setting saved:", selectedTime);
     } catch (error) {
         console.error("Error saving auto-update time setting:", error);
@@ -67,7 +72,7 @@ async function saveAutoUpdateTimeSettings(selectedTime) {
 }
 
 async function savePostDateSettings(selectedDate) {
-    //Reference to collections -> PostID -> privacySettingsTest -> selectedPrivacy
+    //Reference to collections -> PostID -> postDate
     const privacyDocRef = doc(db, "posts", "PostID");
     try {
         await updateDoc(privacyDocRef, { postDate: selectedDate }, { merge: true });
@@ -128,7 +133,7 @@ document.querySelectorAll('.auto-update-time-option').forEach(option => {
     })
 });
 
-
+//function to read post date from user input
 document.getElementById("post-date")?.addEventListener("input", async (event) => {
     try {
         const selectedDate = event.target.value;
@@ -140,7 +145,7 @@ document.getElementById("post-date")?.addEventListener("input", async (event) =>
 });
 
 
-
+//manual adding of post data for seeding
 function addGoalData() {
     const goalsRef = collection(db, "posts");
     console.log("Adding sample post data...");
@@ -161,7 +166,12 @@ function addGoalData() {
     });
 }
 
+//seeding goals if we don't have any in the firebase
 async function seedGoals() {
+    if (!window.location.pathname.includes('social.html')) {
+        return; // Exit early if we are not on the correct page
+    }
+
     const goalsRef = collection(db, "posts");
     console.log("Testing")
     const querySnapshot = await getDocs(goalsRef);
@@ -174,7 +184,11 @@ async function seedGoals() {
     }
 }
 
+//Display goal posts in social
 async function displayGoalPostsDynamically() {
+    if (!window.location.pathname.includes('social.html')) {
+        return; // Exit early if we are not on the correct page
+    }
     let cardTemplate = document.getElementById("goal-card-template");
     const goalPostsCollectionRef = collection(db, "posts");
 
@@ -182,12 +196,12 @@ async function displayGoalPostsDynamically() {
         const querySnapshot = await getDocs(goalPostsCollectionRef);
         querySnapshot.forEach(goalPostDoc => {
 
-            // Clone the template
+            // Clone the template from social.html
             let newcard = cardTemplate.content.cloneNode(true);
             // Get goal data once
             const goalPost = goalPostDoc.data();
 
-            // Populate the card with hike data
+            // Populate the card with goal data
             newcard.querySelector('.card-title').textContent = goalPost.name;
             newcard.querySelector('.card-text').textContent = goalPost.description;
             newcard.querySelector('.card-image').src = "/images/" + goalPost.image;
@@ -202,17 +216,14 @@ async function displayGoalPostsDynamically() {
     }
 }
 
-// Call the function to display cards when the page loads
-// document.addEventListener('DOMContentLoaded', sayHello);
-
-
+//Add goals to database
 async function addGoal(userID, goalSubject, goalSteps) {
     try {
         const goalsRef = collection(db, "users", userID, "Goals");
 
         const docRef = await addDoc(goalsRef, {
             goalSubject: goalSubject,
-            goalSteps: goalSteps,          
+            goalSteps: goalSteps,
             createdAt: serverTimestamp()
         });
 
@@ -224,16 +235,19 @@ async function addGoal(userID, goalSubject, goalSteps) {
 }
 
 
-
-addGoal("user123", "Pass COMP 1537", [
-    "Finish Assignment 4",
-    "Review Express routing",
-    "Practice for quiz"
-]);
+// ! Test of addGoal in sprint 2. Turned off for now
+// addGoal("user123", "Pass COMP 1537", [
+//     "Finish Assignment 4",
+//     "Review Express routing",
+//     "Practice for quiz"
+// ]);
 
 // Function to retrieve goal name and description from the
 //database and put them into cards on the mainGoalsListed page
 async function displayGoal() {
+    if (!window.location.pathname.includes('mainGoalsListed.html')) {
+        return; // Exit early if we are not on the correct page
+    }
     const goalsCollection = collection(db, "users");
     const goalsData = await getDocs(goalsCollection);
     for (const goalDoc of goalsData.docs) {
@@ -275,8 +289,8 @@ async function collectGoalData() {
 
 
 const submitButton = document.getElementById("save-goal");
-if (submitButton){
-    submitButton.addEventListener("click",collectGoalData);
+if (submitButton) {
+    submitButton.addEventListener("click", collectGoalData);
     goalCard.querySelector(".goal-title").textContent = goalName;
 }
 
