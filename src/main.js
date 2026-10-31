@@ -32,6 +32,27 @@ function showName() {
 }
 
 showName();
-// document.addEventListener('DOMContentLoaded', sayHello);
+
+async function addGoal(userID, goalSubject, goalSteps) {
+    try {
+        const goalsRef = collection(db, "users", userID, "Goals");
+
+        const docRef = await addDoc(goalsRef, {
+            goalSubject: goalSubject,
+            goalSteps: goalSteps,          
+            createdAt: serverTimestamp()
+        });
+
+        console.log("Goal added with ID:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding goal:", error);
+    }
+}
 
 
+addGoal("user123", "Pass COMP 1537", [
+    "Finish Assignment 4",
+    "Review Express routing",
+    "Practice for quiz"
+]);
