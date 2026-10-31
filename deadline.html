@@ -1,76 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App" />
 
-<head>
-  <title>My BCIT Project</title>
-  <meta name="comp1800 template" content="My 1800 App">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Web Components for shared navbar and footer layout -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+  </head>
 
-  <!-- Web Components for shared navbar and footer layout -->
-  <script type="module" src="/src/components/site-navbar.js"></script>
-  <script type="module" src="/src/components/site-footer.js"></script>
-</head>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Adding a hamburger -->
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
 
-<body class="d-flex flex-column min-vh-100">
-  <!-- Adding a hamburger -->
-  <!------------------------------>
-  <!-- Your HTML Layout go here -->
-  <!------------------------------>
+    <!-- our own navbar goes here -->
+    <site-navbar></site-navbar>
 
-  <!-- our own navbar goes here -->
-  <site-navbar></site-navbar>
+    <!-- Set deadline -->
+    <div class="container-fluid d-flex flex-column flex-grow-1 pt-3" style="padding-bottom: 90px">
+      <h1>Set Deadline</h1>
+      <!-- Start date -->
 
-  <!-- Set deadline -->
-  <div class="container-fluid d-flex flex-column flex-grow-1 py-3">
-    <h1>Set Deadline</h1>
-    <!-- date -->
-    <div class="mb-3">
-      <label for="deadline" class="form-label">Date</label>
-      <input type="date" class="form-control" id="deadline" />
+      <div class="mb-3">
+        <label for="start_date" class="form-label">Start Date</label>
+        <input type="date" class="form-control" id="start_date" />
+      </div>
+
+      <!-- Deadline date -->
+      <div class="mb-3">
+        <label for="deadline" class="form-label">Deadline Date</label>
+        <input type="date" class="form-control" id="deadline" />
+      </div>
+
+      <!-- time -->
+      <div class="mb-3">
+        <label for="time" class="form-label">Deadline Time</label>
+        <input type="time" class="form-control" id="time" />
+      </div>
+
+      <!-- reminder -->
+      <div class="mb-3">
+        <label for="reminder" class="form-label">Reminder</label>
+        <select
+          id="reminder"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>None</option>
+          <option value="at-deadline">At the deadline</option>
+          <option value="hour-before">1 hour before</option>
+          <option value="day-before">1 day before</option>
+          <option value="week-before">1 week before</option>
+        </select>
+      </div>
+
+      <!-- save button -->
+      <div id="save-deadline" class="d-grid gap-2 mt-auto pt-3">
+        <button id="save-button" class="btn btn-primary" type="button">
+          Save Deadline
+        </button>
+      </div>
     </div>
 
-    <!-- time -->
-    <div class="mb-3">
-      <label for="time" class="form-label">Time</label>
-      <input type="time" class="form-control" id="time" />
-    </div>
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
 
-    <!-- reminder -->
-    <div class="mb-3">
-      <label for="reminder" class="form-label">Reminder</label>
-      <select id="reminder" class="form-select" aria-label="Default select example">
-        <option selected>None</option>
-        <option value="at-deadline">At the deadline</option>
-        <option value="hour-before">1 hour before</option>
-        <option value="day-before">1 day before</option>
-        <option value="week-before">1 week before</option>
-      </select>
-    </div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
 
-    <!-- save button -->
-    <div id="save-deadline" class="d-grid gap-2 mt-auto pt-3">
-      <a id="save-button" href="./deadline-saved.html" class="btn btn-primary" type="button">Save Deadline</a>
-    </div>
-  </div>
-
-
-  <!-- our own footer goes here -->
-  <site-footer></site-footer>
-
-  <!---------------------------------------------->
-  <!-- Your own JavaScript scripts go here      -->
-  <!---------------------------------------------->
-
-  <script type="module" src="/src/app.js"></script>
-  <!-- Firebase and authentication related scripts -->
-  <!-- The order of loading matters -->
-  <script type="module" src="/src/firebaseConfig.js"></script>
-  <script type="module" src="/src/authentication.js"></script>
-  <script type="module" src="/src/loginSignup.js"></script>
-  <!-- functionality goes at the bottom -->
-</body>
-
+    <script type="module" src="/src/app.js"></script>
+    <!-- Firebase and authentication related scripts -->
+    <!-- The order of loading matters -->
+    <script type="module" src="/src/firebaseConfig.js"></script>
+    <script type="module" src="/src/authentication.js"></script>
+    <script type="module" src="/src/loginSignup.js"></script>
+    <script type="module" src="/src/deadline.js"></script>
+    <!-- functionality goes at the bottom -->
+  </body>
 </html>
