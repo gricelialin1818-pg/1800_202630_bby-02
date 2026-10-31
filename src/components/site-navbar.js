@@ -56,16 +56,18 @@ class SiteNavbar extends HTMLElement {
     const authControls = this.querySelector('#authControls'); // Find #authControls inside this navbar
 
     // Invisible placeholder prevents layout shifting while Firebase checks login status
-    authControls.innerHTML = `<div class="btn btn-outline-light" style="visibility: hidden; min-width: 80px;">Log out</div>`;
+    // ! sign out button code
+    // authControls.innerHTML = `<div class="btn btn-outline-light" style="visibility: hidden; min-width: 80px;">Log out</div>`;
 
     // Pass a callback that runs when Firebase reports the login status
     onAuthReady(function (user) { // Receives the user object (or null)
 
       if (user) { // User is logged in
-        authControls.innerHTML = `<button class="btn btn-outline-light" id="signOutBtn" type="button" style="min-width: 80px;">Log out</button>`;
+        // ! 3 lines below are code for sign out. Causing error pop ups as no sign out button has been made
+        // authControls.innerHTML = `<button class="btn btn-outline-light" id="signOutBtn" type="button" style="min-width: 80px;">Log out</button>`;
 
-        const signOutBtn = authControls.querySelector('#signOutBtn');
-        signOutBtn.addEventListener('click', logoutUser); // Callback: runs when Log out is clicked
+        // const signOutBtn = authControls.querySelector('#signOutBtn');
+        // signOutBtn.addEventListener('click', logoutUser); // Callback: runs when Log out is clicked
 
       } else { // User is NOT logged in, and gets redirected to login page if user clicks the login button
         authControls.innerHTML = `<a class="btn btn-outline-light" id="loginBtn" href="/login.html" style="min-width: 80px;">Log in</a>`;

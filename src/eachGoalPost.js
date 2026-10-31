@@ -1,11 +1,11 @@
 import { db } from "./firebaseConfig.js";
 import { doc, getDoc } from "firebase/firestore";
 
-// Declare variable: the hike ID from the URL (eachHike.html?docID=abc123)
+// Declare variable: the goal ID from the URL (eachGoal.html?docID=abc123)
 const params = new URL(window.location.href).searchParams;
 const goalPostID = params.get("docID");
 
-// Fetch the hike and display its name and image
+// Fetch the goal and display its name and image
 async function displayGoalPostInfo() {
     try {
         const goalPostRef = doc(db, "goals", goalPostID);
@@ -21,8 +21,8 @@ async function displayGoalPostInfo() {
         img.src = image;
         img.alt = `${name} image`;
     } catch (error) {
-        console.error("Error loading hike:", error);
-        document.getElementById("hikeName").textContent = "Error loading hike.";
+        console.error("Error loading goal:", error);
+        document.getElementById("goalName").textContent = "Error loading goal.";
     }
 }
 
