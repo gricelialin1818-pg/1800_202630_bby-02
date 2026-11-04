@@ -130,14 +130,18 @@ export async function logoutUser() {
 //   checkAuthState();
 // -------------------------------------------------------------
 export function checkAuthState() {
+  const currentPage = window.location.pathname.split("/").pop();
+
+  if (currentPage === "index.html" || currentPage === "login.html") {
+    return;
+  }
+
   onAuthStateChanged(auth, (user) => {
-    if (window.location.pathname.endsWith("main.html")) {
-      if (user) {
-        const displayName = user.displayName || user.email;
-        $("#welcomeMessage").text(`Hello, ${displayName}!`);
-      } else {
-        window.location.href = "/index.html";
-      }
+    if (user) {
+      const displayName = user.displayName || user.email;
+      $("#welcomeMessage").text(`Hello, ${displayName}!`);
+    } else {
+      window.location.href = "/index.html";
     }
   });
 }
@@ -175,3 +179,4 @@ export function authErrorMessage(error) {
   return map[code] || "Something went wrong. Please try again.";
 }
 
+checkAuthState();
