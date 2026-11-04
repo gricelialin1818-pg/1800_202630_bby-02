@@ -1,5 +1,6 @@
 import { db, auth } from "./firebaseConfig.js";
-import { doc, updateDoc, Timestamp } from "firebase/firestore";
+// Added 'collection' and 'setDoc' to the imports
+import { collection, doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
 
 console.log("deadline.js loaded");
 
@@ -41,14 +42,20 @@ saveButton.addEventListener("click", async function (event) {
   }
 
   try {
-    const goalRef = doc(
-      db, "users", user.uid, "goals", "deadlineTest"
-    );
+    // 1. Reference the user's goals subcollection
+    const goalsCollectionRef = collection(db, "users", user.uid, "goals");
 
-    await updateDoc(goalRef, {
+    // 2. Generate a new document slot with a completely unique random ID
+    const goalRef = doc(goalsCollectionRef);
+
+    // 3. Save the details using setDoc
+    await setDoc(goalRef, {
       startDate: Timestamp.fromDate(start_date),
       endDate: Timestamp.fromDate(deadline),
-      reminder: reminder
+      reminder: reminder,
+      // Optional: If you want your steps logic to work later, 
+      // you should initialize an empty array for steps here.
+      goalSteps: [] 
     });
 
     window.location.href = "./deadline-saved.html";
@@ -57,6 +64,23 @@ saveButton.addEventListener("click", async function (event) {
     alert("Could not save the deadline. Please try again.");
   }
 });
+
+async function getStepDeadlines(userId, goalId) {
+  const goalRef = doc(db, "users", userId, "goals", goalId);
+  const goalSnapshot = await getDoc(goalRef);
+
+  if (!goalSnapshot.exists()) {
+    throw new Error("Goal not found.");
+  }
+
+  const goal = goalSnapshot.data();
+
+  return calculateStepDeadlines(
+    goal.startDate.toDate(),
+    goal.endDate.toDate(),
+    goal.goalSteps ? goal.goalSteps.length : 0
+  );
+}
 
 function calculateStepDeadlines(startDate, endDate, stepCount) {
   const deadlines = [];
@@ -78,8 +102,8 @@ function calculateStepDeadlines(startDate, endDate, stepCount) {
 }
 
 const testDeadlines = calculateStepDeadlines(
-  new Date("2026-10-24T00:00"),
-  new Date("2026-10-30T00:00"),
+  new Date("2026-11-04T00:00"),
+  new Date("2026-11-10T00:00"),
   3
 );
 
