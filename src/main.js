@@ -291,7 +291,6 @@ async function collectGoalData() {
 const submitButton = document.getElementById("save-goal");
 if (submitButton) {
     submitButton.addEventListener("click", collectGoalData);
-    goalCard.querySelector(".goal-title").textContent = goalName;
 }
 
 //only run the collectGoalData function
