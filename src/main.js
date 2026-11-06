@@ -31,10 +31,31 @@ function showName() {
     });
 }
 
+const goalId = sessionStorage.getItem("currentPostId");
+if (window.location.pathname.includes('privacy.html')) {
+    const postImage = sessionStorage.getItem("currentPostImage");
+    const postName = sessionStorage.getItem("currentPostName");
+    const postDescription = sessionStorage.getItem("currentPostDescription");
+    console.log("Current Post ID:", goalId);
+
+    if (postImage) {
+        document.getElementById("postImage").src = postImage;
+    }
+    if (postName) {
+        document.getElementById("postName").textContent = postName;
+    }
+    if (postDescription) {
+        document.getElementById("postDescription").textContent = postDescription;
+    }
+    // Fetch from Firestore using goalId...
+}
+
+
+
 // Function to save privacy setting to Firestore
 async function savePrivacySetting(selectedPrivacy) {
     //Reference to collection of posts -> PostID -> privacy
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     console.log("Testing");
     try {
         //merge with whatever is in already
@@ -47,7 +68,7 @@ async function savePrivacySetting(selectedPrivacy) {
 
 async function saveAutoUpdateDaySettings(selectedDay) {
     //Reference to collections -> PostID -> autoUpdateDay
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     console.log("Testing");
     try {
         //merge with whatever is in already
@@ -60,7 +81,7 @@ async function saveAutoUpdateDaySettings(selectedDay) {
 
 async function saveAutoUpdateTimeSettings(selectedTime) {
     //Reference to collections -> PostID -> autoUpdateTime
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     console.log("Testing");
     try {
         //merge with whatever is in already
@@ -73,7 +94,7 @@ async function saveAutoUpdateTimeSettings(selectedTime) {
 
 async function savePostDateSettings(selectedDate) {
     //Reference to collections -> PostID -> postDate
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     try {
         await updateDoc(privacyDocRef, { postDate: selectedDate }, { merge: true });
         console.log("Post date setting saved:", selectedDate);
@@ -151,17 +172,17 @@ function addGoalData() {
     console.log("Adding sample post data...");
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
-        comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
+        comments: 0, likes: 0, image: "https://res.cloudinary.com/tfztlj18/image/upload/v1793932524/lrp9crwmqfhq3j5x9bvr.png", last_updated: serverTimestamp()
 
     });
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
-        comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
+        comments: 0, likes: 0, image: "https://res.cloudinary.com/tfztlj18/image/upload/v1793932524/lrp9crwmqfhq3j5x9bvr.png", last_updated: serverTimestamp()
 
     });
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
-        comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
+        comments: 0, likes: 0, image: "https://res.cloudinary.com/tfztlj18/image/upload/v1793932524/lrp9crwmqfhq3j5x9bvr.png", last_updated: serverTimestamp()
 
     });
 }
@@ -203,8 +224,13 @@ async function displayGoalPostsDynamically() {
 
             // Populate the card with goal data
             newcard.querySelector('.card-title').textContent = goalPost.name;
+            if (goalPost.userName) {
+                newcard.querySelector('.card-user-id').textContent = goalPost.userName;
+            } else {
+                newcard.querySelector('.card-user-id').textContent = goalPost.user;
+            }
             newcard.querySelector('.card-text').textContent = goalPost.description;
-            newcard.querySelector('.card-image').src = "/images/" + goalPost.image;
+            newcard.querySelector('.card-image').src = goalPost.image;
 
             // Attach the new card to the container
             console.log(newcard)

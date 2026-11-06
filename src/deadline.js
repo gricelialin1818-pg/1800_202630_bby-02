@@ -55,7 +55,7 @@ saveButton.addEventListener("click", async function (event) {
       reminder: reminder,
       // Optional: If you want your steps logic to work later, 
       // you should initialize an empty array for steps here.
-      goalSteps: [] 
+      goalSteps: []
     });
 
     window.location.href = "./deadline-saved.html";
