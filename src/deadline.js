@@ -1,6 +1,6 @@
 import { db, auth } from "./firebaseConfig.js";
-// Added 'collection' and 'setDoc' to the imports
-import { collection, doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
+import { getStepDeadlines } from "./step-deadlines.js";
+import { doc, updateDoc, Timestamp } from "firebase/firestore";
 
 console.log("deadline.js loaded");
 
@@ -42,14 +42,11 @@ saveButton.addEventListener("click", async function (event) {
   }
 
   try {
-    // 1. Reference the user's goals subcollection
-    const goalsCollectionRef = collection(db, "users", user.uid, "goals");
+    const goalId = sessionStorage.getItem("newGoalId");
+    const goalRef = doc(db, "users", user.uid, "goals", goalId);
 
-    // 2. Generate a new document slot with a completely unique random ID
-    const goalRef = doc(goalsCollectionRef);
-
-    // 3. Save the details using setDoc
-    await setDoc(goalRef, {
+    // Save the details using updateDoc
+    await updateDoc(goalRef, {
       startDate: Timestamp.fromDate(start_date),
       endDate: Timestamp.fromDate(deadline),
       reminder: reminder,
@@ -58,6 +55,9 @@ saveButton.addEventListener("click", async function (event) {
       goalSteps: []
     });
 
+    const stepDeadlines = await getStepDeadlines(user.uid, goalId);
+    console.log("Step deadlines:", stepDeadlines);
+
     window.location.href = "./deadline-saved.html";
   } catch (error) {
     console.error("Failed to save deadline:", error);
@@ -65,48 +65,4 @@ saveButton.addEventListener("click", async function (event) {
   }
 });
 
-async function getStepDeadlines(userId, goalId) {
-  const goalRef = doc(db, "users", userId, "goals", goalId);
-  const goalSnapshot = await getDoc(goalRef);
 
-  if (!goalSnapshot.exists()) {
-    throw new Error("Goal not found.");
-  }
-
-  const goal = goalSnapshot.data();
-
-  return calculateStepDeadlines(
-    goal.startDate.toDate(),
-    goal.endDate.toDate(),
-    goal.goalSteps ? goal.goalSteps.length : 0
-  );
-}
-
-function calculateStepDeadlines(startDate, endDate, stepCount) {
-  const deadlines = [];
-
-  if (stepCount <= 0) {
-    return deadlines;
-  }
-
-  const startTime = startDate.getTime();
-  const endTime = endDate.getTime();
-  const interval = (endTime - startTime) / stepCount;
-
-  for (let i = 1; i <= stepCount; i++) {
-    const stepDeadline = new Date(startTime + interval * i);
-    deadlines.push(stepDeadline);
-  }
-
-  return deadlines;
-}
-
-const testDeadlines = calculateStepDeadlines(
-  new Date("2026-11-04T00:00"),
-  new Date("2026-11-10T00:00"),
-  3
-);
-
-for (const deadline of testDeadlines) {
-  console.log(deadline.toLocaleString());
-}

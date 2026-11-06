@@ -1,66 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-
-<head>
+  <head>
     <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Web Components for shared navbar and footer layout -->
+    <meta name="comp1800 template" content="My 1800 App" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script type="module" src="/src/components/site-navbar.js"></script>
     <script type="module" src="/src/components/site-footer.js"></script>
-</head>
+  </head>
 
-<body>
-    <br>
-    <h1 class="display-5 fw-bold">Goal Steps And Order</h1>
+  <body class="d-flex flex-column min-vh-100">
+    <site-navbar></site-navbar>
 
-    <template>
-        <div class="form-field steps-design">
-            <label for="fieldText" class="form-label">Goal Step</label>
-            <input type="text" class="form-control" id="fieldText" placeholder="Run for 20 minutes...">
-            <label for="fieldNum" class="form-label">Goal Step Order</label>
-            <input type="number" class="form-control" id="fieldNum" placeholder="2, for example">
+    <main class="container py-4 flex-grow-1" style="max-width: 700px">
+      <h1 class="display-5 fw-bold mb-2">Goal Steps</h1>
+      <p class="text-muted">
+        Add steps in the order you want to complete them.
+      </p>
+
+      <div id="steps-container" class="mb-3">
+        <div class="goal-step-entry mb-3">
+          <label for="goal-step-1" class="form-label">Step 1</label>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control goal-step-input"
+              id="goal-step-1"
+              placeholder="e.g., Run for 20 minutes..."
+            />
+            <button
+              class="btn btn-outline-secondary remove-step"
+              type="button"
+              aria-label="Remove step 1"
+            >
+              Remove
+            </button>
+          </div>
         </div>
-    </template>
+      </div>
 
-    <div class="form-field steps-design">
-        <label for="fieldText" class="form-label">Goal Step</label>
-        <input type="text" class="form-control" id="fieldText" placeholder="Run for 20 minutes...">
-        <label for="fieldNum" class="form-label">Goal Step Order</label>
-        <input type="number" class="form-control" id="fieldNum" placeholder="2, for example">
-    </div>
+      <div class="d-grid gap-2">
+        <button
+          id="add-step-button"
+          class="btn btn-outline-primary"
+          type="button"
+        >
+          Add Step
+        </button>
+        <button id="save-goal-steps" class="btn btn-primary" type="button">
+          Continue
+        </button>
+      </div>
+    </main>
 
+    <site-footer></site-footer>
 
-    <button class="btn btn-primary add-goal-details-buttons" type="button">Add new step</button>
-    
-    <button class="btn btn-primary add-goal-details-buttons" type="button">Continue</button>
-
-
-
-
-    <!--Styles and imported bootstrap-->
-    <script type="module" src="./src/main.js"></script>
-    <link rel="stylesheet" href="styles/style.css">
-</body>
-<!---------------------------------------------->
-<!-- Your own JavaScript scripts go here      -->
-
-<script type="module" src="/src/app.js"></script>
-
-<script type="module" src="/src/main.js"></script>
-<!-- Firebase and authentication related scripts -->
-<!-- The order of loading matters -->
-<script type="module" src="/src/firebaseConfig.js"></script>
-<script type="module" src="/src/authentication.js"></script>
-<script type="module" src="/src/loginSignup.js"></script>
-<!-- functionality goes at the bottom -->
-</body>
-
-
-
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/add-goal-details.js"></script>
+  </body>
 </html>

@@ -274,7 +274,11 @@ async function displayGoal() {
     if (!window.location.pathname.includes('mainGoalsListed.html')) {
         return; // Exit early if we are not on the correct page
     }
-    const goalsCollection = collection(db, "users");
+    
+    onAuthReady(async function (user) {
+        const goalsCollection = collection(db, "users", user.uid, "goals");
+        //changed to refer to the userID individually instead of just
+    //adding everything to users
     const goalsData = await getDocs(goalsCollection);
     for (const goalDoc of goalsData.docs) {
         const goalDocData = goalDoc.data();
@@ -294,6 +298,9 @@ async function displayGoal() {
         document.getElementById("cards-container").appendChild(goalCard)
     }
 
+    });
+    
+    
 }
 
 
@@ -302,22 +309,46 @@ async function displayGoal() {
 //on the add-goal-screen 
 //and makes a new goal in the db
 async function collectGoalData() {
-    const goalNameInput = document.getElementById("goal-name-input")
-    const goalDetailsInput = document.getElementById("goal-details-input")
-    const goalNameInputValue = goalNameInput.value
-    const goalDetailsInputValue = goalDetailsInput.value
-    const newGoal = await addDoc(collection(db, "users"), {
-        "goal-description": goalDetailsInputValue,
-        "goal-name": goalNameInputValue
+    //onAuthReady user allows for user.uid to be accessed for the path
+    onAuthReady(async function (user) {
+        if (user) {
+            const goalNameInput = document.getElementById("goal-name-input")
+            const goalDetailsInput = document.getElementById("goal-details-input")
+            const goalNameInputValue = goalNameInput.value
+            const goalDetailsInputValue = goalDetailsInput.value
+            const newGoal = await addDoc(collection(db, "users", user.uid, "goals"), {
+                "goal-description": goalDetailsInputValue,
+                "goal-name": goalNameInputValue
+            });
+
+            sessionStorage.setItem("newGoalId", newGoal.id);
+
+            const savedGoal = await getDoc(newGoal);
+            console.log("Exists:", savedGoal.exists(), "Fields:", savedGoal.data());
+            window.location.href = "deadline.html"
+            
+        }
     });
-    window.location.href = "deadline.html"
+
 }
+
+
 
 
 const submitButton = document.getElementById("save-goal");
 if (submitButton) {
-    submitButton.addEventListener("click", collectGoalData);
+    submitButton.addEventListener("click", () => {
+        onAuthReady(function (user) {
+            if (user) {
+                collectGoalData(user.uid)
+                
+            }
+        });
+
+
+    });
 }
+
 
 //only run the collectGoalData function
 //when the continue button is clicked
