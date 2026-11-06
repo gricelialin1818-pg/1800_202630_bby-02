@@ -76,9 +76,11 @@ stepsContainer.addEventListener("click", (event) => {
 function collectGoalSteps() {
 
   onAuthReady(async function (user) {
+    console.log(user.uid)
     if (user) { //used onauthready to access user id
       const goalSteps = [];
       const stepInputs = document.querySelectorAll(".goal-step-input");
+      
 
       stepInputs.forEach(function (input) {
         goalSteps.push(input.value);
@@ -88,14 +90,17 @@ function collectGoalSteps() {
   
 
       const dbRef = doc(db, "users", user.uid, "goals", goalID); //the location of where all our goal fields are being stored
+      console.log(goalID);
+
 
 
       await updateDoc(dbRef, {
         goalSteps: goalSteps
       });
+      window.location.href = "mainGoalsListed.html";
     }
   });
-  window.location.href = "mainGoalsListed.html";
+  
 }
 
 const saveStepsButton = document.getElementById("save-goal-steps");

@@ -139,7 +139,7 @@ export function checkAuthState() {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const displayName = user.displayName || user.email;
-      $("#welcomeMessage").text(`Hello, ${displayName}!`);
+      // $("#welcomeMessage").text(`Hello, ${displayName}!`);
     } else {
       window.location.href = "/index.html";
     }
