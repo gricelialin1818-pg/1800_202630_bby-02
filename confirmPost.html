@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Web Components for shared navbar and footer layout -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="vh-100" style="display: flex; flex-direction: column; justify-content: space-between;">
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <site-navbar></site-navbar>
+
+    <!-- Main content goes here -->
+
+    <div class="justify-content-center align-items-center p-2">
+        <h1 class="mx-auto">Congratulations! Your post has been created.</h1>
+        <button id="continueDetailsButton" type="button" class="btn btn-outline-primary" style="width:100%"><a
+                href="/mainGoalsListed.html">Home</a></button>
+    </div>
+
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
+
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/goalPostInfo.js"></script>
+
+</body>
+
+</html>

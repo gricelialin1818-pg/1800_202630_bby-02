@@ -142,6 +142,7 @@ export function checkAuthState() {
       // $("#welcomeMessage").text(`Hello, ${displayName}!`);
     } else {
       window.location.href = "/index.html";
+
     }
   });
 }
