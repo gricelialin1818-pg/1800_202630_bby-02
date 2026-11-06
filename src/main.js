@@ -294,6 +294,9 @@ async function collectGoalData() {
                 "goal-description": goalDetailsInputValue,
                 "goal-name": goalNameInputValue
             });
+
+            sessionStorage.setItem("newGoalId", newGoal.id);
+
             const savedGoal = await getDoc(newGoal);
             console.log("Exists:", savedGoal.exists(), "Fields:", savedGoal.data());
             window.location.href = "deadline.html"
