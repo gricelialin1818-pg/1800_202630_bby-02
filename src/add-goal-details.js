@@ -1,6 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import "/styles/style.css";
+import { db, auth } from "./firebaseConfig.js";
+import { onAuthReady } from "./authentication.js";
+import { doc, updateDoc, onSnapshot, serverTimestamp, collection, getDoc, getDocs, setDoc, addDoc, deleteDoc, deleteField } from "firebase/firestore";
+
+
 
 const stepsContainer = document.getElementById("steps-container");
 const addStepButton = document.getElementById("add-step-button");
@@ -64,3 +69,37 @@ stepsContainer.addEventListener("click", (event) => {
   stepEntry.remove();
   updateStepLabels();
 });
+
+
+
+//gets the steps from the user inputs and puts it into an array in the db
+function collectGoalSteps() {
+
+  onAuthReady(async function (user) {
+    if (user) { //used onauthready to access user id
+      const goalSteps = [];
+      const stepInputs = document.querySelectorAll(".goal-step-input");
+
+      stepInputs.forEach(function (input) {
+        goalSteps.push(input.value);
+      });
+
+      const goalID = sessionStorage.getItem("newGoalId"); //getting the most recently created goalID from the session storage
+  
+
+      const dbRef = doc(db, "users", user.uid, "goals", goalID); //the location of where all our goal fields are being stored
+
+
+      await updateDoc(dbRef, {
+        goalSteps: goalSteps
+      });
+    }
+  });
+  window.location.href = "mainGoalsListed.html";
+}
+
+const saveStepsButton = document.getElementById("save-goal-steps");
+if (saveStepsButton) {
+  saveStepsButton.addEventListener("click", collectGoalSteps);
+  console.log("Continue clicked");
+}
