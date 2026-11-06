@@ -1,6 +1,6 @@
 import { db, auth } from "./firebaseConfig.js";
 // Added 'collection' and 'setDoc' to the imports
-import { collection, doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
+import { collection, doc, setDoc, getDoc, updateDoc, Timestamp } from "firebase/firestore";
 
 console.log("deadline.js loaded");
 
@@ -48,8 +48,8 @@ saveButton.addEventListener("click", async function (event) {
     // 2. Generate a new document slot with a completely unique random ID
     const goalRef = doc(goalsCollectionRef);
 
-    // 3. Save the details using setDoc
-    await setDoc(goalRef, {
+    // 3. Save the details using updateDoc
+    await updateDoc(goalRef, {
       startDate: Timestamp.fromDate(start_date),
       endDate: Timestamp.fromDate(deadline),
       reminder: reminder,
