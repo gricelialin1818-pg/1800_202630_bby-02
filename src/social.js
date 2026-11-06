@@ -6,6 +6,14 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+const goalId = sessionStorage.getItem("currentPostId");
+const postImage = sessionStorage.getItem("currentPostImage");
+const postName = sessionStorage.getItem("currentPostName");
+const postDescription = sessionStorage.getItem("currentPostDescription");
+console.log("Current Post ID:", goalId);
+
+// Fetch from Firestore using goalId...
+
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
     onAuthReady(function (user) {  // Firebase passes the user object (or null)
@@ -82,8 +90,13 @@ async function displayGoalPostsDynamically() {
 
             // Populate the card with goal data
             newcard.querySelector('.card-title').textContent = goalPost.name;
+            if (goalPost.userName) {
+                newcard.querySelector('.card-user-id').textContent = goalPost.userName;
+            } else {
+                newcard.querySelector('.card-user-id').textContent = goalPost.user;
+            }
             newcard.querySelector('.card-text').textContent = goalPost.description;
-            newcard.querySelector('.card-image').src = "/images/" + goalPost.image;
+            newcard.querySelector('.card-image').src = goalPost.image;
 
             // Attach the new card to the container
             console.log(newcard)

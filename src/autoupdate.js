@@ -6,6 +6,13 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+const goalId = sessionStorage.getItem("currentPostId");
+const postImage = sessionStorage.getItem("currentPostImage");
+const postName = sessionStorage.getItem("currentPostName");
+const postDescription = sessionStorage.getItem("currentPostDescription");
+console.log("Current Post ID:", goalId);
+
+
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
     onAuthReady(function (user) {  // Firebase passes the user object (or null)
@@ -24,7 +31,7 @@ function showName() {
 
 async function saveAutoUpdateDaySettings(selectedDay) {
     //Reference to collections -> PostID -> autoUpdateDay
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     console.log("Testing");
     try {
         //merge with whatever is in already
@@ -37,7 +44,7 @@ async function saveAutoUpdateDaySettings(selectedDay) {
 
 async function saveAutoUpdateTimeSettings(selectedTime) {
     //Reference to collections -> PostID -> autoUpdateTime
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     console.log("Testing");
     try {
         //merge with whatever is in already
@@ -50,7 +57,7 @@ async function saveAutoUpdateTimeSettings(selectedTime) {
 
 async function savePostDateSettings(selectedDate) {
     //Reference to collections -> PostID -> postDate
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     try {
         await updateDoc(privacyDocRef, { postDate: selectedDate }, { merge: true });
         console.log("Post date setting saved:", selectedDate);

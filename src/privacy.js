@@ -6,6 +6,23 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+const goalId = sessionStorage.getItem("currentPostId");
+const postImage = sessionStorage.getItem("currentPostImage");
+const postName = sessionStorage.getItem("currentPostName");
+const postDescription = sessionStorage.getItem("currentPostDescription");
+console.log("Current Post ID:", goalId);
+
+if (postImage) {
+    document.getElementById("postImage").src = postImage;
+}
+if (postName) {
+    document.getElementById("postName").textContent = postName;
+}
+if (postDescription) {
+    document.getElementById("postDescription").textContent = postDescription;
+}
+// Fetch from Firestore using goalId...
+
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
     onAuthReady(function (user) {  // Firebase passes the user object (or null)
@@ -25,7 +42,7 @@ function showName() {
 // Function to save privacy setting to Firestore
 async function savePrivacySetting(selectedPrivacy) {
     //Reference to collection of posts -> PostID -> privacy
-    const privacyDocRef = doc(db, "posts", "PostID");
+    const privacyDocRef = doc(db, "posts", goalId);
     console.log("Testing");
     try {
         //merge with whatever is in already
