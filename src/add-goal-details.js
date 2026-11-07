@@ -10,6 +10,7 @@ import { doc, updateDoc, onSnapshot, serverTimestamp, collection, getDoc, getDoc
 const stepsContainer = document.getElementById("steps-container");
 const addStepButton = document.getElementById("add-step-button");
 
+
 function updateStepLabels() {
   const stepEntries = stepsContainer.querySelectorAll(".goal-step-entry");
 
@@ -87,6 +88,7 @@ function collectGoalSteps() {
       });
 
       const goalID = sessionStorage.getItem("newGoalId"); //getting the most recently created goalID from the session storage
+      console.log(goalID);
   
 
       const dbRef = doc(db, "users", user.uid, "goals", goalID); //the location of where all our goal fields are being stored
@@ -97,14 +99,21 @@ function collectGoalSteps() {
       await updateDoc(dbRef, {
         goalSteps: goalSteps
       });
-      window.location.href = "mainGoalsListed.html";
+      window.location.href = "deadline.html";
     }
   });
+  
   
 }
 
 const saveStepsButton = document.getElementById("save-goal-steps");
-if (saveStepsButton) {
-  saveStepsButton.addEventListener("click", collectGoalSteps);
-  console.log("Continue clicked");
-}
+saveStepsButton.addEventListener("click", collectGoalSteps);
+
+
+
+// if (saveStepsButton) {
+//   saveStepsButton.addEventListener("click," (event) => {
+//     console.log("Continue clicked");
+//   });
+// }
+// 

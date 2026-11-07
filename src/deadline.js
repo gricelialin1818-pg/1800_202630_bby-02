@@ -52,17 +52,17 @@ saveButton.addEventListener("click", async function (event) {
       reminder: reminder,
       // Optional: If you want your steps logic to work later, 
       // you should initialize an empty array for steps here.
-      goalSteps: []
     });
 
     const stepDeadlines = await getStepDeadlines(user.uid, goalId);
     console.log("Step deadlines:", stepDeadlines);
 
-    window.location.href = "./deadline-saved.html";
   } catch (error) {
     console.error("Failed to save deadline:", error);
     alert("Could not save the deadline. Please try again.");
   }
+
+  window.location.href = "mainGoalsListed.html";
 });
 
 

@@ -115,7 +115,7 @@ async function collectGoalData() {
 
             const savedGoal = await getDoc(newGoal);
             console.log("Exists:", savedGoal.exists(), "Fields:", savedGoal.data());
-            window.location.href = "deadline.html"
+            window.location.href = "add-goal-details.html"
 
         }
     });
