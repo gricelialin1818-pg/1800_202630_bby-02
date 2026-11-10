@@ -2,8 +2,6 @@ import { db, auth } from "./firebaseConfig.js";
 import { getStepDeadlines } from "./step-deadlines.js";
 import { doc, updateDoc, Timestamp } from "firebase/firestore";
 
-console.log("deadline.js loaded");
-
 const saveButton = document.getElementById("save-button");
 
 saveButton.addEventListener("click", async function (event) {
@@ -62,7 +60,7 @@ saveButton.addEventListener("click", async function (event) {
     alert("Could not save the deadline. Please try again.");
   }
 
-  window.location.href = "mainGoalsListed.html";
+  window.location.href = "main-goals-listed.html";
 });
 
 

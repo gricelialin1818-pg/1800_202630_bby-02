@@ -24,7 +24,7 @@ function showName() {
                 return
             }
 
-            document.getElementById("name-goes-here").textContent = name + "!";
+            document.getElementById("name-goes-here").textContent = name;
         }
     });
 }

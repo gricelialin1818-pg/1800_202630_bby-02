@@ -10,7 +10,6 @@ const goalId = sessionStorage.getItem("currentPostId");
 const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
-console.log("Current Post ID:", goalId);
 
 // Fetch from Firestore using goalId...
 
@@ -25,7 +24,7 @@ function showName() {
                 return
             }
 
-            document.getElementById("name-goes-here").textContent = name + "!";
+            document.getElementById("name-goes-here").textContent = name;
         }
     });
 }
@@ -59,7 +58,6 @@ async function seedGoals() {
     }
 
     const goalsRef = collection(db, "posts");
-    console.log("Testing")
     const querySnapshot = await getDocs(goalsRef);
 
     if (querySnapshot.empty) {
@@ -96,10 +94,14 @@ async function displayGoalPostsDynamically() {
                 newcard.querySelector('.card-user-id').textContent = goalPost.user;
             }
             newcard.querySelector('.card-text').textContent = goalPost.description;
-            newcard.querySelector('.card-image').src = goalPost.image;
+            if (goalPost.image == null) {
+                newcard.querySelector('.card-image').src = "https://res.cloudinary.com/tfztlj18/image/upload/v1793932524/lrp9crwmqfhq3j5x9bvr.png";
+            } else {
+                newcard.querySelector('.card-image').src = goalPost.image;
+            }
+
 
             // Attach the new card to the container
-            console.log(newcard)
             document.getElementById("goal-posts-go-here").appendChild(newcard);
 
         });

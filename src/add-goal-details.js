@@ -81,7 +81,7 @@ function collectGoalSteps() {
     if (user) { //used onauthready to access user id
       const goalSteps = [];
       const stepInputs = document.querySelectorAll(".goal-step-input");
-      
+
 
       stepInputs.forEach(function (input) {
         goalSteps.push(input.value);
@@ -89,7 +89,7 @@ function collectGoalSteps() {
 
       const goalID = sessionStorage.getItem("newGoalId"); //getting the most recently created goalID from the session storage
       console.log(goalID);
-  
+
 
       const dbRef = doc(db, "users", user.uid, "goals", goalID); //the location of where all our goal fields are being stored
       console.log(goalID);
@@ -102,8 +102,8 @@ function collectGoalSteps() {
       window.location.href = "deadline.html";
     }
   });
-  
-  
+
+
 }
 
 const saveStepsButton = document.getElementById("save-goal-steps");

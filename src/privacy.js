@@ -12,8 +12,9 @@ const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
 console.log("Current Post ID:", goalId);
 
-if (postImage) {
+if (!(postImage == "null")) {
     document.getElementById("postImage").src = postImage;
+    console.log(postImage)
 }
 if (postName) {
     document.getElementById("postName").textContent = postName;
@@ -34,7 +35,7 @@ function showName() {
                 return
             }
 
-            document.getElementById("name-goes-here").textContent = name + "!";
+            document.getElementById("name-goes-here").textContent = name;
         }
     });
 }
@@ -43,7 +44,6 @@ function showName() {
 async function savePrivacySetting(selectedPrivacy) {
     //Reference to collection of posts -> PostID -> privacy
     const privacyDocRef = doc(db, "posts", goalId);
-    console.log("Testing");
     try {
         //merge with whatever is in already
         await setDoc(privacyDocRef, { privacy: selectedPrivacy }, { merge: true });

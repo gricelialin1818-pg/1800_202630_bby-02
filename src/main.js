@@ -26,7 +26,7 @@ function showName() {
                 return
             }
 
-            document.getElementById("name-goes-here").textContent = name + "!";
+            document.getElementById("name-goes-here").textContent = name;
         }
     });
 }
@@ -61,7 +61,7 @@ async function addGoal(userID, goalSubject, goalSteps) {
 // Function to retrieve goal name and description from the
 //database and put them into cards on the mainGoalsListed page
 async function displayGoal() {
-    if (!window.location.pathname.includes('mainGoalsListed.html')) {
+    if (!window.location.pathname.includes('main-goals-listed.html')) {
         return; // Exit early if we are not on the correct page
     }
 
