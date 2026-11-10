@@ -79,7 +79,7 @@ async function displayGoal() {
         <div class="card">
       <div class="card-body">
         <h4 class="card-title"><span id="goal-title"></span></h4>
-        <a href="goal-details.html" class="btn btn-primary theme-primary">Details</a>
+        <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
         <p class="card-text">Deadline</p>
       </div>
     </div>
