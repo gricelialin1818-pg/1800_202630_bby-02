@@ -1,16 +1,74 @@
 import { db, auth } from "./firebaseConfig.js";
-import { getStepDeadlines } from "./step-deadlines.js";
-import { doc, updateDoc, Timestamp } from "firebase/firestore";
+import { doc, getDoc, updateDoc, Timestamp } from "firebase/firestore";
 
 const saveButton = document.getElementById("save-button");
+
+// Get the goal ID
+const editGoalId = new URLSearchParams(window.location.search).get("id");
+const goalId = editGoalId || sessionStorage.getItem("newGoalId");
+const startInput = document.getElementById("start_date");
+const endInput = document.getElementById("deadline");
+const timeInput = document.getElementById("time");
+const reminderInput = document.getElementById("reminder");
+
+function localDateValue(date) {
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${date.getFullYear()}-${month}-${day}`;
+}
+
+// Fill in saved settings
+async function loadDeadlineSettings() {
+  document.getElementById("deadline-title").textContent = "Edit Deadline";
+  saveButton.disabled = true;
+
+  try {
+    await auth.authStateReady();
+    const user = auth.currentUser;
+    if (!user) {
+      alert("Please log in first.");
+      return;
+    }
+
+    const goalSnapshot = await getDoc(doc(db, "users", user.uid, "goals", editGoalId));
+    if (!goalSnapshot.exists()) {
+      alert("Goal not found.");
+      return;
+    }
+
+    const goal = goalSnapshot.data();
+    const start = goal.startDate?.toDate?.();
+    const end = goal.endDate?.toDate?.();
+    if (start) startInput.value = localDateValue(start);
+    if (end) {
+      endInput.value = localDateValue(end);
+      const hours = String(end.getHours()).padStart(2, "0");
+      const minutes = String(end.getMinutes()).padStart(2, "0");
+      timeInput.value = `${hours}:${minutes}`;
+    }
+    reminderInput.value = goal.reminder || "None";
+    if (reminderInput.selectedIndex === -1) reminderInput.value = "None";
+    saveButton.disabled = false;
+  } catch (error) {
+    console.error("Failed to load deadline:", error);
+    alert("Could not load deadline settings. Please refresh to try again.");
+  }
+}
+
+if (editGoalId) loadDeadlineSettings();
 
 saveButton.addEventListener("click", async function (event) {
   event.preventDefault();
 
-  const startDate = document.getElementById("start_date").value;
-  const endDate = document.getElementById("deadline").value;
-  const time = document.getElementById("time").value;
-  const reminder = document.getElementById("reminder").value;
+  const startDate = startInput.value;
+  const endDate = endInput.value;
+  const time = timeInput.value;
+  const reminder = reminderInput.value;
+
+  if (!goalId) {
+    alert("Please select a goal first.");
+    return;
+  }
 
   if (!startDate || !endDate || !time) {
     alert("Please select a date and time.");
@@ -39,28 +97,24 @@ saveButton.addEventListener("click", async function (event) {
     return;
   }
 
+  saveButton.disabled = true;
   try {
-    const goalId = sessionStorage.getItem("newGoalId");
     const goalRef = doc(db, "users", user.uid, "goals", goalId);
-
-    // Save the details using updateDoc
+    // Save to the same goal
     await updateDoc(goalRef, {
       startDate: Timestamp.fromDate(start_date),
       endDate: Timestamp.fromDate(deadline),
       reminder: reminder,
-      // Optional: If you want your steps logic to work later, 
-      // you should initialize an empty array for steps here.
     });
-
-    const stepDeadlines = await getStepDeadlines(user.uid, goalId);
-    console.log("Step deadlines:", stepDeadlines);
-
   } catch (error) {
     console.error("Failed to save deadline:", error);
     alert("Could not save the deadline. Please try again.");
+    saveButton.disabled = false;
+    return;
   }
 
-  window.location.href = "main-goals-listed.html";
+  // Go back after saving
+  window.location.href = editGoalId
+    ? `goal-details.html?id=${encodeURIComponent(goalId)}`
+    : "main-goals-listed.html";
 });
-
-
