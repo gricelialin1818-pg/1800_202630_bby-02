@@ -27,7 +27,7 @@ class SiteNavbar extends HTMLElement {
           <hr>
 
           <li class="nav-item">
-            <a class="nav-link active" href="#">Achievements</a>
+            <a class="nav-link active" href="achievements.html">Achievements</a>
           </li>
           <hr>
 
