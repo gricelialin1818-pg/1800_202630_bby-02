@@ -1,3 +1,4 @@
+import { calculateStepDeadlines } from "./step-deadlines.js";
 import { db } from "./firebaseConfig.js";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { onAuthReady } from "./authentication.js";
@@ -42,6 +43,12 @@ onAuthReady(async (user) => {
         }
 
         displayGoalDetails(goalDoc.data());
+        // Link to the deadline form
+        const editDeadlineLink = document.getElementById("editDeadlineLink");
+        if (editDeadlineLink) {
+            editDeadlineLink.href = `deadline.html?id=${encodeURIComponent(goalID)}`;
+            editDeadlineLink.hidden = false;
+        }
         setupUpdateButton(goalDetails, goalDoc.data());
     } catch (error) {
         showError("Could not load goal: " + error.message);
@@ -56,6 +63,12 @@ function displayGoalDetails(getGoal) {
     const getGoalReminder = getGoal.reminder;
     const getGoalSteps = getGoal.goalSteps || [];
     const getStepsDone = getGoal.stepsDone || [];
+    // Calculate step deadlines
+    const start = getGoalStartDate?.toDate?.();
+    const end = getGoalEndDate?.toDate?.();
+    const stepDeadlines = start && end && end > start
+        ? calculateStepDeadlines(start, end, getGoalSteps.length)
+        : [];
 
     document.getElementById("goalName").textContent = getGoalName || "Untitled goal";
     document.getElementById("goalDescription").textContent = getGoalDescription || "";
@@ -88,7 +101,15 @@ function displayGoalDetails(getGoal) {
     <label for="step${index}"></label>
   </div>`);
         // textContent so step text typed by the user can't break the HTML
-        document.querySelector(`label[for="step${index}"]`).textContent = step;
+        const label = document.querySelector(`label[for="step${index}"]`);
+        label.textContent = step;
+        // Show the step deadline
+        if (stepDeadlines[index]) {
+            const due = document.createElement("small");
+            due.className = "d-block text-muted";
+            due.textContent = `Due ${stepDeadlines[index].toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`;
+            label.appendChild(due);
+        }
     });
 }
 
