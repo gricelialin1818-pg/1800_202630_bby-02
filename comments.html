@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Other libraries go here -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="mb-5 pb-5">
+
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+
+    <!-- our own navbar goes here -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="mainGoalsListed.html">Post</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="text-align: center">
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Profile</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Achievements</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Settings</a>
+                    </li>
+                    <hr>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Help</a>
+                    </li>
+                    <hr>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content goes here -->
+
+    <section class="mb-5">
+        <div class="col-12">
+            <div class="card">
+                <img class="card-img-top card-image" src="..." alt="Goal Image"
+                    style="max-height: 320px; min-height: 300px;">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p>Created by <span class="card-user-id"></span></p>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+        <section class="container mt-4">
+            <h4>Write a comment</h4>
+            <form id="commentForm" novalidate>
+                <div class="mb-3">
+                    <input type="text" id="newComment" class="form-control" placeholder="e.g. Amazing work!" required />
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Send comment</button>
+            </form>
+        </section>
+
+        <section class="container mt-4 card shadow-sm bg-light">
+            <h2>Latest comments</h2>
+            <div id="comments-go-here"></div>
+        </section>
+
+        <template id="commentTemplate">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted comment-details"></h6>
+                    <h5 class="card-title comment-text"></h5>
+                </div>
+            </div>
+        </template>
+    </section>
+
+    <!-- our own footer goes here -->
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
+
+    <script type="module" src="src/comments.js"></script>
+    <!-- Firebase and authentication related scripts -->
+    <!-- The order of loading matters -->
+    <script type="module" src="/src/firebaseConfig.js"></script>
+    <script type="module" src="/src/authentication.js"></script>
+    <script type="module" src="/src/loginSignup.js"></script>
+    <!-- functionality goes at the bottom -->
+</body>
+
+<site-footer></site-footer>
+
+</html>
