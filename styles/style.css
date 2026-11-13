@@ -38,6 +38,27 @@ div.card {
     margin-top: 1.1%;
 }
 
+#earned-it {
+    /*this styling is for a very specific p tag in the achievements page*/ 
+    text-align: center;
+}
+
+
+
+
+.center-login-button {
+    display: flex;
+    margin:auto;
+    
+    
+}
+
+.center-login-text {
+    display: flex;
+    justify-content: center;
+    
+}
+
 
 /* KEELIE'S STYLES */
 

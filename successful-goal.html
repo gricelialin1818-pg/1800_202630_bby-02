@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- Web Components for shared navbar and footer layout -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+</head>
+
+<body>
+    <!-- our own navbar goes here -->
+    <site-navbar></site-navbar>
+
+    <!-- Main content goes here -->
+    <div class="container-fluid d-flex flex-column gap-4 py-3">
+        <h2>You Completed This Goal!</h2>
+
+        <h4 id="goalName">GOAL NAME</h4>
+        <p id="goalDescription">GOAL DESCRIPTION</p>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-muted mb-1">Start date</p>
+                        <p id="goalStartDate">START DATE</p>
+                    </div>
+                    <div class="col text-end">
+                        <p class="text-muted mb-1">End date</p>
+                        <p id="goalEndDate">END DATE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <!-- Milestones (disabled on this page by edit-goal-details.js) -->
+        <!-- <h2 id="goal-steps">Goal Steps</h2> -->
+        <div id="goalSteps" class="form-field">
+        </div>
+
+        <div>
+            <span class="text-muted">Reminder: </span>
+            <span id="goalReminder"></span>
+        </div>
+
+        <!-- No id="updateBtn" here on purpose: this button only navigates -->
+        <div id="buttonBar" class="p-3 d-grid gap-4 mt-auto mb-5">
+            <button class="btn btn-primary" type="button" onclick="window.location.href='main-goals-listed.html'">Back to
+                Home</button>
+        </div>
+    </div>
+
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
+
+    <!-- Your own JavaScript scripts go here -->
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/successful-goal.js"></script>
+
+</body>
+
+</html>

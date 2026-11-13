@@ -95,10 +95,14 @@ function collectGoalSteps() {
       console.log(goalID);
 
 
+      //creates a bool array
+
 
       await updateDoc(dbRef, {
         goalSteps: goalSteps
       });
+    
+
       window.location.href = "deadline.html";
     }
   });
