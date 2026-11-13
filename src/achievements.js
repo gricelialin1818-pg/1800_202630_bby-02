@@ -52,44 +52,43 @@ async function displayCompletedGoal() {
             const checkBoxStatusArray = goalDocData["stepsDone"] || [];
             // const goalComplete = goalDocData["finished"];
             const goalCard = document.createElement("div");
-            
+
             let check = true;
-            if (checkBoxStatusArray){
-                if (checkBoxStatusArray.length == 0){
+            if (checkBoxStatusArray) {
+                if (checkBoxStatusArray.length == 0) {
                     check = false;
                 }
-                for (let i = 0; i < checkBoxStatusArray.length; i++){
-                    if ((checkBoxStatusArray[i] == false)){
+                for (let i = 0; i < checkBoxStatusArray.length; i++) {
+                    if ((checkBoxStatusArray[i] == false)) {
                         check = false;
                         break;
                     }
                     //displays the goal only if all the checkboxes are checked
                     //checks via the checkbox boolean array in firestore
                 }
-            } 
-            
+            }
 
-            if (check){ //appends once all the booleans in the array have been gone through and all been confirmed to be true.
+
+            if (check) { //appends once all the booleans in the array have been gone through and all been confirmed to be true.
                 goalCard.innerHTML = `
             <div class="card">
             <div class="card-body">
             <h4 class="card-title"><span id="goal-title"></span></h4>
             <a href="successful-goal.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
-            <p class="card-text">Deadline</p>
             </div>
             </div>           
             `
-            
-            goalCard.querySelector("#goal-title").textContent = goalName
-            document.getElementById("cards-container").appendChild(goalCard);
+
+                goalCard.querySelector("#goal-title").textContent = goalName
+                document.getElementById("cards-container").appendChild(goalCard);
             }
-               
-            
 
 
-            
 
-            
+
+
+
+
 
         }
     });

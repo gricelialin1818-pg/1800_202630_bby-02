@@ -77,8 +77,8 @@ async function displayGoal() {
             const goalCard = document.createElement("div");
             // const stepsArray = goalDocData["goalSteps"]
             const checkBoxStatusArray = goalDocData["stepsDone"] || [];
-            
-            if (checkBoxStatusArray.includes(false) || checkBoxStatusArray.length == 0){
+
+            if (checkBoxStatusArray.includes(false) || checkBoxStatusArray.length == 0) {
                 // allow for the card to be pasted using .length ==0 because using == [] returns false
                 // as the empty array on line 79 and the array in the comparison are two different arrays
                 goalCard.innerHTML = `
@@ -86,24 +86,23 @@ async function displayGoal() {
             <div class="card-body">
             <h4 class="card-title"><span id="goal-title"></span></h4>
             <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
-            <p class="card-text">Deadline</p>
             </div>
             </div>           
             `
 
-            goalCard.querySelector("#goal-title").textContent = goalName
-            document.getElementById("cards-container").appendChild(goalCard)
+                goalCard.querySelector("#goal-title").textContent = goalName
+                document.getElementById("cards-container").appendChild(goalCard)
 
             }
-           
-           
-                
-            
-               
-            
-               
-            
-// 
+
+
+
+
+
+
+
+
+            // 
 
         }
 
@@ -130,15 +129,15 @@ async function collectGoalData() {
                 "goal-description": goalDetailsInputValue,
                 "goal-name": goalNameInputValue
             });
-            
-            
+
+
 
             sessionStorage.setItem("newGoalId", newGoal.id);
 
             const savedGoal = await getDoc(newGoal);
             console.log("Exists:", savedGoal.exists(), "Fields:", savedGoal.data());
 
-            
+
 
             window.location.href = "add-goal-details.html"
 
