@@ -24,7 +24,6 @@ onAuthReady(async (user) => {
     if (goalID) {
         const goalDetails = doc(db, "users", user.uid, "goals", goalID);
         const goalDoc = await getDoc(goalDetails);
-        console.log(goalDoc.data())
 
         document.getElementById('goalNameInput').value = goalDoc.data()["goal-name"];
         document.getElementById('goalPostDescription').value = goalDoc.data()["goal-description"];
@@ -55,10 +54,8 @@ async function uploadImageToCloudinary(file) {
 document.getElementById('imageUpload').addEventListener('change', async (event) => {
     const file = event.target.files[0];
     if (!file) return;
-    console.log('Selected file:', file);
     try {
         imageURL = await uploadImageToCloudinary(file);
-        console.log('Image uploaded to Cloudinary:', imageURL);
     } catch {
         console.log('Image upload failed');
     }

@@ -53,37 +53,8 @@ async function displayGoal() {
 
     });
 
-
 }
 
-
-
-//takes the name and description of the goal
-//on the add-goal-screen 
-//and makes a new goal in the db
-async function collectGoalData() {
-    //onAuthReady user allows for user.uid to be accessed for the path
-    onAuthReady(async function (user) {
-        if (user) {
-            const goalNameInput = document.getElementById("goal-name-input")
-            const goalDetailsInput = document.getElementById("goal-details-input")
-            const goalNameInputValue = goalNameInput.value
-            const goalDetailsInputValue = goalDetailsInput.value
-            const newGoal = await addDoc(collection(db, "users", user.uid, "goals"), {
-                "goal-description": goalDetailsInputValue,
-                "goal-name": goalNameInputValue
-            });
-
-            sessionStorage.setItem("newGoalId", newGoal.id);
-
-            const savedGoal = await getDoc(newGoal);
-            console.log("Exists:", savedGoal.exists(), "Fields:", savedGoal.data());
-            window.location.href = "add-goal-details.html"
-
-        }
-    });
-
-}
 
 
 

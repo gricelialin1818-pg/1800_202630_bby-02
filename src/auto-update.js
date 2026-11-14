@@ -32,11 +32,9 @@ function showName() {
 async function saveAutoUpdateDaySettings(selectedDay) {
     //Reference to collections -> PostID -> autoUpdateDay
     const privacyDocRef = doc(db, "posts", goalId);
-    console.log("Testing");
     try {
         //merge with whatever is in already
         await updateDoc(privacyDocRef, { autoUpdateDay: selectedDay }, { merge: true });
-        console.log("Auto-update day setting saved:", selectedDay);
     } catch (error) {
         console.error("Error saving auto-update day setting:", error);
     }
@@ -45,11 +43,9 @@ async function saveAutoUpdateDaySettings(selectedDay) {
 async function saveAutoUpdateTimeSettings(selectedTime) {
     //Reference to collections -> PostID -> autoUpdateTime
     const privacyDocRef = doc(db, "posts", goalId);
-    console.log("Testing");
     try {
         //merge with whatever is in already
         await updateDoc(privacyDocRef, { autoUpdateTime: selectedTime }, { merge: true });
-        console.log("Auto-update time setting saved:", selectedTime);
     } catch (error) {
         console.error("Error saving auto-update time setting:", error);
     }
@@ -60,7 +56,6 @@ async function savePostDateSettings(selectedDate) {
     const privacyDocRef = doc(db, "posts", goalId);
     try {
         await updateDoc(privacyDocRef, { postDate: selectedDate }, { merge: true });
-        console.log("Post date setting saved:", selectedDate);
     } catch (error) {
         console.error("Error saving post date setting:", error);
     }
@@ -72,7 +67,6 @@ document.querySelectorAll('.auto-update-day-option').forEach(option => {
         try {
             event.preventDefault();
             const selectedValue = event.target.getAttribute('data-value');
-            console.log("Selected day setting:", selectedValue);
             const selectedText = event.target.textContent;
 
             document.getElementById('auto-update-day-placeholder').textContent = selectedText;
@@ -90,7 +84,6 @@ document.querySelectorAll('.auto-update-time-option').forEach(option => {
         try {
             event.preventDefault();
             const selectedValue = event.target.getAttribute('data-value');
-            console.log("Selected time setting:", selectedValue);
             const selectedText = event.target.textContent;
 
             document.getElementById('auto-update-time-placeholder').textContent = selectedText;
@@ -105,7 +98,6 @@ document.querySelectorAll('.auto-update-time-option').forEach(option => {
 document.getElementById("post-date")?.addEventListener("input", async (event) => {
     try {
         const selectedDate = event.target.value;
-        console.log("Selected post date:", selectedDate);
         await savePostDateSettings(selectedDate);
     } catch (error) {
         console.error("Error saving post date setting:", error);

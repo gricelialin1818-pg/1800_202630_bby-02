@@ -38,8 +38,6 @@ async function displayGoalPostsDynamically() {
     const q = query(
         collection(db, "posts"),
         where("user", "==", user.uid),    // only THIS user id
-        // orderBy("timestamp", "desc"),         // newest first
-        // limit(5)                        // optional: only the latest 5 (try it yourself)
     );
 
     try {

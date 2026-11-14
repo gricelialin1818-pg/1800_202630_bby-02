@@ -10,11 +10,9 @@ const goalId = sessionStorage.getItem("currentPostId");
 const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
-console.log("Current Post ID:", goalId);
 
 if (!(postImage == "null")) {
     document.getElementById("postImage").src = postImage;
-    console.log(postImage)
 }
 if (postName) {
     document.getElementById("postName").textContent = postName;
@@ -47,7 +45,6 @@ async function savePrivacySetting(selectedPrivacy) {
     try {
         //merge with whatever is in already
         await setDoc(privacyDocRef, { privacy: selectedPrivacy }, { merge: true });
-        console.log("Privacy setting saved:", selectedPrivacy);
     } catch (error) {
         console.error("Error saving privacy setting:", error);
     }
@@ -60,7 +57,6 @@ document.querySelectorAll('.privacy-option').forEach(option => {
         try {
             event.preventDefault();
             const selectedValue = event.target.getAttribute('data-value');
-            console.log("Selected privacy setting:", selectedValue);
             const selectedText = event.target.textContent;
 
             document.getElementById('privacy-placeholder').textContent = selectedText;

@@ -59,8 +59,6 @@ async function displayComments() {
     const q = query(
         collection(db, "posts", selectedPost, "comments"),
         where("postID", "==", selectedPost),    // check which posts matches with the clicked postID
-        // orderBy("timestamp", "desc"),         // newest first
-        // limit(5)                        // optional: only the latest 5 (try it yourself)
     );
 
     try {
