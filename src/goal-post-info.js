@@ -16,14 +16,17 @@ await auth.authStateReady();
 const user = auth.currentUser;
 
 const params = new URLSearchParams(window.location.search);
-const goalID = params.get("id") || sessionStorage.getItem("newGoalId");
+const goalID = params.get("id");
 
 onAuthReady(async (user) => {
     if (!user) return;  // not logged in, authentication.js redirects them
-
     if (goalID) {
         const goalDetails = doc(db, "users", user.uid, "goals", goalID);
         const goalDoc = await getDoc(goalDetails);
+        console.log(goalDoc.data()["goal-name"]);
+        if (goalDoc.data()["goal-name"] == undefined) {
+            console.log("Empty");
+        }
 
         document.getElementById('goalNameInput').value = goalDoc.data()["goal-name"];
         document.getElementById('goalPostDescription').value = goalDoc.data()["goal-description"];
