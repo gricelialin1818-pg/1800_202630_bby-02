@@ -78,17 +78,22 @@ async function displayGoal() {
             // const stepsArray = goalDocData["goalSteps"]
             const checkBoxStatusArray = goalDocData["stepsDone"] || [];
 
+
             if (checkBoxStatusArray.includes(false) || checkBoxStatusArray.length == 0) {
                 // allow for the card to be pasted using .length ==0 because using == [] returns false
                 // as the empty array on line 79 and the array in the comparison are two different arrays
                 goalCard.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-            <h4 class="card-title"><span id="goal-title"></span></h4>
-            <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
-            </div>
-            </div>           
-            `
+                    <div class="card">
+                    <div class="card-body">
+                    <i class="bi bi-trash-fill fs-4 position-absolute top-0 end-0 m-2 remove-post" role="button"
+                            title="remove" style="color: black;"></i>
+                    <h4 class="card-title"><span id="goal-title"></span></h4>
+                    <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
+                    </div>
+                    </div>           
+                    `
+                //Add trash (option to delete)
+                setupTrash(goalCard, user.uid, goalDoc.id);
 
                 goalCard.querySelector("#goal-title").textContent = goalName
                 document.getElementById("cards-container").appendChild(goalCard)
@@ -159,6 +164,21 @@ if (submitButton) {
         });
 
 
+    });
+}
+
+function setupTrash(card, userID, goalID) {
+    const trash = card.querySelector(".remove-post");
+
+    // When trash is clicked, confirm, delete, then reload page
+    trash.addEventListener("click", async function () {
+        console.log(goalID);
+        const deleteConfirmation = confirm("Are you sure you want to delete this post?")
+        if (deleteConfirmation) {
+            await deleteDoc(doc(db, "users", userID, "goals", goalID))
+            console.log("Deleted " + goalID)
+            location.reload();
+        }
     });
 }
 

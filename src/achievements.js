@@ -71,13 +71,16 @@ async function displayCompletedGoal() {
 
             if (check) { //appends once all the booleans in the array have been gone through and all been confirmed to be true.
                 goalCard.innerHTML = `
-            <div class="card">
-            <div class="card-body">
-            <h4 class="card-title"><span id="goal-title"></span></h4>
-            <a href="successful-goal.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
-            </div>
-            </div>           
-            `
+                <div class="card">
+                <div class="card-body">
+                <i class="bi bi-trash-fill fs-4 position-absolute top-0 end-0 m-2 remove-post" role="button"
+                            title="remove" style="color: black;"></i>
+                <h4 class="card-title"><span id="goal-title"></span></h4>
+                <a href="successful-goal.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
+                </div>
+                </div>           
+                `
+                setupTrash(goalCard, user.uid, goalDoc.id);
 
                 goalCard.querySelector("#goal-title").textContent = goalName
                 document.getElementById("cards-container").appendChild(goalCard);
@@ -107,6 +110,21 @@ function showName() {
             }
 
             document.getElementById("name-goes-here").textContent = name;
+        }
+    });
+}
+
+function setupTrash(card, userID, goalID) {
+    const trash = card.querySelector(".remove-post");
+
+    // When trash is clicked, confirm, delete, then reload page
+    trash.addEventListener("click", async function () {
+        console.log(goalID);
+        const deleteConfirmation = confirm("Are you sure you want to delete this post?")
+        if (deleteConfirmation) {
+            await deleteDoc(doc(db, "users", userID, "goals", goalID))
+            console.log("Deleted " + goalID)
+            location.reload();
         }
     });
 }

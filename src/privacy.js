@@ -11,7 +11,7 @@ const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
 
-if (!(postImage == "null")) {
+if (!(postImage == "null" || postImage == null)) {
     document.getElementById("postImage").src = postImage;
 }
 if (postName) {
