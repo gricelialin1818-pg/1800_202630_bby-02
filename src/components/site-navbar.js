@@ -40,6 +40,10 @@ class SiteNavbar extends HTMLElement {
             <a class="nav-link active" href="#">Help</a>
           </li>
           <hr>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Sign Out</a>
+          </li>
         </ul>
       </div>
     </div>
