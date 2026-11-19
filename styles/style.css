@@ -228,3 +228,403 @@ button #auto-update-time-placeholder{
 
 /* GRICELIA */
 /* GRICELIA */
+
+/* HAJIN */
+/* Shared page colours and spacing */
+.main-goals-listed,
+.goal-details,
+.deadline-page,
+.goal-flow {
+  padding-bottom: 88px;
+  color: #20263a;
+}
+
+/* Shared form fields */
+.deadline-layout .form-control,
+.deadline-layout .form-select,
+.goal-flow .goal-details-input,
+.goal-flow .form-control {
+  padding: 12px;
+  background-color: #eaf0f8;
+  border: 1px solid #d3dded;
+  border-radius: 12px;
+}
+
+/* Shared buttons */
+.goal-flow .btn,
+.social-html .btn {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 24px;
+}
+
+/* Shared goal date cards */
+.update-progress .goal-detail-panel .card,
+.completed-goal-page .goal-detail-panel .card {
+  background-color: #d9e3f3;
+  border-radius: 16px;
+}
+
+/* Shared overlapping cards */
+.update-progress .goal-detail-panel,
+.completed-goal-page .goal-detail-panel {
+  position: relative;
+  margin-top: -32px;
+}
+
+/* Shared list cards */
+.main-goals-listed #cards-container .card,
+.achievements.goal-flow .card {
+  border-radius: 20px;
+}
+
+.main-goals-listed #cards-container .card-body,
+.achievements.goal-flow .card-body {
+  padding: 20px;
+}
+
+/* Hajin - header and goal pages */
+/* Header background */
+.goals-header {
+  background-color: #93a0bf;
+  background-image: url("../images/goals-background.png");
+  background-size: 100% 100%;
+  background-position: right top;
+  padding-bottom: 28px;
+  border-radius: 0 0 28px 28px;
+}
+
+/* Shared menu */
+site-navbar .navbar,
+login-site-navbar .navbar {
+  background-color: #93a0bf !important;
+  padding: 12px 24px;
+}
+
+site-navbar .navbar-brand,
+login-site-navbar .navbar-brand {
+  color: white;
+  font-weight: 700;
+}
+
+site-navbar .navbar-toggler,
+login-site-navbar .navbar-toggler {
+  border: 0;
+  padding: 8px;
+  background-color: transparent;
+}
+
+site-navbar .navbar-toggler-icon,
+login-site-navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+site-navbar .navbar-toggler:focus,
+login-site-navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Menu stays inside the header */
+site-navbar .navbar-nav,
+login-site-navbar .navbar-nav {
+  margin-top: 8px;
+  padding: 0;
+}
+
+site-navbar .navbar-nav hr,
+login-site-navbar .navbar-nav hr {
+  display: none;
+}
+
+site-navbar .navbar-nav .nav-link,
+login-site-navbar .navbar-nav .nav-link {
+  padding: 10px 0;
+  color: white;
+  text-align: left;
+  font-size: 16px;
+}
+
+site-navbar .menu-divider,
+login-site-navbar .menu-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+site-navbar .nav-link:hover,
+login-site-navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Blend the menu into the header image */
+.goals-header .navbar {
+  background-color: transparent !important;
+}
+.goals-header .goals-title {
+  color: white;
+  text-align: left;
+  margin: 12px 36px 0;
+}
+
+.goal-owner {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.goal-heading {
+  display: block;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Empty goal list */
+.first-goal-card {
+  display: none;
+  margin: 24px 16px;
+  padding: 28px 16px;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(32, 38, 58, 0.1);
+  text-align: center;
+}
+
+.first-goal-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.first-goal-card p {
+  color: #5c6880;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.first-goal-card .btn,
+.main-goals-listed #cards-container .btn {
+  color: white;
+  border-radius: 30px;
+  padding: 10px 24px;
+}
+
+.main-goals-listed .card-title {
+  padding-right: 28px;
+}
+
+/* One card for the whole goal */
+.compact-header {
+  padding-bottom: 40px;
+}
+
+.goal-details .goal-detail-panel {
+  margin: -32px 4px 0;
+  padding: 24px 20px;
+  border-radius: 24px;
+  position: relative;
+}
+
+.goal-detail-panel #goalName {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.goal-detail-panel #goalDescription {
+  color: #5c6880;
+  margin: 16px 0 24px;
+}
+
+.goal-details .goal-detail-panel .card {
+  margin: 0 0 24px;
+  background-color: #d9e3f3;
+  border-radius: 16px;
+}
+
+.goal-detail-panel #goalStartDate,
+.goal-detail-panel #goalEndDate {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.goal-detail-panel #goalSteps {
+  margin: 24px 0;
+}
+
+.goal-detail-panel #goalSteps .form-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.goal-detail-panel .check {
+  margin-top: 5px;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+.goal-detail-panel #buttonBar {
+  padding: 0 !important;
+  margin: 24px 0 0 !important;
+  gap: 16px !important;
+}
+
+.goal-detail-panel .btn,
+.deadline-layout .btn {
+  padding: 12px;
+  color: white;
+  border-radius: 12px;
+}
+
+.goal-detail-panel #editDeadlineLink {
+  background-color: transparent !important;
+  border: 1px solid #20263a;
+  color: #20263a;
+}
+
+.goal-detail-panel #editDeadlineLink:hover {
+  background-color: #eaf0f8 !important;
+}
+
+/* Deadline form */
+.deadline-layout {
+  padding: 20px 16px 24px !important;
+}
+
+.deadline-layout h1 {
+  font-size: 28px;
+  color: #20263a;
+  margin-bottom: 20px;
+}
+
+.deadline-layout .outdent-card-style-for-adding-goal {
+  padding: 24px 20px;
+  margin: 0;
+}
+
+.deadline-layout .form-label {
+  font-weight: 600;
+}
+
+.goal-flow h1 {
+  font-size: 28px;
+  margin: 24px 20px 16px;
+}
+
+.goal-flow .outdent-card-style-for-adding-goal {
+  margin: 20px 16px;
+  padding: 24px 20px;
+  border-radius: 24px;
+}
+
+.goal-flow .remove-step {
+  border-radius: 0 12px 12px 0;
+}
+
+#earned-it {
+  color: #5c6880;
+  padding: 0 20px;
+}
+
+/* Secondary step actions */
+.goal-flow #add-step-button,
+.goal-flow .remove-step {
+  background-color: #d9e3f3 !important;
+  color: #20263a;
+}
+
+.goal-flow #add-step-button:hover,
+.goal-flow .remove-step:hover {
+  background-color: #93a0bf !important;
+  color: #20263a;
+}
+
+/* New goal labels and spacing */
+.new-goal-page h1 {
+  margin-bottom: 12px;
+}
+
+.new-goal-page .outdent-card-style-for-adding-goal {
+  margin-top: 12px;
+}
+
+.new-goal-page .form-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.completed-goal-page .completion-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Social page */
+.social-html {
+  background-color: #eaf0f8;
+  color: #20263a;
+}
+
+.social-html .social-profile-card {
+  margin: 20px 16px;
+  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(32, 38, 58, 0.1);
+}
+
+.social-profile-card h1 {
+  font-size: 26px;
+  margin-top: 12px;
+}
+
+.social-html .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.social-html .social-div-styling {
+  margin: 20px 16px;
+  padding: 24px !important;
+  border-radius: 24px;
+}
+
+.social-div-styling h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.social-html #goal-posts-go-here .card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Match the post width to the profile card */
+.social-html #goal-posts-go-here {
+  width: auto;
+  margin: 0 16px;
+  padding: 0;
+}
+
+.social-html #goal-posts-go-here .col-12 {
+  padding: 0;
+}
+
+.social-html #goal-posts-go-here .card {
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+/* Personal posts use the same feed width */
+.personal-posts-html.social-html #goal-posts-go-here .card {
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.personal-posts-html .social-profile-card .btn {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* END HAJIN */

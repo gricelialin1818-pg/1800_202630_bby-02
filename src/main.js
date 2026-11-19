@@ -70,10 +70,18 @@ async function displayGoal() {
     }
 
     onAuthReady(async function (user) {
+        if (!user) return;
+        const cardsContainer = document.getElementById("cards-container");
+        cardsContainer.innerHTML = "";
+        const firstGoalCard = document.getElementById("first-goal-card");
+        firstGoalCard.style.display = "none";
+
         const goalsCollection = collection(db, "users", user.uid, "goals");
         //changed to refer to the userID individually instead of just
         //adding everything to users
         const goalsData = await getDocs(goalsCollection);
+        // Count active goals
+        let displayedGoalCount = 0;
         for (const goalDoc of goalsData.docs) {
             const goalDocData = goalDoc.data();
             const goalDesc = goalDocData["goal-description"];
@@ -91,7 +99,7 @@ async function displayGoal() {
                     <div class="card-body">
                     <i class="bi bi-trash-fill fs-4 position-absolute top-0 end-0 m-2 remove-post" role="button"
                             title="remove" style="color: black;"></i>
-                    <h4 class="card-title"><span id="goal-title"></span></h4>
+                    <h4 class="card-title"><span class="goal-title"></span></h4>
                     <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
                     </div>
                     </div>           
@@ -99,8 +107,9 @@ async function displayGoal() {
                 //Add trash (option to delete)
                 setupTrash(goalCard, user.uid, goalDoc.id);
 
-                goalCard.querySelector("#goal-title").textContent = goalName
-                document.getElementById("cards-container").appendChild(goalCard)
+                goalCard.querySelector(".goal-title").textContent = goalName
+                cardsContainer.appendChild(goalCard);
+                displayedGoalCount++;
 
             }
 
@@ -115,6 +124,12 @@ async function displayGoal() {
 
         }
 
+        // Show the card when no active goals are listed
+        if (displayedGoalCount === 0) {
+            firstGoalCard.style.display = "block";
+        } else {
+            firstGoalCard.style.display = "none";
+        }
     });
 
 
@@ -191,6 +206,3 @@ function setupTrash(card, userID, goalID) {
 //when the continue button is clicked
 displayGoal();
 showName();
-
-
-
