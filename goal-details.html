@@ -24,8 +24,6 @@
   <header class="goals-header compact-header" data-bs-theme="dark"><site-navbar></site-navbar></header>
 
   <!-- Main content goes here -->
-
-
   <div class="container-fluid d-flex flex-column gap-4 py-3">
   <div class="outdent-card-style-for-adding-goal goal-detail-panel">
       <h2 id="goalName">GOAL NAME</h2>
@@ -46,8 +44,7 @@
       </div>
 
       <hr>
-      <!-- Milestones -->
-      <!-- <h2 id="goal-steps">Goal Steps</h2> -->
+      <!-- Milestones within the goal for a user to check off-->
       <div id="goalSteps" class="form-field">
       </div>
 
@@ -57,23 +54,24 @@
       </div>
 
       <div id="buttonBar" class="p-3 d-grid gap-4 mt-auto mb-5">
+        <!-- Change the deadline of the goal -->
         <a id="editDeadlineLink" class="btn btn-outline-primary" hidden>Edit Deadline</a>
+        <!-- confirm changes to the milestones/steps -->
         <button id="updateBtn" class="btn btn-primary" type="button">Update Progress</button>
       </div>
-    </div> 
-  </div>
+    </div>
 
 
-  <!-- our own footer goes here -->
-  <site-footer></site-footer>
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
 
-  <!---------------------------------------------->
-  <!-- Your own JavaScript scripts go here      -->
-  <!---------------------------------------------->
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
 
-  <script type="module" src="/src/app.js"></script>
-  <script type="module" src="/src/main.js"></script>
-  <script type="module" src="/src/edit-goal-details.js"></script>
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/edit-goal-details.js"></script>
 </body>
 
 </html>

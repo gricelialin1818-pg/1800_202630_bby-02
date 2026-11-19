@@ -6,16 +6,15 @@ import { doc, onSnapshot, serverTimestamp, query, where } from "firebase/firesto
 import { onAuthReady } from "/src/authentication.js";
 import { db, auth } from "/src/firebaseConfig.js";
 
+
+await auth.authStateReady();//authenticate user first
+
 //APPLY FONT TO THE WHOLE {body}
 document.body.style.fontFamily = 'Inter-Main-Font'
 
-const goalId = sessionStorage.getItem("currentPostId");
-const postImage = sessionStorage.getItem("currentPostImage");
-const postName = sessionStorage.getItem("currentPostName");
-const postDescription = sessionStorage.getItem("currentPostDescription");
-await auth.authStateReady();
+
 const user = auth.currentUser;
-let postsLiked = [];
+let postsLiked = [];//default postsLiked to an empty list
 
 const posts = await getDocs(collection(db, "posts"));
 let userPosts = 0;
@@ -27,7 +26,7 @@ posts.forEach((doc) => {
     };
 });
 
-document.getElementById("user's-posts").textContent = userPosts
+document.getElementById("user's-posts").textContent = userPosts //Update post count
 
 
 function showName() {
@@ -52,7 +51,6 @@ function showName() {
 //manual adding of post data for seeding
 function addGoalData() {
     const goalsRef = collection(db, "posts");
-    console.log("Adding sample post data...");
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
         comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
@@ -66,12 +64,11 @@ function addGoalData() {
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
         comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
-
     });
 }
 
 
-//seeding goals if we don't have any in the firebase
+//seeding goals if we don't have any in the firebase. Used in early stages
 async function seedGoals() {
     if (!window.location.pathname.includes('social.html')) {
         return; // Exit early if we are not on the correct page
@@ -81,7 +78,6 @@ async function seedGoals() {
     const querySnapshot = await getDocs(goalsRef);
 
     if (querySnapshot.empty) {
-        console.log("Goal posts collection is empty. Seeding data...");
         addGoalData();
     } else {
         console.log("Goal posts collection already contains data. Skipping seed.");
@@ -128,7 +124,7 @@ async function displayGoalPostsDynamically() {
             }
             newcard.querySelector('.comment').href = `comments.html?id=${goalPostDoc.id}`;
 
-            setupHeart(newcard, goalPostDoc.id);
+            setupHeart(newcard, goalPostDoc.id);//Setup heart on each post
 
 
 

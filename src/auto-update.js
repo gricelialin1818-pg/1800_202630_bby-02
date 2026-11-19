@@ -1,3 +1,7 @@
+//Note, the auto update function was scrapped for the mvp
+//Ordinarily, the intent was for a user to post a goal whether they finished it or not
+//By setting an auto-update, the post would update every x days to show the user's progress
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -32,6 +36,7 @@ function showName() {
     });
 }
 
+//Update post document with day set in auto update
 async function saveAutoUpdateDaySettings(selectedDay) {
     //Reference to collections -> PostID -> autoUpdateDay
     const privacyDocRef = doc(db, "posts", goalId);
@@ -43,6 +48,7 @@ async function saveAutoUpdateDaySettings(selectedDay) {
     }
 }
 
+//Update post document the time set in auto update
 async function saveAutoUpdateTimeSettings(selectedTime) {
     //Reference to collections -> PostID -> autoUpdateTime
     const privacyDocRef = doc(db, "posts", goalId);
@@ -54,6 +60,7 @@ async function saveAutoUpdateTimeSettings(selectedTime) {
     }
 }
 
+//Set a post date in case a user wants to schedule their post for later
 async function savePostDateSettings(selectedDate) {
     //Reference to collections -> PostID -> postDate
     const privacyDocRef = doc(db, "posts", goalId);

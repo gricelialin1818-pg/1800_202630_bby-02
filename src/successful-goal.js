@@ -46,7 +46,7 @@ onAuthReady(async (user) => {
             return;
         }
 
-        displayGoalDetails(goalDoc.data());
+        displayGoalDetails(goalDoc.data());//display the goal with the data as an argument
         // Link to the deadline form
         const editDeadlineLink = document.getElementById("editDeadlineLink");
         if (editDeadlineLink) {
@@ -139,6 +139,6 @@ function setupUpdateButton(goalDetails, getGoal) {
         }
 
         // Keep the goal ID so the next page knows which goal to show
-       
+
     });
 }

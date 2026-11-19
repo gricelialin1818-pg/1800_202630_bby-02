@@ -13,6 +13,7 @@ const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
 
+//Only replace the elements in the html if these details from the session storage exist
 if (!(postImage == "null" || postImage == null)) {
     document.getElementById("postImage").src = postImage;
 }
@@ -22,7 +23,7 @@ if (postName) {
 if (postDescription) {
     document.getElementById("postDescription").textContent = postDescription;
 }
-// Fetch from Firestore using goalId...
+
 
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status

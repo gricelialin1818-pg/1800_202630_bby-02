@@ -65,8 +65,9 @@
 
 
     <section class="mb-5">
+        <!-- Shows the post user is commenting on -->
         <div class="col-12">
-            <div class="card">
+            <div class="card mx-auto" style="max-width: 500px">
                 <img class="card-img-top card-image" src="..." alt="Goal Image"
                     style="max-height: 320px; min-height: 300px;">
                 <div class="card-body">
@@ -76,6 +77,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Comment form for user to fill -->
         <section class="container mt-4">
             <h4>Write a comment</h4>
             <form id="commentForm" novalidate>
@@ -86,11 +89,13 @@
             </form>
         </section>
 
+        <!-- Comments section -->
         <section class="container mt-4 card shadow-sm bg-light">
             <h2>Latest comments</h2>
             <div id="comments-go-here"></div>
         </section>
 
+        <!-- Template for comments to use -->
         <template id="commentTemplate">
             <div class="card mb-2">
                 <div class="card-body">
@@ -100,8 +105,6 @@
             </div>
         </template>
     </section>
-
-    <!-- our own footer goes here -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript scripts go here      -->

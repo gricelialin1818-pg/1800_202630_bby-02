@@ -103,7 +103,7 @@ function collectGoalSteps() {
       await updateDoc(dbRef, {
         goalSteps: goalSteps
       });
-    
+
 
       window.location.href = "deadline.html";
     }
@@ -114,12 +114,3 @@ function collectGoalSteps() {
 
 const saveStepsButton = document.getElementById("save-goal-steps");
 saveStepsButton.addEventListener("click", collectGoalSteps);
-
-
-
-// if (saveStepsButton) {
-//   saveStepsButton.addEventListener("click," (event) => {
-//     console.log("Continue clicked");
-//   });
-// }
-// 

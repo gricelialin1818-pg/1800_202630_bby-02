@@ -7,18 +7,15 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+//Import alerts and confirms from Swal
+import Swal from 'sweetalert2'
 
 //APPLY FONT TO THE WHOLE {body}
 document.body.style.fontFamily = 'Inter-Main-Font'
 
 
-// If you have custom global styles, import them as well:
-// import '../styles/style.css';
-
-
 // Import the file that has the authentication helper function we want to use.
 // The function we want to use is called "onAuthReady" which returns the login state
-
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
     onAuthReady(function (user) {  // Firebase passes the user object (or null)
@@ -54,14 +51,6 @@ async function addGoal(userID, goalSubject, goalSteps) {
     }
 }
 
-
-// ! Test of addGoal in sprint 2. Turned off for now
-// addGoal("user123", "Pass COMP 1537", [
-//     "Finish Assignment 4",
-//     "Review Express routing",
-//     "Practice for quiz"
-// ]);
-
 // Function to retrieve goal name and description from the
 //database and put them into cards on the mainGoalsListed page
 async function displayGoal() {
@@ -96,12 +85,12 @@ async function displayGoal() {
                 // as the empty array on line 79 and the array in the comparison are two different arrays
                 goalCard.innerHTML = `
                     <div class="card">
-                    <div class="card-body">
-                    <i class="bi bi-trash-fill fs-4 position-absolute top-0 end-0 m-2 remove-post" role="button"
-                            title="remove" style="color: black;"></i>
-                    <h4 class="card-title"><span class="goal-title"></span></h4>
-                    <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
-                    </div>
+                        <div class="card-body">
+                        <i class="bi bi-trash-fill fs-4 position-absolute top-0 end-0 m-2 remove-goal" role="button"
+                                title="remove" style="color: black;"></i>
+                        <h4 class="card-title"><span id="goal-title"></span></h4>
+                        <a href="goal-details.html?id=${goalDoc.id}" class="btn btn-primary theme-primary">Details</a>
+                        </div>
                     </div>           
                     `
                 //Add trash (option to delete)
@@ -112,16 +101,6 @@ async function displayGoal() {
                 displayedGoalCount++;
 
             }
-
-
-
-
-
-
-
-
-            // 
-
         }
 
         // Show the card when no active goals are listed
@@ -131,8 +110,6 @@ async function displayGoal() {
             firstGoalCard.style.display = "none";
         }
     });
-
-
 }
 
 
@@ -154,8 +131,7 @@ async function collectGoalData() {
                 "goal-name": goalNameInputValue
             });
 
-
-
+            //Place goalid into session storage for other js and pages to pull later
             sessionStorage.setItem("newGoalId", newGoal.id);
 
             const savedGoal = await getDoc(newGoal);
@@ -164,13 +140,10 @@ async function collectGoalData() {
 
 
             window.location.href = "add-goal-details.html"
-
         }
     });
 
 }
-
-
 
 
 const submitButton = document.getElementById("save-goal");
@@ -181,25 +154,48 @@ if (submitButton) {
                 collectGoalData(user.uid)
             }
         });
-
-
     });
 }
 
+
+//Function to set up trash for each goal 
 function setupTrash(card, userID, goalID) {
-    const trash = card.querySelector(".remove-post");
+    const trash = card.querySelector(".remove-goal");
 
     // When trash is clicked, confirm, delete, then reload page
     trash.addEventListener("click", async function () {
         console.log(goalID);
-        const deleteConfirmation = confirm("Are you sure you want to delete this post?")
-        if (deleteConfirmation) {
+        //Send confirmation message
+        const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            confirmButtonColor: "#20263A",
+            cancelButtonColor: "#93A0BF",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        })
+        //If confirmed
+        if (result.isConfirmed) {
             await deleteDoc(doc(db, "users", userID, "goals", goalID))
-            console.log("Deleted " + goalID)
             location.reload();
+            swalWithBootstrapButtons.fire({
+                title: "Deleted!",
+                text: "Your goal has been deleted.",
+                icon: success
+            });
+            //If cancelled
+        } else if (result.dismess === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire({
+                title: "Deletion Cancelled",
+                icon: "error"
+            })
         }
     });
 }
+
 
 
 //only run the collectGoalData function
