@@ -10,6 +10,9 @@ import { db } from "/src/firebaseConfig.js";
 //Import alerts and confirms from Swal
 import Swal from 'sweetalert2'
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 
 
 // Import the file that has the authentication helper function we want to use.

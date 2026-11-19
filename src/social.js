@@ -6,7 +6,13 @@ import { doc, onSnapshot, serverTimestamp, query, where } from "firebase/firesto
 import { onAuthReady } from "/src/authentication.js";
 import { db, auth } from "/src/firebaseConfig.js";
 
+
 await auth.authStateReady();//authenticate user first
+
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
+
 const user = auth.currentUser;
 let postsLiked = [];//default postsLiked to an empty list
 

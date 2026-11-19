@@ -7,8 +7,14 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+
 //Alerts and confirms import
 import Swal from 'sweetalert2'
+
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
+
 
 
 async function displayCompletedGoal() {

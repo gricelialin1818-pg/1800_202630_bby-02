@@ -14,7 +14,7 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="personal-posts-html">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -59,10 +59,11 @@
 
     <!-- Main content goes here -->
     <div class="card" style="max-height: 320px">
-        <div class="d-flex profile-summary" style="align-items: center">
+        <br>
+        <div class="d-flex profile-summary d-flex flex-column align-items-center">
             <img class="rounded-circle profile-image p-1" src="/images/grey.png" alt="Hike Image"
                 style="max-height: 80px">
-            <h1 class="profile-summary-name"><span id="name-goes-here">User</span>'s goal
+            <h1 class="profile-summary-name "><span id="name-goes-here">User</span>'s goal
                 posts</h1>
         </div>
         <div>
@@ -71,10 +72,8 @@
         <a class="btn btn-outline-primary" id="make-post" role="button" href="select-goal-to-post.html">Post Goal</a>
     </div>
 
-    <div class="container-fluid bg-body text-dark p-5">
+    <div class="bg-body text-dark p-5 social-div-styling">
         <h1>What have you been up to?</h1>
-        <div id="goal-posts-go-here" class="row">
-        </div>
     </div>
 
     <!-- template for posts to fill -->

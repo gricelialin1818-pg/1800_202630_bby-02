@@ -17,6 +17,9 @@ const postDescription = sessionStorage.getItem("currentPostDescription");
 console.log("Current Post ID:", goalId);
 
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
     onAuthReady(function (user) {  // Firebase passes the user object (or null)

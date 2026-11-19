@@ -1,0 +1,70 @@
+/* KEELIE'S STYLES.. any default inline is from the bootstrap defaults */
+
+
+
+h1 {
+    text-align: center;
+    /*put the title in the center top*/
+}
+
+
+.card-div {
+    /*make cards all appear on the same line instead of stacking*/
+    gap: 7%;
+    /*spacing between cards*/
+    padding: 3%;
+    /*spacing all around the group of cards*/
+}
+
+div.card {
+    margin: 1.5%;
+}
+
+
+/* #shift-left {
+        margin-left: %;
+
+    } */
+
+.goal-details-input {
+    width: 100%;
+}
+
+.steps-design {
+    margin: 2%;
+}
+
+.add-goal-details-buttons {
+    display: block;
+    margin-left: 2%;
+    margin-top: 1.1%;
+}
+
+#earned-it {
+    /*this styling is for a very specific p tag in the achievements page*/ 
+    text-align: center;
+}
+
+
+
+
+.center-login-button {
+    display: flex;
+    margin:auto;
+    
+    
+}
+
+.center-login-text {
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
+
+/* KEELIE'S STYLES */
+
+/* GRICELIA */
+/* GRICELIA */
