@@ -17,6 +17,7 @@ const firebaseConfig = {
 };
 
 
+
 // src/authentication.js
 // ------------------------------------------------------------
 // Part of the COMP1800 Projects 1 Course (BCIT).

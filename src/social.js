@@ -6,6 +6,9 @@ import { doc, onSnapshot, serverTimestamp, query, where } from "firebase/firesto
 import { onAuthReady } from "/src/authentication.js";
 import { db, auth } from "/src/firebaseConfig.js";
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 const goalId = sessionStorage.getItem("currentPostId");
 const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");

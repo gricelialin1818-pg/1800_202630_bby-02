@@ -8,6 +8,10 @@ import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
+
 // If you have custom global styles, import them as well:
 // import '../styles/style.css';
 

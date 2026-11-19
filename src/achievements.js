@@ -7,7 +7,8 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
-
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
 
 //in order for the cards to be sorted into achievements and goal tasks pages,
 //the boolean array needs to exist.

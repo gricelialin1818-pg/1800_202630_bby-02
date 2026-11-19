@@ -16,6 +16,9 @@ import {
 } from './authentication.js';
 
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 // --- Login and Signup Page ---
 // Handles toggling between Login/Signup views and form submits
 // using plain DOM APIs for simplicity and maintainability.
