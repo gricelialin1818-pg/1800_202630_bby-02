@@ -96,7 +96,7 @@ async function displayGoal() {
                 //Add trash (option to delete)
                 setupTrash(goalCard, user.uid, goalDoc.id);
 
-                goalCard.querySelector(".goal-title").textContent = goalName
+                goalCard.querySelector(".card-title").textContent = goalName;
                 cardsContainer.appendChild(goalCard);
                 displayedGoalCount++;
 
