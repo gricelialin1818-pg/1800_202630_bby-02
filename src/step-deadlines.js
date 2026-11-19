@@ -1,6 +1,9 @@
 import { db } from "./firebaseConfig.js";
 import { doc, getDoc } from "firebase/firestore";
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 export async function getStepDeadlines(userId, goalId) {
   const goalRef = doc(db, "users", userId, "goals", goalId);
   const goalSnapshot = await getDoc(goalRef);

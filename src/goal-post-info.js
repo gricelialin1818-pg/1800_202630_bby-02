@@ -7,6 +7,8 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db, auth } from "/src/firebaseConfig.js";
 
+
+
 const edit = document.getElementById('goalPostDescription');
 const cloud = "tfztlj18"
 const cloud_convert_preset = "goalGetter"

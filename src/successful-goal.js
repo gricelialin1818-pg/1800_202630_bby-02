@@ -3,6 +3,10 @@ import { db } from "./firebaseConfig.js";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { onAuthReady } from "./authentication.js";
 
+
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 // Which goal?
 // 1. From the address, e.g. goal-details.html?id=pFXuH8nTrXrnl9wWnrMb
 // 2. Otherwise the goal just created (saved by main.js / add-goal-details.js / deadline.js)

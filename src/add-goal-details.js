@@ -5,6 +5,8 @@ import { db, auth } from "./firebaseConfig.js";
 import { onAuthReady } from "./authentication.js";
 import { doc, updateDoc, onSnapshot, serverTimestamp, collection, getDoc, getDocs, setDoc, addDoc, deleteDoc, deleteField } from "firebase/firestore";
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
 
 
 const stepsContainer = document.getElementById("steps-container");
