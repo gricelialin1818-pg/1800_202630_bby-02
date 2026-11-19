@@ -14,7 +14,6 @@ import Swal from 'sweetalert2'
 document.body.style.fontFamily = 'Inter-Main-Font'
 
 
-
 // Import the file that has the authentication helper function we want to use.
 // The function we want to use is called "onAuthReady" which returns the login state
 function showName() {
@@ -60,10 +59,18 @@ async function displayGoal() {
     }
 
     onAuthReady(async function (user) {
+        if (!user) return;
+        const cardsContainer = document.getElementById("cards-container");
+        cardsContainer.innerHTML = "";
+        const firstGoalCard = document.getElementById("first-goal-card");
+        firstGoalCard.style.display = "none";
+
         const goalsCollection = collection(db, "users", user.uid, "goals");
         //changed to refer to the userID individually instead of just
         //adding everything to users
         const goalsData = await getDocs(goalsCollection);
+        // Count active goals
+        let displayedGoalCount = 0;
         for (const goalDoc of goalsData.docs) {
             const goalDocData = goalDoc.data();
             const goalDesc = goalDocData["goal-description"];
@@ -89,10 +96,18 @@ async function displayGoal() {
                 //Add trash (option to delete)
                 setupTrash(goalCard, user.uid, goalDoc.id);
 
-                goalCard.querySelector("#goal-title").textContent = goalName
-                document.getElementById("cards-container").appendChild(goalCard)
+                goalCard.querySelector(".goal-title").textContent = goalName
+                cardsContainer.appendChild(goalCard);
+                displayedGoalCount++;
 
             }
+        }
+
+        // Show the card when no active goals are listed
+        if (displayedGoalCount === 0) {
+            firstGoalCard.style.display = "block";
+        } else {
+            firstGoalCard.style.display = "none";
         }
     });
 }
@@ -187,6 +202,3 @@ function setupTrash(card, userID, goalID) {
 //when the continue button is clicked
 displayGoal();
 showName();
-
-
-

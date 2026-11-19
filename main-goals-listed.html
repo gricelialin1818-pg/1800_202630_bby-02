@@ -1,37 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <title>My Goals - GoalGetter</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+  </head>
+  <body class="main-goals-listed">
+    <header class="goals-header" data-bs-theme="dark">
+      <site-navbar></site-navbar>
+      <h1 class="goals-title">
+        <span class="goal-owner"><span id="name-goes-here">User</span>'s</span>
+        <span class="goal-heading">List of Goals!</span>
+      </h1>
+    </header>
 
-<head>
-  <title>My BCIT Project</title>
-  <meta name="comp1800 template" content="My 1800 App">
+    <section id="first-goal-card" class="first-goal-card">
+      <h2>Add a new goal</h2>
+      <p>Break your goal into smaller steps.</p>
+      <a href="add-goal-screen.html" class="btn btn-primary">Add Goal</a>
+    </section>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Web Components for shared navbar and footer layout -->
-  <script type="module" src="/src/components/site-navbar.js"></script>
-  <script type="module" src="/src/components/site-footer.js"></script>
-</head>
-
-<body class="main-goals-listed">
-  <site-navbar></site-navbar>
-
-
-  <h1 class="display-5 fw-bold"><span id="name-goes-here">User</span>'s List of Goals!</h1>
-
-  <div class="card-div" id="cards-container">
-
-    <h4 class="card-title"><span id="goal-title"></span></h4>
-
-  </div>
-
-  </div>
-
-  <site-footer></site-footer>
-</body>
-
-
-<!--Styles and imported bootstrap-->
-<script type="module" src="./src/main.js"></script>
-<link rel="stylesheet" href="styles/style.css">
+    <div class="card-div" id="cards-container"></div>
+    <site-footer></site-footer>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

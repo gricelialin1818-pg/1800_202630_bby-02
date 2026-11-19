@@ -11,7 +11,7 @@
     <!-- Other libraries go here -->
     <script type="module" src="/src/components/site-navbar.js"></script>
     <script type="module" src="/src/components/site-footer.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="social-html">
@@ -20,63 +20,38 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <!-- navbar is different from component and adjusted for this page-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="mainGoalsListed.html">Post</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav" style="text-align: center">
-                    <hr>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Profile</a>
-                    </li>
-                    <hr>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="achievements.html">Achievements</a>
-                    </li>
-                    <hr>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Settings</a>
-                    </li>
-                    <hr>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Help</a>
-                    </li>
-                    <hr>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- our own navbar goes here -->
+    <header class="goals-header compact-header" data-bs-theme="dark">
+      <site-navbar></site-navbar>
+    </header>
 
     <!-- Main content goes here -->
-    <div class="card" style="max-height: 320px">
+    <div class="card social-profile-card" style="max-height: 320px">
         <br>
         <div class="profile-summary d-flex flex-column align-items-center">
             <img class="rounded-circle profile-image p-1" src="/images/grey.png" alt="Hike Image"
                 style="max-height: 80px">
             <h1 class="profile-summary-name"><span id="name-goes-here">User</span></h1>
         </div>
-        <div>
+        <br>
+        <div id="center-view-post-button">
             <a class="btn btn-outline-primary" id="edit-profile" role="button" href="personal-posts.html">View your
                 posts: <span id="user's-posts">0</span></a>
         </div>
-        <a class="btn btn-outline-primary" id="make-post" role="button" href="select-goal-to-post.html">Post Goal</a>
-    </div>
-
-    <div class="container-fluid bg-body text-dark p-5 justify-content-center">
-        <h1>What's the community up to these days?</h1>
-        <div id="goal-posts-go-here" class="row">
+        <br>
+        <div id="social-button-sizing">
+            <a class="btn btn-outline-primary" id="make-post" role="button" href="select-goal-to-post.html">Post Goal</a>
         </div>
     </div>
+
+    <div class=" bg-body text-dark p-5 social-div-styling">
+        <h1>What's the community up to these days?</h1>
+    </div>
+    <!-- SEPARATED DIV OF "WHATS UP TODAY?" -->
+
+    <div id="goal-posts-go-here" class="goal-div-container-styling" class="row">
+        </div>
+        <!--THIS IS WHERE GOAL POSTS GET PASTED -->
 
     <!-- template for posts to fill -->
     <template id="goal-card-template">

@@ -14,13 +14,14 @@
     <script type="module" src="/src/components/site-footer.js"></script>
 </head>
 
-<body>
+<body class="goal-flow completed-goal-page">
     <!-- our own navbar goes here -->
-    <site-navbar></site-navbar>
+    <header class="goals-header compact-header" data-bs-theme="dark"><site-navbar></site-navbar></header>
 
     <!-- Main content goes here -->
     <div class="container-fluid d-flex flex-column gap-4 py-3">
-        <h2>You Completed This Goal!</h2>
+        <div class="outdent-card-style-for-adding-goal goal-detail-panel">
+<h2 class="completion-title">You Completed This Goal!</h2>
 
         <h4 id="goalName">GOAL NAME</h4>
         <p id="goalDescription">GOAL DESCRIPTION</p>
@@ -57,6 +58,7 @@
         </div>
     </div>
 
+    </div>
     <!-- our own footer goes here -->
     <site-footer></site-footer>
 

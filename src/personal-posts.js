@@ -12,6 +12,9 @@ import Swal from 'sweetalert2'
 //APPLY FONT TO THE WHOLE {body}
 document.body.style.fontFamily = 'Inter-Main-Font'
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 await auth.authStateReady();
 const user = auth.currentUser;
 

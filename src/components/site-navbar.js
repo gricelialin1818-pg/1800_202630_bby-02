@@ -28,20 +28,24 @@ class SiteNavbar extends HTMLElement {
           </li>
           <hr>
 
-          <li class="nav-item">
+          <li class="nav-item menu-divider">
             <a class="nav-link active" href="achievements.html">Achievements</a>
           </li>
           <hr>
 
-          <li class="nav-item">
+          <li class="nav-item menu-divider">
             <a class="nav-link active" href="#">Settings</a>
           </li>
           <hr>
 
-          <li class="nav-item">
+          <li class="nav-item menu-divider">
             <a class="nav-link active" href="#">Help</a>
           </li>
           <hr>
+
+          <li class="nav-item menu-divider">
+            <a class="nav-link active" href="index.html">Sign Out</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -71,7 +75,7 @@ class SiteNavbar extends HTMLElement {
         // const signOutBtn = authControls.querySelector('#signOutBtn');
         // signOutBtn.addEventListener('click', logoutUser); // Callback: runs when Log out is clicked
 
-      } else { // User is NOT logged in, and gets redirected to login page if user clicks the login button
+      } else if (authControls) { // User is NOT logged in, and gets redirected to login page if user clicks the login button
         authControls.innerHTML = `<a class="btn btn-outline-light" id="loginBtn" href="/login.html" style="min-width: 80px;">Log in</a>`;
       }
     });
