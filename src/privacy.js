@@ -6,11 +6,13 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+//Collection post details from session storage to update certain information
 const goalId = sessionStorage.getItem("currentPostId");
 const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
 
+//Only replace the elements in the html if these details from the session storage exist
 if (!(postImage == "null" || postImage == null)) {
     document.getElementById("postImage").src = postImage;
 }
@@ -20,7 +22,7 @@ if (postName) {
 if (postDescription) {
     document.getElementById("postDescription").textContent = postDescription;
 }
-// Fetch from Firestore using goalId...
+
 
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status

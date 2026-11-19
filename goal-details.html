@@ -24,7 +24,7 @@
   <site-navbar></site-navbar>
 
   <!-- Main content goes here -->
-
+  <!-- Basic goal description -->
   <div class="container-fluid d-flex flex-column gap-4 py-3">
     <h2 id="goalName">GOAL NAME</h2>
     <p id="goalDescription">GOAL DESCRIPTION</p>
@@ -44,8 +44,7 @@
     </div>
 
     <hr>
-    <!-- Milestones -->
-    <!-- <h2 id="goal-steps">Goal Steps</h2> -->
+    <!-- Milestones within the goal for a user to check off-->
     <div id="goalSteps" class="form-field">
     </div>
 
@@ -55,7 +54,9 @@
     </div>
 
     <div id="buttonBar" class="p-3 d-grid gap-4 mt-auto mb-5">
+      <!-- Change the deadline of the goal -->
       <a id="editDeadlineLink" class="btn btn-outline-primary" hidden>Edit Deadline</a>
+      <!-- confirm changes to the milestones/steps -->
       <button id="updateBtn" class="btn btn-primary" type="button">Update Progress</button>
     </div>
   </div>

@@ -6,15 +6,13 @@ import { doc, onSnapshot, serverTimestamp, query, where } from "firebase/firesto
 import { onAuthReady } from "/src/authentication.js";
 import { db, auth } from "/src/firebaseConfig.js";
 
-const goalId = sessionStorage.getItem("currentPostId");
-const postImage = sessionStorage.getItem("currentPostImage");
-const postName = sessionStorage.getItem("currentPostName");
-const postDescription = sessionStorage.getItem("currentPostDescription");
+//Alerts and confirms import
+import Swal from 'sweetalert2'
 
 await auth.authStateReady();
 const user = auth.currentUser;
 
-// Fetch from Firestore using goalId...
+
 
 function showName() {
     // Pass a CALLBACK function to run when Firebase finishes checking login status
@@ -32,7 +30,7 @@ function showName() {
     });
 }
 
-//Display goal posts in social
+//Display only personal goal posts
 async function displayGoalPostsDynamically() {
     let cardTemplate = document.getElementById("goal-card-template");
     const q = query(
@@ -70,8 +68,7 @@ async function displayGoalPostsDynamically() {
             }
             newcard.querySelector('.comment').href = `comments.html?id=${goalPostDoc.id}`;
 
-            setupTrash(newcard, goalPostDoc.id);
-
+            setupTrash(newcard, goalPostDoc.id);//setup trash/delete option
 
 
             // Attach the new card to the container
@@ -89,11 +86,33 @@ function setupTrash(card, postID) {
 
     // When trash is clicked, confirm, delete, then reload page
     trash.addEventListener("click", async function () {
-        const deleteConfirmation = confirm("Are you sure you want to delete this post?")
-        if (deleteConfirmation) {
+        //Send confirmation message
+        const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            confirmButtonColor: "#20263A",
+            cancelButtonColor: "#93A0BF",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        })
+        //If confirmed
+        if (result.isConfirmed) {
             await deleteDoc(doc(db, "posts", postID))
-            console.log("Deleted " + postID)
             location.reload();
+            swalWithBootstrapButtons.fire({
+                title: "Deleted!",
+                text: "Your post has been deleted.",
+                icon: success
+            });
+            //If cancelled
+        } else if (result.dismess === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire({
+                title: "Deletion Cancelled",
+                icon: "error"
+            })
         }
     });
 }

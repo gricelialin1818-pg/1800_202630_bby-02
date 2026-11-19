@@ -18,6 +18,8 @@ export async function getStepDeadlines(userId, goalId) {
   );
 }
 
+
+//Calculate the due date for each step. i.e if you have 8 steps and 8 days, each step will have a deadline 1 day after the other
 export function calculateStepDeadlines(startDate, endDate, stepCount) {
   const deadlines = [];
 

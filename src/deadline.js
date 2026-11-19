@@ -6,6 +6,7 @@ const saveButton = document.getElementById("save-button");
 // Get the goal ID
 const editGoalId = new URLSearchParams(window.location.search).get("id");
 const goalId = editGoalId || sessionStorage.getItem("newGoalId");
+
 const startInput = document.getElementById("start_date");
 const endInput = document.getElementById("deadline");
 const timeInput = document.getElementById("time");
@@ -23,13 +24,14 @@ async function loadDeadlineSettings() {
   saveButton.disabled = true;
 
   try {
-    await auth.authStateReady();
+    await auth.authStateReady(); //wait for user to authenticate first
     const user = auth.currentUser;
     if (!user) {
       alert("Please log in first.");
       return;
     }
 
+    //search for the goal in the database. Return immediately if not found
     const goalSnapshot = await getDoc(doc(db, "users", user.uid, "goals", editGoalId));
     if (!goalSnapshot.exists()) {
       alert("Goal not found.");

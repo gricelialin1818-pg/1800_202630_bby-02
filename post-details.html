@@ -21,7 +21,7 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <!-- our own navbar goes here -->
+    <!-- navbar is different from component and adjusted for this page-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="social.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
@@ -63,9 +63,8 @@
     </nav>
 
     <!-- Main content goes here -->
-
+    <!-- card for js to fill if the user selected an already made goal, if not, left as is -->
     <div class="d-flex justify-content-center align-items-center p-2">
-        <!-- could try making this min-width; ask group -->
         <section class="card p-4" style="max-width: 300px;">
             <label for="imageUpload"><img id="placeHolderImage" src="/images/grey.png" class="card-img-top"
                     alt="..."></label>
@@ -77,7 +76,6 @@
             </div>
             <button id="continueDetailsButton" type="button" class="btn btn-outline-primary"
                 style="width:100%">Continue</button>
-
         </section>
     </div>
 

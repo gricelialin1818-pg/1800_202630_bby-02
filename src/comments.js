@@ -13,12 +13,12 @@ let currentUser = null;
 onAuthReady(async (user) => {
     if (!user) return;  // not logged in, authentication.js redirects them
     currentUser = user
-    if (!selectedPost) {
+    if (!selectedPost) { // Check if post exists
         showError("No post selected.");
         return;
     }
 
-    try {
+    try {//Try getting the post data
         const postDetails = doc(db, "posts", selectedPost);
         const goalDoc = await getDoc(postDetails);
 
@@ -64,7 +64,7 @@ async function displayComments() {
     try {
         const querySnapshot = await getDocs(q);  // Firebase call
 
-        //If there are no comments yet
+        //If there are no comments yet, container contains this call to action
         if (querySnapshot.empty) {
             container.innerHTML = "<p class='text-muted'>No comments yet. Be the first!</p>";
             return;
@@ -85,10 +85,10 @@ async function displayComments() {
         console.error("Error loading comments:", error);
     }
 }
-displayComments();
 
+//form to submit comments
 async function submitComment(event) {
-    event.preventDefault();
+    event.preventDefault();//prevent html doing its default behavior for forms
 
     const newComment = {
         postID: selectedPost,                                // the PARENT (from the URL)
@@ -112,3 +112,5 @@ async function submitComment(event) {
 }
 
 document.getElementById("commentForm").addEventListener("submit", submitComment); // listen for when the comment submit button is pressed
+
+displayComments();//display the comments

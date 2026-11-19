@@ -13,6 +13,7 @@
 <body class="d-flex flex-column min-vh-100">
   <site-navbar></site-navbar>
 
+
   <main class="container py-4 flex-grow-1" style="max-width: 700px">
     <h1 class="display-5 fw-bold mb-2">Goal Steps</h1>
     <p class="text-muted">
@@ -20,6 +21,7 @@
     </p>
 
     <div id="steps-container" class="mb-3">
+      <!-- Input steps for a goal -->
       <div class="goal-step-entry mb-3">
         <label for="goal-step-1" class="form-label">Step 1</label>
         <div class="input-group">
@@ -32,21 +34,22 @@
       </div>
     </div>
 
+    <!-- Add another step to the goal -->
     <div class="d-grid gap-2">
       <button id="add-step-button" class="btn btn-outline-primary" type="button">
         Add Step
       </button>
 
+      <!-- Continue to the deadline section of setting goals -->
       <button id="save-goal-steps" class="btn btn-primary" type="button">
         Continue
       </button>
-
     </div>
+
   </main>
 
   <site-footer></site-footer>
 
-  <script type="module" src="/src/app.js"></script>
   <script type="module" src="/src/add-goal-details.js"></script>
 </body>
 
