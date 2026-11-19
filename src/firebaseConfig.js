@@ -13,6 +13,9 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+
+
+
 // ---------------------------------------------------------
 // Read Firebase configuration from Vite environment variables.
 // These are defined in your .env file as:

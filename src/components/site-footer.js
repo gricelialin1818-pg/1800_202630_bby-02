@@ -1,7 +1,7 @@
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-            <nav class="navbar fixed-bottom bg-body-tertiary">
+            <nav class="navbar fixed-bottom bg-body-tertiary" >
     <div class="container-fluid mx-auto" style="width: 950px">
       <a class="navbar-brand" href="main-goals-listed.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor"
           class="bi bi-house-fill" viewBox="0 0 16 16">

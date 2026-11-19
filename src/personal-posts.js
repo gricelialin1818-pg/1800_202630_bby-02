@@ -11,6 +11,9 @@ const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");
 const postDescription = sessionStorage.getItem("currentPostDescription");
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 await auth.authStateReady();
 const user = auth.currentUser;
 

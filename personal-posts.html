@@ -14,7 +14,7 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="personal-posts-html">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -59,30 +59,35 @@
 
     <!-- Main content goes here -->
     <div class="card" style="max-height: 320px">
-        <div class="d-flex profile-summary" style="align-items: center">
+        <br>
+        <div class="d-flex profile-summary d-flex flex-column align-items-center">
             <img class="rounded-circle profile-image p-1" src="/images/grey.png" alt="Hike Image"
                 style="max-height: 80px">
-            <h1 class="profile-summary-name"><span id="name-goes-here">User</span>'s goal
+            <h1 class="profile-summary-name "><span id="name-goes-here">User</span>'s goal
                 posts</h1>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-primary" id="edit-profile"><a href="social.html">
+            <button type="button" class="btn btn-outline-primary center-login-button" id="edit-profile"><a href="social.html">
                     Return to community <span id="user's-posts"></span></a></button>
         </div>
-        <button type="button" class="btn btn-outline-primary" id="make-post"><a href="select-goal-to-post.html">Post
+        <br>
+        <button type="button" class="btn btn-outline-primary center-login-button" id="make-post"><a href="select-goal-to-post.html">Post
                 Goal</a></button>
+        <br>
     </div>
-
-    <div class="container-fluid bg-body text-dark p-5">
+    
+    <div class="bg-body text-dark p-5 social-div-styling">
         <h1>What have you been up to?</h1>
-        <div id="goal-posts-go-here" class="row">
-        </div>
     </div>
 
+
+    <div id="goal-posts-go-here" class="row">
+    </div>
+    <!-- DIV FOR EACH POST TO GO INTO -->
 
     <template id="goal-card-template" style="width: 100%">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-12" id="goal-card-template">
+            <div class="card" style="border-radius: 12px; overflow: hidden;">
                 <img class="card-img-top card-image" src="..." alt="Goal Image"
                     style="max-height: 320px; min-height: 300px;">
                 <i class="bi bi-trash-fill fs-4 position-absolute top-0 start-0 m-2 remove-post" role="button"

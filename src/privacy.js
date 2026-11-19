@@ -6,6 +6,8 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+
+
 const goalId = sessionStorage.getItem("currentPostId");
 const postImage = sessionStorage.getItem("currentPostImage");
 const postName = sessionStorage.getItem("currentPostName");

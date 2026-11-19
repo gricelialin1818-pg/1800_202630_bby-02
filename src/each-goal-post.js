@@ -1,6 +1,9 @@
 import { db } from "./firebaseConfig.js";
 import { doc, getDoc } from "firebase/firestore";
 
+//APPLY FONT TO THE WHOLE {body}
+document.body.style.fontFamily = 'Inter-Main-Font'
+
 // Declare variable: the goal ID from the URL (eachGoal.html?docID=abc123)
 const params = new URL(window.location.href).searchParams;
 const goalPostID = params.get("docID");
