@@ -1,0 +1,230 @@
+/* KEELIE'S STYLES.. any default inline is from the bootstrap defaults */
+
+@font-face {
+    font-family: 'Inter-Main-Font';
+    src: url("../fonts/Inter-VariableFont_opsz,wght.ttf"); 
+}
+
+
+body {
+    background-color: #EAF0F8;
+}
+
+
+h1 {
+    text-align: center;
+    /*put the title in the center top*/
+    font-weight: bold;
+    
+}
+
+
+.card-div {
+    /*make cards all appear on the same line instead of stacking*/
+    gap: 7%;
+    /*spacing between cards*/
+    padding: 3%;
+    /*spacing all around the group of cards*/
+}
+
+.card {
+    /*remove the border on individual cards*/
+    border:  none;
+
+}
+
+div.card {
+    margin: 1.5%;
+
+}
+
+.achievements div.card {
+    margin: 1.5%;
+    box-shadow: 0 8px 24px rgba(32,38,58,0.1)
+
+}
+
+.main-goals-listed div.card {
+    margin: 1.5%;
+    box-shadow: 0 8px 24px rgba(32,38,58,0.1)
+
+}
+
+.outdent-card-style-for-adding-goal {
+    background-color:white;
+    box-shadow: 0 8px 24px rgba(32,38,58,0.1);
+    padding-top:2%;
+    padding-bottom:2%;
+    padding: 3%;
+    margin: 1.5%;
+    border-radius: 20px;
+    overflow:hidden;
+}
+
+/*only have the hover effect on div.cards on the achievements or main-goals-listed pages*/
+.achievements div.card:hover {
+    margin: 1.5%;
+    background-color: #93A0BF;
+    /*cards that are hovered over turn blue*/
+} 
+
+
+.main-goals-listed div.card:hover {
+    margin: 1.5%;
+    background-color: #93A0BF;
+    /*cards that are hovered over turn blue*/
+} 
+
+.goal-details {
+    /*styling on the body tag of the goal details page*/
+    background-color:#D9E3F3;
+}
+
+.update-progress {
+    /*styling on the body tag of the update-progress page*/
+    background-color:#D9E3F3;
+}
+
+.social-html {
+    /*styling on the body tag of the social page*/
+    background-color:#D9E3F3;
+    padding-bottom: 100px;
+    /*the padding is so that the last card's bottom edge doesnt clip under the footer bar*/
+}
+
+#center-view-post-button {
+   display: flex; 
+   justify-content: center; 
+   align-items: center;
+   /*this id is applied to the div that the view post button is inside (social.html)*/
+}
+
+#social-button-sizing {
+    /*make the post goal button the same width as the view posts button*/
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-bottom:3%;
+}
+
+.social-div-styling {
+    margin-left:6%;
+    margin-right:6%;
+    box-shadow: 0 8px 24px rgba(32,38,58,0.1);
+    /*the giant social div with all the posts in it*/
+    border-radius: 20px;
+}
+
+
+
+
+
+/* #shift-left {
+        margin-left: %;
+
+    } */
+
+.goal-details-input {
+    width: 100%;
+}
+
+.steps-design {
+    margin: 2%;
+}
+
+.add-goal-details-buttons {
+    display: block;
+    margin-left: 2%;
+    margin-top: 1.1%;
+}
+
+#earned-it {
+    /*this styling is for a very specific p tag in the achievements page*/ 
+    text-align: center;
+}
+
+
+.center-login-button {
+    display: flex;
+    margin:auto;
+    
+}
+
+
+.center-login-text {
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.goal-div-container-styling {
+    width:78%;
+    justify-content: center; 
+    align-items: center;
+    margin-inline: auto;
+    /*margin-inline:auto centers cards by making their margins the same*/
+    
+}
+
+.personal-posts-html {
+    background-color:#D9E3F3;
+    padding-bottom: 100px;
+}
+
+#goal-posts-go-here .card {
+    width: 78%;
+    margin-inline: auto;
+    /*styling cards in the personal posts page*/
+}
+
+/*STYLING BUTTONS TO BE THEMATICALLY COLORED!!!*/
+button #auto-update-time-placeholder{
+    background-color: #20263A !important;
+    /*importatnt overrides the bootstrap blue*/
+    border:0;
+}
+
+.btn {
+    background-color: #20263A !important;
+    /*importatnt overrides the bootstrap blue*/
+    border:0;
+}
+
+#coloring-buttons{
+    background-color: #20263A !important;
+    /*importatnt overrides the bootstrap blue*/
+    border:0;
+}
+
+#post-details-html {
+    /*bg color styling for the post-details html*/
+    background-color:#D9E3F3;
+}
+
+#goal-post-card {
+    border-radius:20px;
+}
+
+
+#confirmed-post-congrats {
+    margin-top: -300px;
+    margin-bottom:120px;
+    width:60%;
+    margin-inline: auto;
+}
+
+.confirmed-post-button-home {
+    width:60%;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* KEELIE'S STYLES */
+
+/* GRICELIA */
+/* GRICELIA */
