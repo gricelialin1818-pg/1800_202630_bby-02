@@ -101,6 +101,8 @@ async function displayGoalPostsDynamically() {
             let newcard = cardTemplate.content.cloneNode(true);
             // Get goal data once
             const goalPost = goalPostDoc.data();
+            const date = goalPost.timestamp.toDate();
+            const formatDate = date.toLocaleDateString('en-US');
 
 
             // Populate the card with goal data
@@ -122,6 +124,7 @@ async function displayGoalPostsDynamically() {
             if (goalPost.likes) {
                 newcard.querySelector('.like-count').textContent = goalPost.likes;
             }
+            newcard.querySelector('.post-date').textContent = formatDate;
             newcard.querySelector('.comment').href = `comments.html?id=${goalPostDoc.id}`;
 
             setupHeart(newcard, goalPostDoc.id);//Setup heart on each post

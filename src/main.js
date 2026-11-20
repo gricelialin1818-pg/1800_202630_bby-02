@@ -181,17 +181,7 @@ function setupTrash(card, userID, goalID) {
         if (result.isConfirmed) {
             await deleteDoc(doc(db, "users", userID, "goals", goalID))
             location.reload();
-            swalWithBootstrapButtons.fire({
-                title: "Deleted!",
-                text: "Your goal has been deleted.",
-                icon: success
-            });
             //If cancelled
-        } else if (result.dismess === Swal.DismissReason.cancel) {
-            swalWithBootstrapButtons.fire({
-                title: "Deletion Cancelled",
-                icon: "error"
-            })
         }
     });
 }
