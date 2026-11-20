@@ -44,7 +44,7 @@ class SiteNavbar extends HTMLElement {
           <hr>
 
           <li class="nav-item menu-divider">
-            <a class="nav-link active" href="index.html">Sign Out</a>
+            <a class="nav-link active" href="#" id="signOutBtn">Sign Out</a>
           </li>
         </ul>
       </div>
@@ -59,25 +59,17 @@ class SiteNavbar extends HTMLElement {
   * Uses callbacks to detect auth changes and handle the Log out button click.
   */
   renderAuthControls() {
-    const authControls = this.querySelector('#authControls'); // Find #authControls inside this navbar
+    const signOutBtn = this.querySelector('#signOutBtn');
 
-    // Invisible placeholder prevents layout shifting while Firebase checks login status
-    // ! sign out button code
-    // authControls.innerHTML = `<div class="btn btn-outline-light" style="visibility: hidden; min-width: 80px;">Log out</div>`;
+    // Click → sign out, then logoutUser redirects to index.html
+    signOutBtn.addEventListener('click', async (event) => {
+      event.preventDefault();
+      await logoutUser();
+    });
 
-    // Pass a callback that runs when Firebase reports the login status
-    onAuthReady(function (user) { // Receives the user object (or null)
-
-      if (user) { // User is logged in
-        // ! 3 lines below are code for sign out. Causing error pop ups as no sign out button has been made
-        // authControls.innerHTML = `<button class="btn btn-outline-light" id="signOutBtn" type="button" style="min-width: 80px;">Log out</button>`;
-
-        // const signOutBtn = authControls.querySelector('#signOutBtn');
-        // signOutBtn.addEventListener('click', logoutUser); // Callback: runs when Log out is clicked
-
-      } else if (authControls) { // User is NOT logged in, and gets redirected to login page if user clicks the login button
-        authControls.innerHTML = `<a class="btn btn-outline-light" id="loginBtn" href="/login.html" style="min-width: 80px;">Log in</a>`;
-      }
+    // Show Sign Out only when someone is logged in
+    onAuthReady((user) => {
+      signOutBtn.parentElement.style.display = user ? "" : "none";
     });
   }
 }
