@@ -52,6 +52,8 @@ async function displayGoalPostsDynamically() {
             let newcard = cardTemplate.content.cloneNode(true);
             // Get goal data once
             const goalPost = goalPostDoc.data();
+            const date = goalPost.timestamp.toDate();
+            const formatDate = date.toLocaleDateString('en-US');
 
             // Populate the card with goal data
             newcard.querySelector('.card-title').textContent = goalPost.name;
@@ -72,6 +74,7 @@ async function displayGoalPostsDynamically() {
             if (goalPost.likes) {
                 newcard.querySelector('.like-count').textContent = goalPost.likes;
             }
+            newcard.querySelector('.post-date').textContent = formatDate;
             newcard.querySelector('.comment').href = `comments.html?id=${goalPostDoc.id}`;
 
             setupTrash(newcard, goalPostDoc.id);//setup trash/delete option
@@ -108,17 +111,6 @@ function setupTrash(card, postID) {
         if (result.isConfirmed) {
             await deleteDoc(doc(db, "posts", postID))
             location.reload();
-            swalWithBootstrapButtons.fire({
-                title: "Deleted!",
-                text: "Your post has been deleted.",
-                icon: success
-            });
-            //If cancelled
-        } else if (result.dismess === Swal.DismissReason.cancel) {
-            swalWithBootstrapButtons.fire({
-                title: "Deletion Cancelled",
-                icon: "error"
-            })
         }
     });
 }

@@ -127,5 +127,5 @@ saveButton.addEventListener("click", async function (event) {
   // Go back after saving
   window.location.href = editGoalId
     ? `goal-details.html?id=${encodeURIComponent(goalId)}`
-    : "main-goals-listed.html";
+    : "reward.html";
 });

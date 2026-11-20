@@ -11,6 +11,7 @@
   <!-- Other libraries go here -->
   <script type="module" src="/src/components/site-navbar.js"></script>
   <script type="module" src="/src/components/site-footer.js"></script>
+  <link rel="stylesheet" href="./styles/style.css" />
 </head>
 
 <body class="px-2" style="padding-bottom: 100px">
@@ -18,24 +19,27 @@
   <site-navbar></site-navbar>
 
   <section class="mx-auto">
+    <br>
     <div class="mb-3">
-      <label for="hugeMessage" class="form-label fw-bold">Enter Your Reward!</label>
-      <textarea class="form-control form-control-lg" id="hugeMessage" rows="12"
-        placeholder="Type your reward here..."></textarea>
+      <textarea class="form-control form-control-lg" id="reward-message" rows="8"
+        placeholder="What do you want after completing this goal? Type your reward here..."></textarea>
     </div>
 
     <br>
 
-    <h5>Commonly Chosen Rewards</h5>
-    <div>
-      <button type="button" class="btn btn-outline-primary">Reward 1</button>
-      <button type="button" class="btn btn-outline-primary">Reward 2</button>
-      <button type="button" class="btn btn-outline-primary">Reward 3</button>
-      <button type="button" class="btn btn-outline-primary">Reward 4</button>
-      <button type="button" class="btn btn-outline-primary">Reward 5</button>
+    <h5 class="mx-auto d-flex justify-content-center">Commonly Chosen Rewards</h5>
+
+    <div class="mx-auto d-flex justify-content-center gap-2">
+      <button type="button" class="btn btn-outline-primary reward-button" id="reward-1">Social Time</button>
+      <button type="button" class="btn btn-outline-primary reward-button" id="reward-2">Food</button>
+      <button type="button" class="btn btn-outline-primary reward-button" id="reward-3">Gaming</button>
+      <button type="button" class="btn btn-outline-primary reward-button" id="reward-4">Drinks</button>
+      <button type="button" class="btn btn-outline-primary reward-button" id="reward-5">Nap Time</button>
     </div>
-    <button type="button" class="btn btn-outline-primary mx-auto d-flex justify-content-center" style="width:300px"><a
-        href="index.html">Continue</a></button>
+    <br>
+    <a class="btn btn-outline-primary mx-auto d-flex justify-content-center reward-button-final" style="width: 300px"
+      role="button" id="finalize-goal">Finalize Goal</a>
+
 
   </section>
 
@@ -47,8 +51,8 @@
   <!---------------------------------------------->
 
   <!-- Link to scripts of your own -->
-  <script type="module" src="./src/main.js"></script>
-  <script type="styles" src="styles\style.css"></script>
+  <script type="module" src="./src/reward.js"></script>
+  <!-- <script type="styles" src="styles\style.css"></script> -->
 </body>
 
 </html>

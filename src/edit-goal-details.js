@@ -64,6 +64,7 @@ function displayGoalDetails(getGoal) {
     const getGoalStartDate = getGoal.startDate;
     const getGoalEndDate = getGoal.endDate;
     const getGoalReminder = getGoal.reminder;
+    const getGoalReward = getGoal.reward;
     const getGoalSteps = getGoal.goalSteps || [];
     const getStepsDone = getGoal.stepsDone || [];
     // Calculate step deadlines
@@ -78,6 +79,7 @@ function displayGoalDetails(getGoal) {
     document.getElementById("goalStartDate").textContent = formatDate(getGoalStartDate);
     document.getElementById("goalEndDate").textContent = formatDate(getGoalEndDate);
     document.getElementById("goalReminder").textContent = getGoalReminder || "None";
+    document.getElementById("goalReward").textContent = getGoalReward || "None";
 
     const goal_steps = document.getElementById("goalSteps");
     goal_steps.innerHTML = "";
