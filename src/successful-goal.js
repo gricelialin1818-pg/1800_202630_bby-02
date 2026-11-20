@@ -45,7 +45,6 @@ onAuthReady(async (user) => {
             showError("Goal not found.");
             return;
         }
-
         displayGoalDetails(goalDoc.data());//display the goal with the data as an argument
         // Link to the deadline form
         const editDeadlineLink = document.getElementById("editDeadlineLink");
@@ -89,8 +88,7 @@ function displayGoalDetails(getGoal) {
     }
     const path = window.location.pathname.split("/").pop();
 
-    let checkboxState = "disabled"; //i just yoinked gricelias code and disabled it here no matter what
-    //because once the goal is complete nothing should be updated. LOL :) 
+    let checkboxState = "disabled";
     if (path === "update-progress.html") {
         checkboxState = "disabled";
     }
