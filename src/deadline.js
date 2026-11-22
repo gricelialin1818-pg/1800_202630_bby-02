@@ -98,8 +98,8 @@ saveButton.addEventListener("click", async function (event) {
     return;
   }
 
-  if (current_date > start_date) {
-    alert("The start date must be after current date.");
+  if (current_date <= start_date) {
+    alert("Invalid start date");
     return;
   }
 
