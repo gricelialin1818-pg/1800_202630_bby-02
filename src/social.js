@@ -53,17 +53,17 @@ function addGoalData() {
     const goalsRef = collection(db, "posts");
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
-        comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
+        comments: 0, likes: 0, image: "grey.png", timestamp: serverTimestamp()
 
     });
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
-        comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
+        comments: 0, likes: 0, image: "grey.png", timestamp: serverTimestamp()
 
     });
     addDoc(goalsRef, {
         name: "blank", user: "blank", status: "blank", description: "blank",
-        comments: 0, likes: 0, image: "grey.png", last_updated: serverTimestamp()
+        comments: 0, likes: 0, image: "grey.png", timestamp: serverTimestamp()
     });
 }
 
