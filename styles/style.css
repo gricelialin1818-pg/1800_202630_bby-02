@@ -294,48 +294,56 @@ button #auto-update-time-placeholder {
 
 /* Shared menu */
 site-navbar .navbar,
-login-site-navbar .navbar {
+login-site-navbar .navbar,
+.post-flow .goals-header .navbar {
   background-color: #93a0bf !important;
   padding: 12px 24px;
 }
 
 site-navbar .navbar-brand,
-login-site-navbar .navbar-brand {
+login-site-navbar .navbar-brand,
+.post-flow .goals-header .navbar-brand {
   color: white;
   font-weight: 700;
 }
 
 site-navbar .navbar-toggler,
-login-site-navbar .navbar-toggler {
+login-site-navbar .navbar-toggler,
+.post-flow .goals-header .navbar-toggler {
   border: 0;
   padding: 8px;
   background-color: transparent;
 }
 
 site-navbar .navbar-toggler-icon,
-login-site-navbar .navbar-toggler-icon {
+login-site-navbar .navbar-toggler-icon,
+.post-flow .goals-header .navbar-toggler-icon {
   filter: brightness(0) invert(1);
 }
 
 site-navbar .navbar-toggler:focus,
-login-site-navbar .navbar-toggler:focus {
+login-site-navbar .navbar-toggler:focus,
+.post-flow .goals-header .navbar-toggler:focus {
   box-shadow: none;
 }
 
 /* Menu stays inside the header */
 site-navbar .navbar-nav,
-login-site-navbar .navbar-nav {
+login-site-navbar .navbar-nav,
+.post-flow .goals-header .navbar-nav {
   margin-top: 8px;
   padding: 0;
 }
 
 site-navbar .navbar-nav hr,
-login-site-navbar .navbar-nav hr {
+login-site-navbar .navbar-nav hr,
+.post-flow .goals-header .navbar-nav hr {
   display: none;
 }
 
 site-navbar .navbar-nav .nav-link,
-login-site-navbar .navbar-nav .nav-link {
+login-site-navbar .navbar-nav .nav-link,
+.post-flow .goals-header .navbar-nav .nav-link {
   padding: 10px 0;
   color: white;
   text-align: left;
@@ -348,7 +356,8 @@ login-site-navbar .menu-divider {
 }
 
 site-navbar .nav-link:hover,
-login-site-navbar .nav-link:hover {
+login-site-navbar .nav-link:hover,
+.post-flow .goals-header .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -578,6 +587,10 @@ login-site-navbar .nav-link:hover {
   margin-top: 12px;
 }
 
+.social-profile-card #social-button-sizing {
+  margin-top: -8px;
+}
+
 .social-html .btn a {
   color: white;
   text-decoration: none;
@@ -625,6 +638,73 @@ login-site-navbar .nav-link:hover {
   display: table;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Reward and posting pages */
+.reward-page .reward-button {
+  background-color: #d9e3f3 !important;
+  color: #20263a !important;
+}
+
+.reward-page .reward-button:hover,
+.reward-page .reward-button:focus {
+  background-color: #93a0bf !important;
+  color: #20263a !important;
+}
+
+.reward-page h5 {
+  font-size: 18px;
+  margin: 20px 0 12px;
+}
+
+.post-selection #cards-container {
+  padding: 0 16px;
+}
+
+.post-selection #cards-container .card {
+  margin: 0 0 16px;
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(32, 38, 58, 0.1);
+}
+
+.post-flow .card-title {
+  font-size: 22px;
+  overflow-wrap: break-word;
+}
+
+.post-flow .post-form,
+.post-flow .post-preview {
+  width: calc(100% - 32px);
+}
+
+.post-flow .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.post-flow .post-form > label {
+  display: block;
+}
+
+.post-flow .post-preview .card-body {
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+.post-flow .post-preview .row {
+  margin: 16px 0;
+}
+
+.post-flow .post-success {
+  margin-top: 24px;
+}
+
+.post-flow .post-success h1 {
+  margin: 0 0 24px;
 }
 
 /* END HAJIN */
