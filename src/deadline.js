@@ -92,13 +92,14 @@ saveButton.addEventListener("click", async function (event) {
   const start_date = new Date(`${startDate}T00:00`);
   const deadline = new Date(`${endDate}T${time}`);
   const current_date = new Date();
+  current_date.setHours(0, 0, 0, 0);
 
   if (deadline <= start_date) {
     alert("The deadline must be after the start date.");
     return;
   }
 
-  if (current_date <= start_date) {
+  if (start_date < current_date) {
     alert("Invalid start date");
     return;
   }
