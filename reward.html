@@ -1,58 +1,93 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <title>GoalGetter</title>
+    <meta name="Goal App" content="Our Goal App" />
 
-<head>
-  <title>GoalGetter</title>
-  <meta name="Goal App" content="Our Goal App" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Other libraries go here -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Other libraries go here -->
-  <script type="module" src="/src/components/site-navbar.js"></script>
-  <script type="module" src="/src/components/site-footer.js"></script>
-  <link rel="stylesheet" href="./styles/style.css" />
-</head>
+  <body class="goal-flow reward-page">
+    <!-- Adding a hamburger -->
+    <header class="goals-header compact-header" data-bs-theme="dark">
+      <site-navbar></site-navbar>
+    </header>
+    <h1>Your Reward</h1>
 
-<body class="px-2" style="padding-bottom: 100px">
-  <!-- Adding a hamburger -->
-  <site-navbar></site-navbar>
+    <section class="outdent-card-style-for-adding-goal">
+      <div class="mb-3">
+        <label for="reward-message" class="form-label fw-semibold"
+          >How will you reward yourself?</label
+        >
+        <textarea
+          class="form-control"
+          id="reward-message"
+          rows="4"
+          placeholder="What do you want after completing this goal? Type your reward here..."
+        ></textarea>
+      </div>
 
-  <section class="mx-auto">
-    <br>
-    <div class="mb-3">
-      <textarea class="form-control form-control-lg" id="reward-message" rows="8"
-        placeholder="What do you want after completing this goal? Type your reward here..."></textarea>
-    </div>
+      <h5 class="mx-auto d-flex justify-content-center">
+        Commonly Chosen Rewards
+      </h5>
 
-    <br>
+      <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+        <button
+          type="button"
+          class="btn btn-outline-primary reward-button"
+          id="reward-1"
+        >
+          Social Time
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary reward-button"
+          id="reward-2"
+        >
+          Food
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary reward-button"
+          id="reward-3"
+        >
+          Gaming
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary reward-button"
+          id="reward-4"
+        >
+          Drinks
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary reward-button"
+          id="reward-5"
+        >
+          Nap Time
+        </button>
+      </div>
+      <a class="btn btn-primary w-100" role="button" id="finalize-goal"
+        >Finalize Goal</a
+      >
+    </section>
 
-    <h5 class="mx-auto d-flex justify-content-center">Commonly Chosen Rewards</h5>
+    <!--Sticky bottom navbar: class is sticky-bottom-->
+    <site-footer></site-footer>
 
-    <div class="mx-auto d-flex justify-content-center gap-2">
-      <button type="button" class="btn btn-outline-primary reward-button" id="reward-1">Social Time</button>
-      <button type="button" class="btn btn-outline-primary reward-button" id="reward-2">Food</button>
-      <button type="button" class="btn btn-outline-primary reward-button" id="reward-3">Gaming</button>
-      <button type="button" class="btn btn-outline-primary reward-button" id="reward-4">Drinks</button>
-      <button type="button" class="btn btn-outline-primary reward-button" id="reward-5">Nap Time</button>
-    </div>
-    <br>
-    <a class="btn btn-outline-primary mx-auto d-flex justify-content-center reward-button-final" style="width: 300px"
-      role="button" id="finalize-goal">Finalize Goal</a>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
 
-
-  </section>
-
-  <!--Sticky bottom navbar: class is sticky-bottom-->
-  <site-footer></site-footer>
-
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-
-  <!-- Link to scripts of your own -->
-  <script type="module" src="./src/reward.js"></script>
-  <!-- <script type="styles" src="styles\style.css"></script> -->
-</body>
-
+    <!-- Link to scripts of your own -->
+    <script type="module" src="./src/reward.js"></script>
+    <!-- <script type="styles" src="styles\style.css"></script> -->
+  </body>
 </html>

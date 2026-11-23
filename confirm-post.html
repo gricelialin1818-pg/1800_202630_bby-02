@@ -1,35 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <meta name="comp1800 template" content="My 1800 App" />
 
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Web Components for shared navbar and footer layout -->
     <script type="module" src="/src/components/site-navbar.js"></script>
     <script type="module" src="/src/components/site-footer.js"></script>
 
-    <link rel="stylesheet" href="styles/style.css">
-</head>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
 
-<body class="vh-100" style="display: flex; flex-direction: column; justify-content: space-between;">
+  <body class="goal-flow post-flow">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
     <!-- our own navbar goes here -->
-    <site-navbar></site-navbar>
+    <header class="goals-header compact-header" data-bs-theme="dark">
+      <site-navbar></site-navbar>
+    </header>
 
     <!-- Main content goes here -->
     <!-- Confirm user has posted -->
-    <div class="justify-content-center align-items-center p-2">
-        <h1 class="mx-auto">Congratulations! Your post has been created.</h1>
-        <a class="btn btn-outline-primary" id="continueDetailsButton" style="width:100%;" role="button"
-            href="personal-posts.html">View Your Posts</a>
+    <div class="outdent-card-style-for-adding-goal post-success text-center">
+      <h1 class="mx-auto">Congratulations! Your post has been created.</h1>
+      <a
+        class="btn btn-primary w-100"
+        id="continueDetailsButton"
+        role="button"
+        href="personal-posts.html"
+        >View Your Posts</a
+      >
     </div>
 
     <!-- our own footer goes here -->
@@ -40,7 +46,5 @@
     <!---------------------------------------------->
 
     <script type="module" src="/src/main.js"></script>
-
-</body>
-
+  </body>
 </html>

@@ -1,117 +1,168 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <title>GoalGetter</title>
+    <meta name="Goal App" content="Our Goal App" />
 
-<head>
-  <title>GoalGetter</title>
-  <meta name="Goal App" content="Our Goal App" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Other libraries go here -->
+    <script type="module" src="/src/components/site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+  </head>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Other libraries go here -->
-  <script type="module" src="/src/components/site-navbar.js"></script>
-  <script type="module" src="/src/components/site-footer.js"></script>
-</head>
+  <body class="goal-flow post-flow" id="post-details-html">
+    <!-- navbar is different from component and adjusted for this page-->
+    <header class="goals-header compact-header" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="social.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="31"
+              height="31"
+              fill="currentColor"
+              class="bi bi-arrow-left-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+              />
+            </svg>
+          </a>
 
-<body class="mb-5 pb-4" style="padding-bottom: 100px" id="post-details-html">
-  <!-- navbar is different from component and adjusted for this page-->
-  <header class="goals-header compact-header" data-bs-theme="dark">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="social.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
-            fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-          </svg></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" style="text-align: center">
+              <hr />
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Profile</a>
+              </li>
+              <hr />
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+              <li class="nav-item">
+                <a class="nav-link active" href="achievements.html"
+                  >Achievements</a
+                >
+              </li>
+              <hr />
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav" style="text-align: center">
-            <hr>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Profile</a>
-            </li>
-            <hr>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Settings</a>
+              </li>
+              <hr />
 
-            <li class="nav-item">
-              <a class="nav-link active" href="achievements.html">Achievements</a>
-            </li>
-            <hr>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Settings</a>
-            </li>
-            <hr>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Help</a>
-            </li>
-            <hr>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <br>
-
-  <div class="d-flex justify-content-center align-items-center" id="goal-post-card">
-    <!-- could try making this min-width; ask group -->
-    <section class="card" style="max-width: 320px">
-      <img id="postImage" src="/images/grey.png" class="card-img-top" alt="...">
-
-      <!-- This will be filled if the user is coming from post-details -->
-      <div class="card-body">
-        <h4 class="card-title" id="postName">Goal Name</h4>
-        <p class="card-text" id="postDescription">Some quick example text to build on the card title and make up the
-          bulk of the card's
-          content.</p>
-      </div>
-
-      <!-- Information for user to fill -->
-      <div class="row p-2 justify-items-center">
-        <div class="col d-flex flex-column align-items-center justify-content-center">
-          <p class="m-0">
-            <i class="bi bi-people-fill align-middle"></i> Visibility
-          </p>
-        </div>
-        <div class="col">
-          <div class="dropup btn-group-small">
-            <button class="btn btn-secondary dropdown-toggle" id="privacy-placeholder" type="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              All Users
-            </button>
-            <ul id="privacy-button" class="dropdown-menu">
-              <li><a class="dropdown-item privacy-option" href="#" data-value="All Users">All Users</a></li>
-              <li><a class="dropdown-item privacy-option" href="#" data-value="Friends">Friends</a></li>
-              <li><a class="dropdown-item privacy-option" href="#" data-value="Goal Buddies">Goal Buddies</a></li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Help</a>
+              </li>
+              <hr />
             </ul>
           </div>
         </div>
-      </div>
-      <a class="btn btn-outline-primary mx-auto" href="confirm-post.html" role="button" style="width: 300px">Post</a>
-    </section>
-  </div>
+      </nav>
+    </header>
 
+    <h1>Preview Your Post</h1>
 
+    <div
+      class="d-flex justify-content-center align-items-center"
+      id="goal-post-card"
+    >
+      <!-- could try making this min-width; ask group -->
+      <section class="outdent-card-style-for-adding-goal post-preview">
+        <img
+          id="postImage"
+          src="/images/grey.png"
+          class="card-img-top"
+          alt="..."
+        />
 
+        <!-- This will be filled if the user is coming from post-details -->
+        <div class="card-body">
+          <h4 class="card-title" id="postName">Goal Name</h4>
+          <p class="card-text" id="postDescription">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+        </div>
 
+        <!-- Information for user to fill -->
+        <div class="row p-2 justify-items-center">
+          <div
+            class="col d-flex flex-column align-items-center justify-content-center"
+          >
+            <p class="m-0">
+              <i class="bi bi-people-fill align-middle"></i> Visibility
+            </p>
+          </div>
+          <div class="col">
+            <div class="dropup btn-group-small">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                id="privacy-placeholder"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                All Users
+              </button>
+              <ul id="privacy-button" class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item privacy-option"
+                    href="#"
+                    data-value="All Users"
+                    >All Users</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item privacy-option"
+                    href="#"
+                    data-value="Friends"
+                    >Friends</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item privacy-option"
+                    href="#"
+                    data-value="Goal Buddies"
+                    >Goal Buddies</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-primary w-100" href="confirm-post.html" role="button"
+          >Post
+        </a>
+      </section>
+    </div>
 
-  <!--Sticky bottom navbar: class is sticky-bottom-->
-  <site-footer></site-footer>
+    <!--Sticky bottom navbar: class is sticky-bottom-->
+    <site-footer></site-footer>
 
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
 
-  <!-- Link to scripts of your own -->
-  <script type="module" src="src/privacy.js"></script>
-  <link rel="stylesheet" href="styles/style.css">
-</body>
-
+    <!-- Link to scripts of your own -->
+    <script type="module" src="src/privacy.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+  </body>
 </html>
