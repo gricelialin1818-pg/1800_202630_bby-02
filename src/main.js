@@ -73,8 +73,8 @@ async function displayGoal() {
         let displayedGoalCount = 0;
         for (const goalDoc of goalsData.docs) {
             const goalDocData = goalDoc.data();
-            const goalDesc = goalDocData["goal-description"];
-            const goalName = goalDocData["goal-name"];
+            const goalDesc = goalDocData["goalDescription"];
+            const goalName = goalDocData["goalName"];
             const goalCard = document.createElement("div");
             // const stepsArray = goalDocData["goalSteps"]
             const checkBoxStatusArray = goalDocData["stepsDone"] || [];
@@ -127,8 +127,8 @@ async function collectGoalData() {
             const goalNameInputValue = goalNameInput.value
             const goalDetailsInputValue = goalDetailsInput.value
             const newGoal = await addDoc(collection(db, "users", user.uid, "goals"), {
-                "goal-description": goalDetailsInputValue,
-                "goal-name": goalNameInputValue
+                "goalDescription": goalDetailsInputValue,
+                "goalName": goalNameInputValue
             });
 
             //Place goalid into session storage for other js and pages to pull later

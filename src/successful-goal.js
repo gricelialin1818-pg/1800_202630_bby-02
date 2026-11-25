@@ -59,8 +59,8 @@ onAuthReady(async (user) => {
 });
 
 function displayGoalDetails(getGoal) {
-    const getGoalName = getGoal["goal-name"];
-    const getGoalDescription = getGoal["goal-description"];
+    const getGoalName = getGoal["goalName"];
+    const getGoalDescription = getGoal["goalDescription"];
     const getGoalStartDate = getGoal.startDate;
     const getGoalEndDate = getGoal.endDate;
     const getGoalReminder = getGoal.reminder;

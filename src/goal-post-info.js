@@ -25,13 +25,13 @@ onAuthReady(async (user) => {
     if (goalID) {
         const goalDetails = doc(db, "users", user.uid, "goals", goalID);
         const goalDoc = await getDoc(goalDetails);
-        console.log(goalDoc.data()["goal-name"]);
-        if (goalDoc.data()["goal-name"] == undefined) {
+        console.log(goalDoc.data()["goalName"]);
+        if (goalDoc.data()["goalName"] == undefined) {
             console.log("Empty");
         }
 
-        document.getElementById('goalNameInput').value = goalDoc.data()["goal-name"];
-        document.getElementById('goalPostDescription').value = goalDoc.data()["goal-description"];
+        document.getElementById('goalNameInput').value = goalDoc.data()["goalName"];
+        document.getElementById('goalPostDescription').value = goalDoc.data()["goalDescription"];
     }
 });
 

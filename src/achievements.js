@@ -29,8 +29,8 @@ async function displayCompletedGoal() {
         const goalsData = await getDocs(goalsCollection);
         for (const goalDoc of goalsData.docs) {
             const goalDocData = goalDoc.data();
-            const goalDesc = goalDocData["goal-description"];
-            const goalName = goalDocData["goal-name"];
+            const goalDesc = goalDocData["goalDescription"];
+            const goalName = goalDocData["goalName"];
             const checkBoxStatusArray = goalDocData["stepsDone"] || [];
             // const goalComplete = goalDocData["finished"];
             const goalCard = document.createElement("div");
