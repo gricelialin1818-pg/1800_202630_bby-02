@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <meta name="comp1800 template" content="My 1800 App" />
 
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -11,99 +10,127 @@
     <!-- Other libraries go here -->
     <script type="module" src="/src/components/site-navbar.js"></script>
     <script type="module" src="/src/components/site-footer.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
-</head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<body class="mb-5 pb-5">
-
+  <body class="mb-5 pb-5">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
     <!-- our own navbar goes here -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="social.html"><svg xmlns="http://www.w3.org/2000/svg" width="31" height="31"
-                    fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg></a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="social.html"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="31"
+            height="31"
+            fill="currentColor"
+            class="bi bi-arrow-left-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+            /></svg
+        ></a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav" style="text-align: center">
-                    <hr>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Profile</a>
-                    </li>
-                    <hr>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav" style="text-align: center">
+            <hr />
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Profile</a>
+            </li>
+            <hr />
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="achievements.html">Achievements</a>
-                    </li>
-                    <hr>
+            <li class="nav-item">
+              <a class="nav-link active" href="achievements.html"
+                >Achievements</a
+              >
+            </li>
+            <hr />
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Settings</a>
-                    </li>
-                    <hr>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Settings</a>
+            </li>
+            <hr />
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Help</a>
-                    </li>
-                    <hr>
-                </ul>
-            </div>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Help</a>
+            </li>
+            <hr />
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Main content goes here -->
 
-
     <section class="mb-5">
-        <!-- Shows the post user is commenting on -->
-        <div class="col-12">
-            <div class="card mx-auto" style="max-width: 500px">
-                <img class="card-img-top card-image" src="..." alt="Goal Image"
-                    style="max-height: 320px; min-height: 300px;">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p>Created by <span class="card-user-id"></span></p>
-                    <p class="card-text"></p>
-                </div>
-            </div>
+      <!-- Shows the post user is commenting on -->
+      <div class="col-12">
+        <div class="card mx-auto" style="max-width: 500px">
+          <img
+            class="card-img-top card-image"
+            src="..."
+            alt="Goal Image"
+            style="max-height: 320px; min-height: 300px"
+          />
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p>Created by <span class="card-user-id"></span></p>
+            <p class="card-text"></p>
+          </div>
         </div>
+      </div>
 
-        <!-- Comment form for user to fill -->
-        <section class="container mt-4">
-            <h4>Write a comment</h4>
-            <form id="commentForm" novalidate>
-                <div class="mb-3">
-                    <input type="text" id="newComment" class="form-control" placeholder="e.g. Amazing work!" required />
-                </div>
-                <button type="submit" class="btn btn-outline-primary">Send comment</button>
-            </form>
-        </section>
+      <!-- Comment form for user to fill -->
+      <section class="container mt-4">
+        <h4>Write a comment</h4>
+        <form id="commentForm" novalidate>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="newComment"
+              class="form-control"
+              placeholder="e.g. Amazing work!"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-outline-primary">
+            Send comment
+          </button>
+        </form>
+      </section>
 
-        <!-- Comments section -->
-        <section class="container mt-4 card shadow-sm bg-light">
-            <h2>Latest comments</h2>
-            <div id="comments-go-here"></div>
-        </section>
+      <!-- Comments section -->
+      <section class="container mt-4 card shadow-sm bg-light">
+        <h2>Latest comments</h2>
+        <div id="comments-go-here"></div>
+      </section>
 
-        <!-- Template for comments to use -->
-        <template id="commentTemplate">
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted comment-details"></h6>
-                    <h5 class="card-title comment-text"></h5>
-                </div>
-            </div>
-        </template>
+      <!-- Template for comments to use -->
+      <template id="commentTemplate">
+        <div class="card mb-2">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted comment-details"></h6>
+            <h5 class="card-title comment-text"></h5>
+          </div>
+        </div>
+      </template>
     </section>
 
     <!---------------------------------------------->
@@ -117,8 +144,7 @@
     <script type="module" src="/src/authentication.js"></script>
     <script type="module" src="/src/loginSignup.js"></script>
     <!-- functionality goes at the bottom -->
-</body>
+  </body>
 
-<site-footer></site-footer>
-
+  <site-footer></site-footer>
 </html>
