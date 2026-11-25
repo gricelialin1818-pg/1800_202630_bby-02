@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <meta name="comp1800 template" content="My 1800 App" />
 
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -11,112 +10,115 @@
     <!-- Other libraries go here -->
     <script type="module" src="/src/components/site-navbar.js"></script>
     <script type="module" src="/src/components/site-footer.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css">
-</head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<body class="personal-posts-html">
-
+  <body class="personal-posts-html social-html">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
     <!-- our own navbar goes here -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="mainGoalsListed.html">Post</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav" style="text-align: center">
-                    <hr>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Profile</a>
-                    </li>
-                    <hr>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="achievements.html">Achievements</a>
-                    </li>
-                    <hr>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Settings</a>
-                    </li>
-                    <hr>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Help</a>
-                    </li>
-                    <hr>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <header class="goals-header compact-header" data-bs-theme="dark">
+      <site-navbar></site-navbar>
+    </header>
 
     <!-- Main content goes here -->
-    <div class="card" style="max-height: 320px">
-        <br>
-        <div class="d-flex profile-summary d-flex flex-column align-items-center">
-            <img class="rounded-circle profile-image p-1" src="/images/grey.png" alt="Hike Image"
-                style="max-height: 80px">
-            <h1 class="profile-summary-name "><span id="name-goes-here">User</span>'s goal
-                posts</h1>
-        </div>
-        <div>
-            <button type="button" class="btn btn-outline-primary center-login-button" id="edit-profile"><a href="social.html">
-                    Return to community <span id="user's-posts"></span></a></button>
-        </div>
-        <br>
-        <button type="button" class="btn btn-outline-primary center-login-button" id="make-post"><a href="select-goal-to-post.html">Post
-                Goal</a></button>
-        <br>
+    <div class="card social-profile-card" style="max-height: 320px">
+      <br />
+      <div class="d-flex profile-summary d-flex flex-column align-items-center">
+        <img
+          class="rounded-circle profile-image p-1"
+          src="/images/grey.png"
+          alt="Hike Image"
+          style="max-height: 80px"
+        />
+        <h1 class="profile-summary-name">
+          <span id="name-goes-here">User</span>'s goal posts
+        </h1>
+      </div>
+      <div>
+        <a class="btn btn-outline-primary" role="button" href="social.html"
+          >Return to community</a
+        >
+      </div>
+
+      <br />
+      <a
+        class="btn btn-outline-primary"
+        id="make-post"
+        role="button"
+        href="select-goal-to-post.html"
+        >Post Goal</a
+      >
     </div>
-    
+
     <div class="bg-body text-dark p-5 social-div-styling">
-        <h1>What have you been up to?</h1>
+      <h1>What have you been up to?</h1>
     </div>
+    <div id="goal-posts-go-here"></div>
 
-
-    <div id="goal-posts-go-here" class="row">
-    </div>
-    <!-- DIV FOR EACH POST TO GO INTO -->
-
-    <template id="goal-card-template" style="width: 100%">
-        <div class="col-12" id="goal-card-template">
-            <div class="card" style="border-radius: 12px; overflow: hidden;">
-                <img class="card-img-top card-image" src="..." alt="Goal Image"
-                    style="max-height: 320px; min-height: 300px;">
-                <i class="bi bi-trash-fill fs-4 position-absolute top-0 start-0 m-2 remove-post" role="button"
-                    title="remove" style="color: white;"></i>
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p>Created by <span class="card-user-id"></span></p>
-                    <p class="card-text"></p>
-                    <a class="comment" href="main.html" style="text-decoration: none; color: black;">
-                        <div style="display: flex; gap: 5px; margin-bottom: 0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                            </svg>
-                            <p class="comment-count">0</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z" />
-                            </svg>
-                            <p class="like-count">0</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+    <!-- template for posts to fill -->
+    <template id="goal-card-template">
+      <div class="col-12">
+        <div class="card mx-auto" style="max-width: 500px">
+          <img
+            class="card-img-top card-image"
+            src="..."
+            alt="Goal Image"
+            style="max-height: 320px; min-height: 300px"
+          />
+          <i
+            class="bi bi-trash-fill fs-4 position-absolute top-0 start-0 m-2 remove-post"
+            role="button"
+            title="remove"
+            style="color: white"
+          ></i>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p>Created by <span class="card-user-id"></span></p>
+            <p class="card-text"></p>
+            <a
+              class="comment"
+              href="main.html"
+              style="text-decoration: none; color: black"
+            >
+              <div style="display: flex; gap: 5px; margin-bottom: 0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-chat-dots-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
+                  />
+                </svg>
+                <p class="comment-count">0</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="19"
+                  fill="currentColor"
+                  class="bi bi-heart-fill"
+                  viewBox="0 0 16 16"
+                  style="transform: translateY(1.5px)"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
+                  />
+                </svg>
+                <p class="like-count">0</p>
+                <p class="ms-auto post-date">11/18/2026</p>
+              </div>
+            </a>
+          </div>
         </div>
+      </div>
     </template>
-
 
     <!-- our own footer goes here -->
     <site-footer></site-footer>
@@ -132,6 +134,5 @@
     <script type="module" src="/src/authentication.js"></script>
     <script type="module" src="/src/loginSignup.js"></script>
     <!-- functionality goes at the bottom -->
-</body>
-
+  </body>
 </html>

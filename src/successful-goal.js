@@ -45,8 +45,7 @@ onAuthReady(async (user) => {
             showError("Goal not found.");
             return;
         }
-
-        displayGoalDetails(goalDoc.data());
+        displayGoalDetails(goalDoc.data());//display the goal with the data as an argument
         // Link to the deadline form
         const editDeadlineLink = document.getElementById("editDeadlineLink");
         if (editDeadlineLink) {
@@ -60,8 +59,8 @@ onAuthReady(async (user) => {
 });
 
 function displayGoalDetails(getGoal) {
-    const getGoalName = getGoal["goal-name"];
-    const getGoalDescription = getGoal["goal-description"];
+    const getGoalName = getGoal["goalName"];
+    const getGoalDescription = getGoal["goalDescription"];
     const getGoalStartDate = getGoal.startDate;
     const getGoalEndDate = getGoal.endDate;
     const getGoalReminder = getGoal.reminder;
@@ -89,8 +88,7 @@ function displayGoalDetails(getGoal) {
     }
     const path = window.location.pathname.split("/").pop();
 
-    let checkboxState = "disabled"; //i just yoinked gricelias code and disabled it here no matter what
-    //because once the goal is complete nothing should be updated. LOL :) 
+    let checkboxState = "disabled";
     if (path === "update-progress.html") {
         checkboxState = "disabled";
     }
@@ -139,6 +137,6 @@ function setupUpdateButton(goalDetails, getGoal) {
         }
 
         // Keep the goal ID so the next page knows which goal to show
-       
+
     });
 }

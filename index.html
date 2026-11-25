@@ -1,57 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App" />
 
-<head>
-  <title>My BCIT Project</title>
-  <meta name="comp1800 template" content="My 1800 App">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Other libraries go here -->
+    <script type="module" src="/src/components/login-site-navbar.js"></script>
+    <script type="module" src="/src/components/site-footer.js"></script>
+  </head>
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Other libraries go here -->
-  <script type="module" src="/src/components/site-navbar.js"></script>
-  <script type="module" src="/src/components/site-footer.js"></script>
-</head>
+  <body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
 
-<body>
+    <!-- our own navbar goes here -->
+    <login-site-navbar></login-site-navbar>
 
-  <!------------------------------>
-  <!-- Your HTML Layout go here -->
-  <!------------------------------>
+    <!-- Main content goes here -->
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome to Goal Setting!</h1>
 
-  <!-- our own navbar goes here -->
-  <site-navbar></site-navbar>
+        <!-- call to action -->
+        <p class="fs-4 center-login-text">Let's start creating goals.</p>
 
-  <!-- Main content goes here -->
-  <div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to Goal Setting!</h1>
-
-
-      <p class="fs-4 center-login-text">Let's start creating goals.</p>
-
-      <!-- call to action -->
-      <button class="btn btn-primary btn-lg center-login-button" onclick="window.location.href='login.html'" type="button">
-        Login / Signup
-      </button>
+        <!-- let a user login -->
+        <button
+          class="btn btn-primary btn-lg center-login-button"
+          onclick="window.location.href = 'login.html'"
+          type="button"
+        >
+          Login / Signup
+        </button>
+      </div>
     </div>
-  </div>
 
-  <!-- our own footer goes here -->
-  <site-footer></site-footer>
+    <!-- our own footer goes here -->
+    <site-footer></site-footer>
 
-  <!---------------------------------------------->
-  <!-- Your own JavaScript scripts go here      -->
-  <!---------------------------------------------->
+    <!---------------------------------------------->
+    <!-- Your own JavaScript scripts go here      -->
+    <!---------------------------------------------->
 
-  <script type="module" src="/src/app.js"></script>
-  <!-- Firebase and authentication related scripts -->
-  <!-- The order of loading matters -->
-  <script type="module" src="/src/firebaseConfig.js"></script>
-  <script type="module" src="/src/authentication.js"></script>
-  <script type="module" src="/src/loginSignup.js"></script>
-  <!-- functionality goes at the bottom -->
-  <link rel="stylesheet" href="styles/style.css">
-</body>
-
+    <!-- Firebase and authentication related scripts -->
+    <!-- The order of loading matters -->
+    <script type="module" src="/src/firebaseConfig.js"></script>
+    <script type="module" src="/src/authentication.js"></script>
+    <script type="module" src="/src/loginSignup.js"></script>
+    <!-- functionality goes at the bottom -->
+    <link rel="stylesheet" href="styles/style.css" />
+  </body>
 </html>

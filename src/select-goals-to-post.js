@@ -36,8 +36,8 @@ async function displayGoal() {
         const goalsData = await getDocs(goalsCollection);
         for (const goalDoc of goalsData.docs) {
             const goalDocData = goalDoc.data();
-            const goalDesc = goalDocData["goal-description"];
-            const goalName = goalDocData["goal-name"];
+            const goalDesc = goalDocData["goalDescription"];
+            const goalName = goalDocData["goalName"];
             const goalCard = document.createElement("div");
             goalCard.innerHTML = `
             <div class="card">

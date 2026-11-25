@@ -6,6 +6,7 @@ const saveButton = document.getElementById("save-button");
 // Get the goal ID
 const editGoalId = new URLSearchParams(window.location.search).get("id");
 const goalId = editGoalId || sessionStorage.getItem("newGoalId");
+
 const startInput = document.getElementById("start_date");
 const endInput = document.getElementById("deadline");
 const timeInput = document.getElementById("time");
@@ -26,13 +27,14 @@ async function loadDeadlineSettings() {
   saveButton.disabled = true;
 
   try {
-    await auth.authStateReady();
+    await auth.authStateReady(); //wait for user to authenticate first
     const user = auth.currentUser;
     if (!user) {
       alert("Please log in first.");
       return;
     }
 
+    //search for the goal in the database. Return immediately if not found
     const goalSnapshot = await getDoc(doc(db, "users", user.uid, "goals", editGoalId));
     if (!goalSnapshot.exists()) {
       alert("Goal not found.");
@@ -89,9 +91,16 @@ saveButton.addEventListener("click", async function (event) {
 
   const start_date = new Date(`${startDate}T00:00`);
   const deadline = new Date(`${endDate}T${time}`);
+  const current_date = new Date();
+  current_date.setHours(0, 0, 0, 0);
 
   if (deadline <= start_date) {
     alert("The deadline must be after the start date.");
+    return;
+  }
+
+  if (start_date < current_date) {
+    alert("Invalid start date");
     return;
   }
 
@@ -119,5 +128,5 @@ saveButton.addEventListener("click", async function (event) {
   // Go back after saving
   window.location.href = editGoalId
     ? `goal-details.html?id=${encodeURIComponent(goalId)}`
-    : "main-goals-listed.html";
+    : "reward.html";
 });

@@ -9,8 +9,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Other libraries go here -->
-  <script type="module" crossorigin src="/assets/index-BXaOnc1Y.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-noRXkCDe.css">
+  <script type="module" crossorigin src="/assets/index-D8ckZN0-.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/bootstrap.esm-VGs_9WE_.js">
+  <link rel="modulepreload" crossorigin href="/assets/loginSignup-pXZQkLYV.js">
+  <link rel="stylesheet" crossorigin href="/assets/bootstrap-DBkz-poX.css">
+  <link rel="stylesheet" crossorigin href="/assets/style-yH2vD_Ey.css">
 </head>
 
 <body>
@@ -20,18 +23,20 @@
   <!------------------------------>
 
   <!-- our own navbar goes here -->
-  <site-navbar></site-navbar>
+  <login-site-navbar></login-site-navbar>
 
   <!-- Main content goes here -->
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold">Welcome to Goal Setting!</h1>
 
-      
-      <p class="col-md-8 fs-4">Let's start creating goals.</p>
 
       <!-- call to action -->
-      <button class="btn btn-primary btn-lg" onclick="window.location.href='login.html'" type="button">
+      <p class="fs-4 center-login-text">Let's start creating goals.</p>
+
+      <!-- let a user login -->
+      <button class="btn btn-primary btn-lg center-login-button" onclick="window.location.href='login.html'"
+        type="button">
         Login / Signup
       </button>
     </div>
@@ -47,7 +52,6 @@
   <!-- Firebase and authentication related scripts -->
   <!-- The order of loading matters -->
   <!-- functionality goes at the bottom -->
-   <link rel="stylesheet" href="styles\style.css">
 </body>
 
 </html>

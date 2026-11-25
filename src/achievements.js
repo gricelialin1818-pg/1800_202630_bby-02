@@ -7,32 +7,13 @@ import { doc, onSnapshot, serverTimestamp } from "firebase/firestore";
 import { onAuthReady } from "/src/authentication.js";
 import { db } from "/src/firebaseConfig.js";
 
+
+//Alerts and confirms import
+import Swal from 'sweetalert2'
+
 //APPLY FONT TO THE WHOLE {body}
 document.body.style.fontFamily = 'Inter-Main-Font'
 
-//in order for the cards to be sorted into achievements and goal tasks pages,
-//the boolean array needs to exist.
-// async function createBooleanArray(){
-//     const goalSteps = goals
-//     const goalsCollection = collection(db, "users", user.uid, "goals");
-//     const dbRef = doc(db, "users", user.uid, "goals", goalID); 
-//     const checkBoxStatusArray = []
-//     for (const goalDoc of goalsData.docs) {
-//         //changed to refer to the userID individually instead of just
-//         //adding everything to users
-//         const goalsData = await getDocs(goalsCollection);
-//         for (const goalDoc of goalsData.docs) {
-//             const goalDocData = goalDoc.data();
-//             //const checkBoxStatusArray = goalDocData["stepsDone"];
-//             for (let i = 0; i < goalsDocData["goalSteps"].length; i++) {
-//                 checkBoxStatusArray.push(false);
-//             } 
-//         }
-//     }
-//         await updateDoc(dbRef, {
-//         stepsDone: checkBoxStatusArray
-//         });
-// }
 
 
 
@@ -48,8 +29,8 @@ async function displayCompletedGoal() {
         const goalsData = await getDocs(goalsCollection);
         for (const goalDoc of goalsData.docs) {
             const goalDocData = goalDoc.data();
-            const goalDesc = goalDocData["goal-description"];
-            const goalName = goalDocData["goal-name"];
+            const goalDesc = goalDocData["goalDescription"];
+            const goalName = goalDocData["goalName"];
             const checkBoxStatusArray = goalDocData["stepsDone"] || [];
             // const goalComplete = goalDocData["finished"];
             const goalCard = document.createElement("div");
@@ -86,14 +67,6 @@ async function displayCompletedGoal() {
                 goalCard.querySelector("#goal-title").textContent = goalName
                 document.getElementById("cards-container").appendChild(goalCard);
             }
-
-
-
-
-
-
-
-
         }
     });
 
@@ -121,10 +94,21 @@ function setupTrash(card, userID, goalID) {
     // When trash is clicked, confirm, delete, then reload page
     trash.addEventListener("click", async function () {
         console.log(goalID);
-        const deleteConfirmation = confirm("Are you sure you want to delete this post?")
-        if (deleteConfirmation) {
+        //Send confirmation message
+        const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            confirmButtonColor: "#20263A",
+            cancelButtonColor: "#93A0BF",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        })
+        //If confirmed
+        if (result.isConfirmed) {
             await deleteDoc(doc(db, "users", userID, "goals", goalID))
-            console.log("Deleted " + goalID)
             location.reload();
         }
     });
